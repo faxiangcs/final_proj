@@ -1,0 +1,941 @@
+filename,caption,case_id,scan_id
+case0183_001.png,"Axial T1 (A) and T2 (B) weighted images showing a posterior fossa lesion located intra-axial and affecting most of the left cerebellar hemisphere. Signal intensity is heterogeneous, with some areas isointense to gray matter, but also some T2 hyperintense stripy areas that give the lesion a “tigroid” aspect",case0183,1
+case0183_002.png,"FLAIR (C) weighted image shows minor vasogenic edema, and T2 GRE (D) weighted image shows no calcified or hemorragic areas",case0183,2
+case0183_003.png,"FLAIR (C) weighted image shows minor vasogenic edema, and T2 GRE (D) weighted image shows no calcified or hemorragic areas",case0183,3
+case0016_001.png,"Coronal T2WI, depicting the cortical-subcortical right frontal lesion, with the central hematoma capsule",case0016,1
+case0016_002.png,"Precontrast T1WI, shows a hypointense heterogeneous mass, with involvment of the cortex and underlying white matter",case0016,2
+case0016_003.png,"Postcontrast T1WI shows very slight, heterogeneous signal enhancement",case0016,3
+case0016_004.png,Axial SWI image showing the blood products deposition from the previous hematoma,case0016,4
+case0276_001.png,Axial T2 (2a) and coronal FLAIR (2b) sequences of the MRI of the brain show an iso-hypointense signal within the lesion. There is peri-lesional oedema in the underlying parenchyma.,case0276,1
+case0276_002.png,Axial T2 (2a) and coronal FLAIR (2b) sequences of the MRI of the brain show an iso-hypointense signal within the lesion. There is peri-lesional oedema in the underlying parenchyma.,case0276,2
+case0276_003.png,"Sagittal pre (3a), post-contrast sagittal (3b), and axial (3c) T1 sequence of the MRI of the brain show a dural-based lesion with isointense signal and homogeneous enhancement.",case0276,3
+case0276_004.png,"Sagittal pre (3a), post-contrast sagittal (3b), and axial (3c) T1 sequence of the MRI of the brain show a dural-based lesion with isointense signal and homogeneous enhancement.",case0276,4
+case0276_005.png,Axial diffusion-weighted sequence of the MRI of the brain shows no diffusion restriction within the lesion.,case0276,5
+case0018_003.png,MRI T2 coronal showing the intraventricular colloid cyst being hypointense compared to the cerebrospinal fluid.,case0018,3
+case0018_001.png,MRI T1 transversal. The lesion is isointense to the cerebrum.,case0018,1
+case0018_002.png,MRI T1 post-contrast (7 ml Gadovist) – no enhancement of the lesion.,case0018,2
+case0062_001.png,"MRI brain shows significant dysmorphic enlargement of the left cerebral hemisphere. Diffuse pachygyria/ polymicrogyria results in loss of sulcation, with abnormal left hemispheric myelination.",case0062,1
+case0062_002.png,"MRI brain shows significant dysmorphic enlargement of the left cerebral hemisphere. Diffuse pachygyria/ polymicrogyria results in loss of sulcation, with abnormal left hemispheric myelination.",case0062,2
+case0062_003.png,MRI T1 coronal brain shows to better extent the volume discrepancy between hemispheres with dysmorphic left hemisphere features with loss of sulcation.,case0062,3
+case0062_004.png,MRI T1 coronal brain shows to better extent the volume discrepancy between hemispheres with dysmorphic left hemisphere features with loss of sulcation.,case0062,4
+case0158_002.png,"(1b) FLAIR heterointense lesion noted in the pineal region, which shows heterogenous enhancement on contrast (1c) administration",case0158,2
+case0158_003.png,(3a) T1 heterointense lesion noted in the pineal region,case0158,3
+case0158_004.png,(3b) T2 heterointense lesion noted in the pineal region,case0158,4
+case0158_005.png,(3c) FLAIR hyperintense lesion  noted in the pineal region,case0158,5
+case0158_001.png,"(3f) & (3g) On contrast administration, the lesion shows heterogenous enhancement. Suboccipital craniectomy defect noted in the right side",case0158,1
+case0221_001.png,"Axial FLAIR reveals huge heterogeneous extra-axial tumor with massive mass effect, but no edema",case0221,1
+case0221_002.png,Sagittal T2-weighted image confirms the extra-axial origin of the lesion with significant osteolysis of the skull vault. Note the Ying & Yang appearance with different signal intensities of the nodules,case0221,2
+case0221_003.png,Axial Diffusion weighted-image shows no restriction,case0221,3
+case0104_001.png,Axial T2W - CSF signal intensity lesion in left CP angle cistern.,case0104,1
+case0263_001.png,Axial fluid-attenuated inversion recovery (FLAIR) MR image at the level of the thalami showing high signal in the bilateral ventromedial thalami consistent with oedema.,case0263,1
+case0263_002.png,Axial T2-weighted MR image at the same level as Figure 1 showing T2 hyperintensity in the bilateral ventromedial thalami in keeping with oedema.,case0263,2
+case0196_001.png,T2 coronal sequence showing symmetric hyperintensity in bilateral parietal lobes and body of corpus callosum,case0196,1
+case0003_001.png,Axial FLAIR sequence still shows the cortical hypersignal in the left parietal lobe. There is a new cortical hyperintense image in the left occipital paramedian gyrus.,case0003,1
+case0147_001.png,T1WI POST-CONTRAST (supratentorial region),case0147,1
+case0246_001.png,T1 sequence showing high signal in basal ganglia bilaterally,case0246,1
+case0070_001.png,"Day 0. Interval evolution of haemorrhage of the dorsal pons, a slightly
+eccentric to the right.",case0070,1
+case0070_002.png,"Day 30. Interval evolution of haemorrhage of the dorsal pons, a slightly
+eccentric to the right.",case0070,2
+case0070_003.png,"Day 120. Interval evolution of haemorrhage of the dorsal pons, a slightly
+eccentric to the right.",case0070,3
+case0070_011.png,Day 0. Interval evolution of haemorrhage of the dorsal pons.,case0070,11
+case0070_008.png,Day 30. Interval evolution of haemorrhage of the dorsal pons.,case0070,8
+case0070_009.png,Day 120. Interval evolution of haemorrhage of the dorsal pons.,case0070,9
+case0070_010.png,Day 270. Interval evolution of haemorrhage of the dorsal pons.,case0070,10
+case0070_004.png,"Day 270. Interval
+development of an expansile lesion of the right medullary olive.",case0070,4
+case0070_005.png,"Day 270. Interval
+development of an expansile lesion of the right medullary olive.",case0070,5
+case0070_006.png,Day 270. Interval development of an expansile lesion of the right medullary olive.,case0070,6
+case0070_007.png,Day 270. Interval development of an expansile lesion of the right medullary olive.,case0070,7
+case0096_001.png,Hyperintense signal of the entire corpus callosum on fluid-attenuated inversion recovery (FLAIR) weighted sequences.,case0096,1
+case0096_002.png,Hyperintense signal of the entire corpus callosum on fluid-attenuated inversion recovery (FLAIR) weighted sequences.,case0096,2
+case0043_001.png,FLAIR axial image showing hyperintensities in deep periventricular white matter bilaterally with small hypointense cysts within affected white matter.,case0043,1
+case0043_002.png,FLAIR axial image showing hyperintensities in deep periventricular white matter bilaterally with small hypointense cysts within affected white matter.,case0043,2
+case0043_005.png,T2W axial image showing  hyperintensities in deep periventricular white matter with small hyperintense cysts.,case0043,5
+case0043_003.png,T1W axial image showing  hypointense cysts in deep periventricular white matter.,case0043,3
+case0043_004.png,T1W sagittal image showing  hypointense cysts in deep periventricular white matter.,case0043,4
+case0274_001.png,MRI DWI and ADC images showing cortical diffusion restriction in bilateral insular and cingulate gyrus (R > L) with infarct in the right posterior limb of the internal capsule.,case0274,1
+case0274_002.png,"MRI FLAIR and T2 images, axial, coronal and sagittal sections showing hyperintensity and cortical swelling in bilateral inferior frontal and mesiotemporal regions (R > L).",case0274,2
+case0172_001.png,Axial T2W image shows disproportionate prominence of the occipital horns of the lateral ventricles- colpocephaly,case0172,1
+case0049_001.png,T2W shows intralesional cystic component. Peri-lesional edema with mass effect onto the fourth ventricle was demonstrated.,case0049,1
+case0049_002.png,There is heterogeneous intra-lesional gadolinium enhancement. No leptomeningeal enhancement was demonstrated.,case0049,2
+case0002_001.png,Axial T2-weighted MRI showing multiple extra-axial masses iso-intense T2 with exophtalmos grade III of the right eye.,case0002,1
+case0076_003.png,Axial FLAIR image showing the laminated pattern due to alternating hyperintense and isointense bands of tissue.,case0076,3
+case0076_001.png,"Sagittal gadolinium-enhanced T1W image showing striated laminated alternating hypointense and isointense bands of tissue. The vessels are delineated, but there is no true enhancement.",case0076,1
+case0076_002.png,"Coronal gadolinium-enhanced T1W image showing striated laminated alternating hypointense and isointense bands of tissue. The vessels are delineated, but there is no true enhancement.",case0076,2
+case0006_002.png,"Coronal T2-weighted imaging.
+Cavernoma in the right cerebellar hemisphere.",case0006,2
+case0006_001.png,Prominent veins in the right cerebellar hemisphere with small ramifications draining into the right petrosal vein and partially occupying the right cerebellopontine angle (prominent right petrosal vein): developmental venous anomaly.,case0006,1
+case0041_001.png,"T1SE. Lesion is hypointense, with disperse areas of hyperintensity, possibly corresponding to intratumoral haemorrhage.",case0041,1
+case0041_002.png,"T1SE + GD. Complementing fig.2b, coronal view shows an area of discontinuation of the peripheral enhancement in the interphase between tumour and left ventricle. Corresponds to tumour nerosis/haemorrhage leakage to ventricles.",case0041,2
+case0041_003.png,"T2TSE. Tumour is markedly, though heterogeneously hyperintense.",case0041,3
+case0041_004.png,"T2GE. Disperse areas of T2* signal drop, especially in left-hemispheric component, represent intratumoral haemorrhagic foci.",case0041,4
+case0041_005.png,FLAIR. Markedly hyperintense.,case0041,5
+case0041_006.png,DWI b1000 Multiple internal and peripheral tumour foci of high intensity.,case0041,6
+case0041_007.png,ADC-map signal-drop correlates with DWI . These areas probably mostly correspond to false restriction due to haemorrhagic foci. Moreso because these areas present low T2*WI signal (fig.2e) and low CBV (fig.2i).,case0041,7
+case0138_001.png,Axial FLAIR image of the brain shows well defined abnormal high signal in posterior commissure,case0138,1
+case0035_001.png,"Axial T2W FFE. Bithalamic hyperintensity. Small punctate markedly hypointense lesions, representing foci of cerebral microhaemorrhage.",case0035,1
+case0035_002.png,DWI shows minimal areas of restricted diffusion in bithalamic regions.,case0035,2
+case0249_001.png,T1 sagittal image at the age of 17 shows a marked decrease of the midbrain to pons ratio – consistent with midbrain atrophy.,case0249,1
+case0244_001.png,Axial DWI image shows diffuse gyriform restriction in bilateral cerebral hemispheres.,case0244,1
+case0118_001.png,There are T2/FLAIR-hyperintense signals in the bilateral cerebellar hemispheres with swelling of both cerebellar hemispheres and effacement of basal cisterns.,case0118,1
+case0118_002.png,These abnormal signal areas are hypointense on T1.,case0118,2
+case0045_001.png,T1-weighted sagittal image shows hypointense (cystic) lesion in anterior temporal pole.,case0045,1
+case0045_002.png,"T2-weighted axial image shows hyperintense (cystic) lesion in anterior temporal pole, with hyperintensity of adjacent parenchyma.",case0045,2
+case0045_003.png,"FLAIR-weighted axial image shows hypointense (cystic) lesion in anterior temporal pole, with hyperintensity of adjacent parenchyma.",case0045,3
+case0045_004.png,Coronal T1-weighted contrast-enhanced images show no anomalous enhancing component.,case0045,4
+case0045_005.png,"Contrast-enhanced (2a), and non contrast-enhanced T1 (2b), T2 (2c) and FLAIR (2d). The same left temporal anterior-pole lesion persists, now showing adjacent intensely-enhancing meningeal thickening (arrows) with dural tail (arrowheads).",case0045,5
+case0036_001.png,Left cerebral hemiatrophy with exvacuuo dilatation of left lateral ventricle.,case0036,1
+case0036_002.png,"Left cerebral hemiatrophy, dilated ipsilateral occipital horn, ipsilateral midline shift and ipsilateral pneumosinus dilatans (frontal)",case0036,2
+case0130_001.png,T2-weighted brain MR images,case0130,1
+case0130_003.png,T2-weighted brain MR images,case0130,3
+case0130_004.png,T2-weighted brain MR images,case0130,4
+case0130_005.png,Diffusion-weighted images (DWI),case0130,5
+case0130_002.png,T2-weighted spine MR image,case0130,2
+case0077_001.png,Axial T2-FLAIR MRI images demonstrating increased signal intensity in the left parieto-occipital cortex. Ancient ischaemic stroke in the right middle cerebral artery territory is also present.,case0077,1
+case0089_001.png,Axial T1-weighted image prior to the administration of contrast agent showing the mass with high signal intensity.,case0089,1
+case0089_002.png,Axial T1-weighted image after the administration of contrast material shows no significant enhancement of the mass.,case0089,2
+case0013_001.png,T1WI shows expansion of the brainstem with effacement of adjacent subarachnoid spaces,case0013,1
+case0013_002.png,T1W sag image shows involvement of pons and midbrain,case0013,2
+case0013_003.png,T2WI shows a hyperintense mass in the brainstem with cystic areas,case0013,3
+case0013_004.png,"Shows a hyperintense mass lesion in the brainstem with  effaced 4th ventricle and dilated temporal horn S/O obstructive hydrocephalus.
+Also there is encasement of basilar artery anteriorly",case0013,4
+case0013_005.png,Post C+ T1WI shows eccentric enhancement of mass lesion with large non-enhancing part,case0013,5
+case0133_001.png,Axial T2 FLAIR WI at basal ganglia level showed mild brain atrophy and hyperintense foci in the periventricular and subcortical white matter related to chronic small vessel ischemic disease. Note marked bilateral putamina hypointensity in relation to ipsilateral globus pallidus.,case0133,1
+case0133_002.png,Axial T2 FLAIR WI at pons level showed a cruciform hyperintensity at pons (Hot cross bun sign) and mild cerebellar atrophy. Note that cerebellar peduncles are spared.,case0133,2
+case0133_003.png,Axial T2* GRE WI at pons level showed similar features than fig. 2a.,case0133,3
+case0008_001.png,"Axial T2 MR showing hyperintensity in periaqueductal white matter, mid-brain and pons",case0008,1
+case0091_001.png,Axial T1-weighted image shows an iso to hypointense lesion in the right frontoparietal region.,case0091,1
+case0091_002.png,Enhanced axial T1-weighted image demonstrates thick-walled ring enhancement.,case0091,2
+case0091_003.png,Axial T2-weighted image shows a heterogeneous lesion with hyper and hypointense nodular elements. The latter possibly correspond to the sarcomatous component.,case0091,3
+case0091_004.png,Axial T2-FLAIR image shows the heterogeneous lesion and extensive perilesional oedema.,case0091,4
+case0091_005.png,Axial enhanced T1-weighted image shows nodular enhancement of the solid sarcomatous components.,case0091,5
+case0091_006.png,Coronal enhanced T1-weighted image shows regional strip enhancement within the tumour.,case0091,6
+case0091_007.png,Sagittal enhanced T1- weighted image shows intratumoral strip enhancement.,case0091,7
+case0209_001.png,Axial T1 demonstrates multiple and confluent hypointense cystlike lesions in the right side of the midbrain.,case0209,1
+case0209_002.png,Axial T2 shows multiple hyperintense cystlike lesions on the right side of the midbrain.,case0209,2
+case0209_003.png,Postcontrast T1 demonstrates an absence of contrast enhancement.,case0209,3
+case0209_004.png,DWI shows an absence of restricted diffusion.,case0209,4
+case0219_008.png,Postsurgical flap showing fat signal intensity seen in right cerebello-pontine angle cistern and mastoid part of temporal bone. No suggestion of lesion in surgical bed,case0219,8
+case0219_004.png,"Multiple extra-axial fat signal intensity globules seen in suprasellar, interpeduncular, perimesencephalic, prepontine, right cerebello-pontine angle and quadrigeminal cisterns, anterior interhemispheric fissure, right sylvian fissure and right frontal sulcal spaces",case0219,4
+case0219_005.png,"Multiple extra-axial fat signal intensity globules seen in suprasellar, interpeduncular, perimesencephalic, prepontine, right cerebello-pontine angle and quadrigeminal cisterns, anterior interhemispheric fissure, right sylvian fissure and right frontal sulcal spaces",case0219,5
+case0219_006.png,"Multiple extra-axial fat signal intensity globules seen in suprasellar, interpeduncular, perimesencephalic, prepontine, right cerebello-pontine angle and quadrigeminal cisterns, anterior interhemispheric fissure, right sylvian fissure and right frontal sulcal spaces",case0219,6
+case0219_007.png,"Multiple extra-axial fat signal intensity globules seen in suprasellar, interpeduncular, perimesencephalic, prepontine, right cerebello-pontine angle and quadrigeminal cisterns, anterior interhemispheric fissure, right sylvian fissure and right frontal sulcal spaces",case0219,7
+case0219_003.png,Acute infarcts seen in right precentral gyrus and posterior aspect of right insular cortex extending to corona radiata,case0219,3
+case0219_001.png,Acute infarcts seen in right precentral gyrus and posterior aspect of right insular cortex extending to corona radiata,case0219,1
+case0219_002.png,Acute infarcts seen in right precentral gyrus and posterior aspect of right insular cortex extending to corona radiata,case0219,2
+case0180_001.png,"Figures 5, 6 and 7 are of the follow up MRI done on the next day in view of clinical deterioration. Normal appearing left orbit and left cavernous sinus",case0180,1
+case0230_001.png,It is a rounded lesion with well-defined edges. It has a main solid component that enhances after contrast administration and it has cystic areas in the periphery,case0230,1
+case0023_001.png,"MRI of the cerebrum. Coronal FLAIR (Fluid attenuation inversion recovery sequence), showing subcortical oedema parafalcine on the right side.",case0023,1
+case0069_001.png,T1 –weighted sagittal image shows elongated hypointense lesion in orbit.,case0069,1
+case0069_002.png,T2 w coronal image shows relatively well -circumscribed hyperintensity lesion in the superomedial quadrant of  intraconal space of left orbit with inseparable fat plane with optic nerve.,case0069,2
+case0069_003.png,Axial FLAIR image shows well-defined iso to hypointensity lesion in the intraconal space of left orbit.,case0069,3
+case0069_004.png,T1 w fat sat axial post contrast image shows moderate homogenous enhancement within the intraconal lesion of left orbit.,case0069,4
+case0241_001.png,Axial T2 weighted MRI image showing herniation of high signal intensity left occipital lobe through the defect in inner table into the occipital diploic space with its widening. High signal of the surrounding is also seen,case0241,1
+case0241_002.png,Midsagittal T1 weighted image Showing the herniation of left occipital lobe with low signal surrounding fluid into the diploic space,case0241,2
+case0241_003.png,Axial T1 weighted MRI image showing the volume loss of left occipital lobe with herniation into the diploic space. Low intensity fluid signal of the surrounding is also seen,case0241,3
+case0127_001.png,"T2-weighted axial MRI demonstrates symmetric hyperintense signals in the putamen, and thalami.",case0127,1
+case0127_002.png,T2-weighted axial MRI demonstrates the “face of the giant panda” in the midbrain with high signal in tegmentum and normal red nuclei.,case0127,2
+case0127_003.png,T2-weighted axial MRI reveals the “face of the miniature panda” in pons with hypointensity of central tegmental tracts with hyper intensity of periaqueductal opening to fourth ventricle.,case0127,3
+case0171_001.png,"Post treatment T2 axial image at the level of putamen shows some resolution of hyperintense signal in bilateral basal ganglia, however lacunar infarcts seem unchanged. Cerebral trophy seen in the form of prominence of bilateral lateral and 3rd ventricles",case0171,1
+case0207_001.png,Axial T2- weighted image presents a subtly hyperintense choroidal lesion of the right eye.,case0207,1
+case0212_001.png,"Axial FLAIR presented bilateral hyperintensities of the frontoparietal and temporal subcortical WM, (c) more pronounced on the right in the latter. (d) Axial T2WI with hyperintensity of posterior periventricular WM bilaterally",case0212,1
+case0212_002.png,"Axial FLAIR presented bilateral hyperintensities of the frontoparietal and temporal subcortical WM, (c) more pronounced on the right in the latter. (d) Axial T2WI with hyperintensity of posterior periventricular WM bilaterally",case0212,2
+case0212_003.png,"Axial T2WI demonstrated hyperintensity of the globi pallidi, and a linear hyperintensity contouring the borders of both putamen and the head of the caudate nucleus",case0212,3
+case0212_004.png,Increased diffusivity on DWI of the globi pallidi and dentate nucleus with elevation of ADC,case0212,4
+case0073_003.png,Axial T2 shows confluent and bilateral hyperintense lesions located in subcortical white matter and splenium of corpus callosum.,case0073,3
+case0073_004.png,Middle cerebellar peduncles are also involved.,case0073,4
+case0073_005.png,"Axial DWI image demonstrates bilateral confluent hyperintensity lesions in periventricular and subcortical white matter of the frontal, parietal, and temporal lobes. The splenium of corpus callosum is also involved.",case0073,5
+case0073_001.png,Axial susceptibility-weighted imaging (SWI) shows numerous petechial haemorrhages involving the subcortical and periventricular white matter and corpus callosum.,case0073,1
+case0073_002.png,"Cerebellar hemispheres, cerebellar peduncles and brain stem are also involved.",case0073,2
+case0129_001.png,"MRI axial, coronal and sagital T1*. Heterogeneous intraventricular mass (55 x 50 x 60 mm) with solid and cystic components, arising in the trigone of the left lateral ventricle, extending inferiorly through the choroidal fissure to the quadrigeminal cistern where it causes mass effect.",case0129,1
+case0025_002.png,T2 hyperintensity seen in both cerebellar hemispheres.,case0025,2
+case0025_001.png,FLAIR Hyperintensity seen in both cerebellar hemispheres.,case0025,1
+case0217_001.png,Axial T1 weighted MRI image at the midbrain level showing two hypointense cystic lesions in the anterior segment of bilateral temporal lobe,case0217,1
+case0217_002.png,Axial T2 weighted MRI image at the level of midbrain shows  subcortical cyst in bilateral temporal lobe region with diffuse cortical and subcortical white matter changes,case0217,2
+case0217_003.png,Coronal T2 weighted MRI image at the level of brainstem shows cortical and subcortical white matter changes sparing the brainstem and basal ganglia,case0217,3
+case0080_006.png,Axial T2-weighted image showing hyperintensity in bilateral cerebral penducles.,case0080,6
+case0080_002.png,Axial FLAIR image depicting hyperintensity in the basal ganglia.,case0080,2
+case0080_003.png,Axial FLAIR image showing hyperintensity in the brainstem.,case0080,3
+case0080_004.png,Axial gadolinium-enhanced T1-weighted image showing mild peripheral enhancement of the lentiform nuclei.,case0080,4
+case0080_005.png,Coronal gadolinium-enhanced T1-weighted image showing peripheral enhancement of the lentiform nuclei.,case0080,5
+case0080_001.png,"ADC map showing hyperintense lesions in globus pallidi, sign of chronicity.",case0080,1
+case0137_001.png,"Figure 1(a) axial T2, figure 1(b) axial T1, figure 1(c) axial FLAIR and figures 2(a, b) axial FIESTA, how multiple cystic lesions of CSF signal intensity in the left thalamus and adjacent mesencephalic midbrain without any perilesional edema with the largest one in the thalamus and causing mass effect over the third ventricle with mild upstream ventricular dilatation without periventricular ooze.",case0137,1
+case0137_002.png,"Figure 1(a) axial T2, figure 1(b) axial T1, figure 1(c) axial FLAIR and figures 2(a, b) axial FIESTA, how multiple cystic lesions of CSF signal intensity in the left thalamus and adjacent mesencephalic midbrain without any perilesional edema with the largest one in the thalamus and causing mass effect over the third ventricle with mild upstream ventricular dilatation without periventricular ooze.",case0137,2
+case0137_003.png,"Figure 1(a) axial T2, figure 1(b) axial T1, figure 1(c) axial FLAIR and figures 2(a, b) axial FIESTA, how multiple cystic lesions of CSF signal intensity in the left thalamus and adjacent mesencephalic midbrain without any perilesional edema with the largest one in the thalamus and causing mass effect over the third ventricle with mild upstream ventricular dilatation without periventricular ooze.",case0137,3
+case0137_004.png,"Figure 3(a) axial DWI does not show any diffusion restriction and figure 3(b) axial GRE does not show any blooming. Figure 4(a) shows no obvious post-contrast enhancement in the lesion. Radiological findings were highly suggestive of giant tumefactive perivascular spaces in the left thalamo-mesencephalic region. Figure 4(b) axial FLAIR shows mildly dilated both lateral ventricles without any periventricular ooze, suggestive of chronic obstructive hydrocephalus.",case0137,4
+case0137_005.png,"Figure 3(a) axial DWI does not show any diffusion restriction and figure 3(b) axial GRE does not show any blooming. Figure 4(a) shows no obvious post-contrast enhancement in the lesion. Radiological findings were highly suggestive of giant tumefactive perivascular spaces in the left thalamo-mesencephalic region. Figure 4(b) axial FLAIR shows mildly dilated both lateral ventricles without any periventricular ooze, suggestive of chronic obstructive hydrocephalus.",case0137,5
+case0075_001.png,At the high frontal and parietal lobes showing cerebral volume loss as evidenced by the prominence of the subarachnoid spaces.,case0075,1
+case0075_002.png,At the level of the corona radiata showing white matter hyperintensities.,case0075,2
+case0075_003.png,At the level of the basal ganglia showing white matter hyperintensities.,case0075,3
+case0075_004.png,At the level of the basal ganglia showing relative hypointensity of the thalami. No lesions suggestive of gray-matter heterotopia is detected in the rest of the white matter.,case0075,4
+case0075_005.png,"Abnormal bright signals in the  cerebral peduncles. These regions, along with the involved portions of the supratentorial brain, point to involvement of the corticospinal tract.",case0075,5
+case0075_006.png,"Abnormal bright signals in the  medulla and cerebellar hemispheres. These regions, along with the involved portions of the supratentorial brain, point to involvement of the corticospinal tract.",case0075,6
+case0197_002.png,Sagital T2-weighted (A) image of the head showing cystic appearing changes affecting the white matter of the cerebellum,case0197,2
+case0197_003.png,Axial post-gadolinium T1-weighted (C and D) images of the brain showed basal cistern leptomeningeal enhancement. There was no enhancement of the cystic lesions,case0197,3
+case0197_001.png,"Sagital T2-weighted image of the brain showing further enlargement and spread of the cystic like changes, increase in size of the supratentorial ventricular system with transependymal edema, and brain atroph",case0197,1
+case0262_001.png,"MRI FLAIR (1a), MRI T2 axial (1b), MRI DWI (1c), MRI ADCmap (1d): Mixed vasogenic and cytotoxic oedema involving the rostral midbrain and the cerebellum, spanning different arterial territories, can be visualised in the initial scan.",case0262,1
+case0262_002.png,"MRI FLAIR (1a), MRI T2 axial (1b), MRI DWI (1c), MRI ADCmap (1d): Mixed vasogenic and cytotoxic oedema involving the rostral midbrain and the cerebellum, spanning different arterial territories, can be visualised in the initial scan.",case0262,2
+case0262_003.png,"MRI FLAIR (2a), MRI T2 axial (2b), MRI DWI (2c), MRI ADCmap (2d): Repeated MRI head one month later shows interval partial regression of the oedema – residual oedema along the middle cerebellar peduncle.",case0262,3
+case0262_004.png,"MRI FLAIR (2a), MRI T2 axial (2b), MRI DWI (2c), MRI ADCmap (2d): Repeated MRI head one month later shows interval partial regression of the oedema – residual oedema along the middle cerebellar peduncle.",case0262,4
+case0262_005.png,"MRI FLAIR (2a), MRI T2 axial (2b), MRI DWI (2c), MRI ADCmap (2d): Repeated MRI head one month later shows interval partial regression of the oedema – residual oedema along the middle cerebellar peduncle.",case0262,5
+case0061_001.png,Axial contrast-enhanced T1 3D sequence shows an isointense mass and slight enhancement.,case0061,1
+case0061_002.png,"Axial T2 gradient image shows a small hypointense area within the intraventricular mass, compatible with calcification.",case0061,2
+case0182_001.png,Axial T2 weighted image shows bilateral periventricular T2 hyperintense areas suggestive of trans-ependymal edema was noted,case0182,1
+case0182_002.png,Axial FLAIR image shows bilateral peri-ventricular FLAIR hyperintense areas suggestive of trans-ependymal edema were noted,case0182,2
+case0272_001.png,Sagittal T1W MRI demonstrating the appearance of the intra-vitreal silicone; mainly iso-intense (blue arrow) with curvilinear peripheral hyper-intensity (white arrow).,case0272,1
+case0024_001.png,Axial T1: the formation appears hyperintense,case0024,1
+case0024_002.png,Sagittal T2 FLAIR: the formation appears hyperintense,case0024,2
+case0184_003.png,"Axial FLAIR (A) and T2 (B) showing a wedge shaped, well defined intra-axial, left parieto-occipital with a solid peripheral component and a cystic center; no vasogenic edema or hemorrhagic areas are found. Mass effect is minimal compared to the size of the lesion.  A high signal intensity rim y seen on FLAIR (bright rim sign)",case0184,3
+case0184_004.png,"Axial FLAIR (A) and T2 (B) showing a wedge shaped, well defined intra-axial, left parieto-occipital with a solid peripheral component and a cystic center; no vasogenic edema or hemorrhagic areas are found. Mass effect is minimal compared to the size of the lesion.  A high signal intensity rim y seen on FLAIR (bright rim sign)",case0184,4
+case0184_005.png,"Axial DWI (A) and sagittal post-gadolinium T1 showing increased diffusion restriction of the solid areas of the tumor, as well as heterogeneous enhancement",case0184,5
+case0184_006.png,"Axial DWI (A) and sagittal post-gadolinium T1 showing increased diffusion restriction of the solid areas of the tumor, as well as heterogeneous enhancement",case0184,6
+case0184_001.png,"Axial FLAIR (A) and post-gadolinium T1 (B) obtained 3 years after surgical excision, showing a new nodular hyperintense area at the margins of the surgical site and another one in the right frontal horn of the lateral ventricle; both show avid enhancement after gadolinium administration",case0184,1
+case0184_002.png,"Axial FLAIR (A) and post-gadolinium T1 (B) obtained 3 years after surgical excision, showing a new nodular hyperintense area at the margins of the surgical site and another one in the right frontal horn of the lateral ventricle; both show avid enhancement after gadolinium administration",case0184,2
+case0281_002.png,Sagittal T2WI shows marked hypointensity of the lesion except for the mural nodule.,case0281,2
+case0281_001.png,Sagittal T1WI shows hyperintensity of the lesion.,case0281,1
+case0149_001.png,"Axial T1 weighted, axial, coronal and sagittal T2 weighted images of brain reveal a well-defined large cyst (blue arrow) with a peripherally placed nodule (red arrow) within in the right fronto-parietal lobe. The nodule is isointense on T1 and T2 weighted images. Few isointense septations (green arrow) were also noted within the cyst. T2/FLAIR hyperintense perilesional edema was seen in right frontal and parietal lobe. Axial FLAIR images reveal suppression of the cystic signals.",case0149,1
+case0149_002.png,"Axial T1 weighted, axial, coronal and sagittal T2 weighted images of brain reveal a well-defined large cyst (blue arrow) with a peripherally placed nodule (red arrow) within in the right fronto-parietal lobe. The nodule is isointense on T1 and T2 weighted images. Few isointense septations (green arrow) were also noted within the cyst. T2/FLAIR hyperintense perilesional edema was seen in right frontal and parietal lobe. Axial FLAIR images reveal suppression of the cystic signals.",case0149,2
+case0149_003.png,"Axial T1 weighted, axial, coronal and sagittal T2 weighted images of brain reveal a well-defined large cyst (blue arrow) with a peripherally placed nodule (red arrow) within in the right fronto-parietal lobe. The nodule is isointense on T1 and T2 weighted images. Few isointense septations (green arrow) were also noted within the cyst. T2/FLAIR hyperintense perilesional edema was seen in right frontal and parietal lobe. Axial FLAIR images reveal suppression of the cystic signals.",case0149,3
+case0149_004.png,Axial DWI and GRE images reveal no restriction or blooming foci within the lesion.,case0149,4
+case0149_005.png,Axial DWI and GRE images reveal no restriction or blooming foci within the lesion.,case0149,5
+case0149_006.png,"CEMRI in axial, coronal and sagittal images reveal intense homogeneous enhancement of the solid nodule (red arrow) along with incomplete enhancement of the cyst wall (yellow arrow) and few septa within. There is also enhancement of the dura overlying the nodule (pink arrow in 4 D)",case0149,6
+case0159_001.png,MRI Brain Axial FLAIR/T2 image shows hypointensity in bilateral globus pallidi with central hyperintensity (a and b). SWI shows blooming artifacts in bilateral globus pallidi (c),case0159,1
+case0159_002.png,MRI Brain Axial FLAIR/T2 image shows hypointensity in bilateral globus pallidi with central hyperintensity (a and b). SWI shows blooming artifacts in bilateral globus pallidi (c),case0159,2
+case0264_001.png,"T2-WI showing bilateral and symmetrical hyperintensities of lentiform and caudate nuclei, with no involvement of the cortex or the thalami.",case0264,1
+case0164_001.png,T1weighted  MRI image of brain axial section shows unilateral cerebral atrophy with associated atrophy of Internal capsule and lateral ventricle dilatation,case0164,1
+case0164_002.png,T1 weighted MRI of brain axial section showing atrophied left pontine region,case0164,2
+case0164_003.png,T2weighted  MRI image of brain axial section shows atrophy of left cerebral hemispheres with associated ipsilateral white matter gliosis and left lateral ventricle dilatation and thickened left calvaria,case0164,3
+case0164_004.png,T2weighted  MRI image of brain coronal section shows atrophy of left cerebral hemispheres with associated ipsilateral white matter gliosis and left lateral ventricle dilatation,case0164,4
+case0164_005.png,FLAIR sequence of MRI image of brain coronal section shows diffuse atrophy of left cerebral hemispheres with associated ipsilateral white matter gliosis and left lateral ventricle dilatation,case0164,5
+case0198_001.png,"Axial FLAIR  image, there is perilesional edema",case0198,1
+case0198_002.png,Diffusion WI and ADC maps show diffusion restriction due to hemorrhage,case0198,2
+case0198_003.png,Diffusion WI and ADC maps show diffusion restriction due to hemorrhage,case0198,3
+case0198_004.png,Vein bold image. There is prominent signal loss due to blood products,case0198,4
+case0198_005.png,Contrast-enhanced T1 W image.  Slight enhancement of the lesion,case0198,5
+case0198_006.png,"Follow-up 6 months later, T2 W axial image. The mass lesion shrinks prominently",case0198,6
+case0198_007.png,"Vein bold image, a typical cavernoma appearance is seen",case0198,7
+case0082_005.png,"The lesion in the right temporal lobe appears with hypointense capsule and hyperintense center on T2WI, associated with extensive vasogenic oedema and consequent mass effect.",case0082,5
+case0082_006.png,"The lesion in the right temporal lobe appears with hypointense capsule and hyperintense center on T2WI, associated with extensive vasogenic oedema and consequent mass effect.",case0082,6
+case0082_007.png,FLAIR shows more evident surrounding oedema and mildly hyperintense center in relation to cerebrospinal fluid (CSF).,case0082,7
+case0082_001.png,Well-defined lesion with hypointense center and isointense rim on T1WI.,case0082,1
+case0082_002.png,Axial Gd-enhanced T1WI demonstrates a complete peripheral ring-enhancing lesion in the temporal lobe.,case0082,2
+case0082_003.png,Sagittal Gd-enhanced T1WI demonstrates a complete peripheral ring-enhancing lesion in the temporal lobe.,case0082,3
+case0082_004.png,"Coronal Gd-enhanced T1WI demonstrates a complete peripheral ring-enhancing lesion, as well as thickening and enhancement of ipsilateral tentorium.",case0082,4
+case0093_001.png,Sagittal T1WIs demonstrate a homogeneous hypointense dural-based mass along the tentorium in the left posterior fossa.,case0093,1
+case0093_002.png,Axial T2WI MR image shows a lobulated hypointense dural-based mass in the left posterior fossa.,case0093,2
+case0093_003.png,Axial Flair T2WI MR image shows a lobulated hypointense dural-based mass in the left posterior fossa.,case0093,3
+case0093_004.png,Axial contrast-enhanced T1WIs demonstrates marked and homogeneous enhancement of the mass.,case0093,4
+case0093_005.png,Sagittal contrast-enhanced T1WIs demonstrates marked and homogeneous enhancement of the mass depending on the tentorium.,case0093,5
+case0093_006.png,Coronal contrast-enhanced T1WIs demonstrates marked and homogenous enhancement of the mass depending on the tentorium.,case0093,6
+case0093_007.png,Axial Flair T2WI MR image shows surgical changes in the left posterior fossa with complete resection of the tumour.,case0093,7
+case0093_008.png,"Axial contrast-enhanced T1WIs MR image shows surgical changes in the left posterior fossa with complete resection of the tumour, without enhanced areas.",case0093,8
+case0093_009.png,"Coronal contrast-enhanced T1WIs MR image shows surgical changes in the left posterior fossa with complete resection of the tumour, without enhanced areas.",case0093,9
+case0139_001.png,,case0139,1
+case0139_002.png,,case0139,2
+case0005_003.png,T2 weighted MR axial sections through brain revealed  bilateral symmetrical hyperintense basal ganglia,case0005,3
+case0005_001.png,T1 hyperintense signals in bilateral basal ganglia,case0005,1
+case0005_002.png,"T2* image through brain showing drop out signals in bilateral basal ganglia, corresponding to calcifications seen on CT",case0005,2
+case0214_001.png,T1 weighted axial image at lateral ventricular level shows the high signal cystic component of mass compressing the right lateral ventricle and foramen of Monro with contralateral lateral ventricle dilation,case0214,1
+case0214_002.png,T1 weighted midsagittal images shows a suprasellar mass with a high signal cystic component and iso to a low signal solid component,case0214,2
+case0214_003.png,T1 sagittal post-contrast image shows the heterogenous enhancement of the solid component of suprasellar mass,case0214,3
+case0214_004.png,T2 weighted coronal images at the sellar region show suprasellar mass with a high signal cystic component and intermediate to a high signal solid component. Mass effect in the right temporal lobe and lateral ventricle is seen,case0214,4
+case0214_005.png,"T2 weighted axial image at the midbrain level shows widening of the interpeduncular cistern, anteriorly displaced right middle cerebral artery, bilateral anterior cerebral artery, and posterior displacement of a posterior cerebral artery",case0214,5
+case0214_006.png,Diffusion-weighted image at the cerebellopontine angle region shows the low signal intensity of the solid and cystic part of the mass (no restriction),case0214,6
+case0187_001.png,MRI from patient 1. Axial FLAIR showing unspecific patchy and somewhat diffuse hyperintensity in the frontoparietal white matter (white arrowheads),case0187,1
+case0187_002.png,"MRI from patient 2. Coronal (a, e) and axial (b, f) T2 FSE showing cerebellar atrophy with splayed superior cerebellar peduncles and enlarged square-shaped fourth ventricle. Note the T2 hyperintense dentate nuclei (white arrows) (a, e), and the absence of cerebellar cysts (a-c, e-g)",case0187,2
+case0187_003.png,"MRI from patient 2. Midsagittal T2 FSE showing elongated midbrain and broad cisterna magna due to the small cerebellum size. Note the T2 hyperintense dentate nuclei (white arrows) (a, e), and the absence of cerebellar cysts (a-c, e-g)",case0187,3
+case0148_001.png,,case0148,1
+case0148_002.png,Parasellar T2 Dark Sign,case0148,2
+case0169_001.png,Axial T2 (Fig 2a) image demonstrates symmetrical small areas of FLAIR hyperintensity in bilateral lateral putamina,case0169,1
+case0268_001.png,"Axial T1 fat saturation pre-contrast showed intraventricular tumour mass with (subacute haemorrhage) high signal intensity in the periphery of the mass. However, the low signal intensity of mass infiltrated the septum pellucidum, causing dilatation of the right lateral ventricle.",case0268,1
+case0268_002.png,Axial T1 fat saturation post-contrast showed mild heterogeneous enhancement with (subacute haemorrhage) high signal intensity in the periphery of the mass.,case0268,2
+case0268_003.png,Axial T2 weighted image showed intraventricular tumour mass containing central high signal intensity with a blood product in the periphery.,case0268,3
+case0268_004.png,Axial ADC showed intraventricular tumour mass with low signal intensity.,case0268,4
+case0268_005.png,Axial DWI showed high signal intensity.,case0268,5
+case0123_001.png,FLAIR-axial image at the level of basal ganglion shows patch areas of hyperintensity involving bilateral basal ganglion and thalami.,case0123,1
+case0123_002.png,T2W-axial image at the level of mid-brain shows diffuse hyperintensity involving mid-brain and peri-aqueductal gray matter.,case0123,2
+case0029_001.png,Sagittal fat saturated T2W image nicely demonstrates the signal supression in the pericallosal lipoma and the absence of the rostrum.,case0029,1
+case0218_001.png,Coronal FLAIR images showing similar loss of flow void with convex sinus margins (white triangle),case0218,1
+case0050_003.png,T2 WI image axial view – showing a well defined mass in the sella and suprasellar region showing multiple small hypointense foci with central hyperintense linear area and minimal hyperintense intervening tissue.,case0050,3
+case0050_004.png,T2 Flair image coronal view – showing a well defined mass in the sella and suprasellar region showing multiple small hypointense foci with central isointense linear area  and minimal hyperintense intervening tissue.,case0050,4
+case0050_001.png,T1 FS image sagittal view – showing a well defined mass in the sella and suprasellar region with  multiple non enhancing small hypointense foci  and moderately enhancing minimal intervening tissue and capsule.,case0050,1
+case0050_002.png,T1 FS image coronal  view – showing a well defined mass in the sella and suprasellar region with multiple non enhancing small hypointense foci  and moderately enhancing minimal intervening tissue and capsule.,case0050,2
+case0054_001.png,Axial diffusion-weighted image shows decrease in the signal intensity in the splenium of the corpus callosum.,case0054,1
+case0121_001.png,"T2-weighted axial MR image shows a mildly hyperintense, ‘bubbly’ intraventricular lesion with T2-hyperintense cystic areas causing mass effect and hydrocephalus.",case0121,1
+case0121_002.png,Linear and punctate areas of blooming are seen within the lesion on susceptibility weighted image – s/o neovascularisation.,case0121,2
+case0121_003.png,T1 weighted sagittal MR image demonstrates inferior herniation of cerebellar tonsil by 1.4 cm with central canal dilatation of visualised cervical spinal cord. Sella is widened and empty.,case0121,3
+case0084_001.png,"T2/FLAIR coronal image showed a subarachnoid haemorrhage associated to a frontal parenchymal haematoma, characterised by hypointense signal, surrounded by hyperintense vasogenic oedema.",case0084,1
+case0084_002.png,"DWI axial image showed a small hyperintense focus on the left occipital lobe, corresponding to an acute infarct.",case0084,2
+case0047_004.png,The cystic part is more conspicuous.,case0047,4
+case0047_001.png,"Corresponding ADC map image, where the solid part has mildly heterogeneous signal with iso- and hyperintense component. The cystic part is isointense to CSF.",case0047,1
+case0047_005.png,"No evidence of ""blooming"" to suggest calcification or hemosiderin.",case0047,5
+case0047_006.png,There is homogeneous enhancement of the solid part.,case0047,6
+case0047_007.png,The cystic part does not enhance.,case0047,7
+case0047_002.png,The cystic component caudal to the solid part has high signal.,case0047,2
+case0047_003.png,Contiguous image just above figure a. The cystic component in front and posteromedial to the solid part exhibits high signal.,case0047,3
+case0193_001.png,Axial gadolinium-enhanced T1-weighted image in a more caudal region shows two cystic lesions between the cerebellar hemispheres just above the cisterna magna that have a thickened enhancing wall. There is also leptomeningeal enhancement at the basal cisterns,case0193,1
+case0038_003.png,Axial T2WI: High signal central area (necrosis) surrounded by low signal rim (haemorrhage) in bilateral putamina.,case0038,3
+case0038_001.png,ADC map: Drop of signal representing diffusion restriction due to cytotoxic oedema.,case0038,1
+case0038_002.png,Coronal contrast-enhanced T1WI: Peripheral rim of intense contrast enhancement of the putaminal lesions is noted bilaterally.,case0038,2
+case0240_001.png,FLAIR axial image showing hyperintense signal in the perirolandic cortex,case0240,1
+case0240_002.png,"FLAIR axial image shows symmetrical FLAIR hyperintensity in the caudate nuclei, bilateral putamen and globus pallidi",case0240,2
+case0240_003.png,T2 axial image shows symmetrical T2 hyperintensity in the bilateral caudate nuclei and basal ganglia,case0240,3
+case0240_004.png,T2 coronal image shows similar symmetrical hyperintensity in the bilateral caudate and basal ganglia,case0240,4
+case0240_005.png,Axial T1 post contrast image shows mild enhancement along the perirolandic cortex,case0240,5
+case0240_006.png,Axial T1 post contrast image shows mild enhancement along the bilateral occipital cortices,case0240,6
+case0155_001.png,,case0155,1
+case0155_002.png,,case0155,2
+case0132_001.png,"Follow up brain MRI obtained after one month. Axial T1-weighted (A), T2* GE images (B), DWI (C) and apparent diffusion coefficient map (D), cerebral brain volume map (E), axial T2-weighted (F), axial (G) and coronal (H) T2-FLAIR-weighted images and contrast-enhanced axial (I) and sagittal (J) T1-weighted images. Observe the growth of the infiltrating lesion with multiple necrotic components extending bilaterally into the cerebral peduncles, basal ganglia and thalami, with extensive adjacent edema.",case0132,1
+case0132_007.png,"Follow up brain MRI obtained after one month. Axial T1-weighted (A), T2* GE images (B), DWI (C) and apparent diffusion coefficient map (D), cerebral brain volume map (E), axial T2-weighted (F), axial (G) and coronal (H) T2-FLAIR-weighted images and contrast-enhanced axial (I) and sagittal (J) T1-weighted images. Observe the growth of the infiltrating lesion with multiple necrotic components extending bilaterally into the cerebral peduncles, basal ganglia and thalami, with extensive adjacent edema.",case0132,7
+case0132_008.png,"Follow up brain MRI obtained after one month. Axial T1-weighted (A), T2* GE images (B), DWI (C) and apparent diffusion coefficient map (D), cerebral brain volume map (E), axial T2-weighted (F), axial (G) and coronal (H) T2-FLAIR-weighted images and contrast-enhanced axial (I) and sagittal (J) T1-weighted images. Observe the growth of the infiltrating lesion with multiple necrotic components extending bilaterally into the cerebral peduncles, basal ganglia and thalami, with extensive adjacent edema.",case0132,8
+case0132_009.png,"Follow up brain MRI obtained after one month. Axial T1-weighted (A), T2* GE images (B), DWI (C) and apparent diffusion coefficient map (D), cerebral brain volume map (E), axial T2-weighted (F), axial (G) and coronal (H) T2-FLAIR-weighted images and contrast-enhanced axial (I) and sagittal (J) T1-weighted images. Observe the growth of the infiltrating lesion with multiple necrotic components extending bilaterally into the cerebral peduncles, basal ganglia and thalami, with extensive adjacent edema.",case0132,9
+case0132_002.png,"Initial brain MRI obtained 3 days after admission. Axial T1-weighted (A), T2* GE (B), DWI (C) and apparent diffusion coefficient (D), cerebral brain volume map (E), axial T2-weighted (F), axial (G) and coronal (H) T2-FLAIR-weighted and contrast-enhanced axial (I) and sagittal (J) T1-weighted images. An infiltrating mass at the level of the left thalamus, extending into the right thalamus and mesencephalon is observed, without  edema. Secondary hydrocephalus and signs of transependymal edema are observed.",case0132,2
+case0132_003.png,"Initial brain MRI obtained 3 days after admission. Axial T1-weighted (A), T2* GE (B), DWI (C) and apparent diffusion coefficient (D), cerebral brain volume map (E), axial T2-weighted (F), axial (G) and coronal (H) T2-FLAIR-weighted and contrast-enhanced axial (I) and sagittal (J) T1-weighted images. An infiltrating mass at the level of the left thalamus, extending into the right thalamus and mesencephalon is observed, without  edema. Secondary hydrocephalus and signs of transependymal edema are observed.",case0132,3
+case0132_004.png,"Initial brain MRI obtained 3 days after admission. Axial T1-weighted (A), T2* GE (B), DWI (C) and apparent diffusion coefficient (D), cerebral brain volume map (E), axial T2-weighted (F), axial (G) and coronal (H) T2-FLAIR-weighted and contrast-enhanced axial (I) and sagittal (J) T1-weighted images. An infiltrating mass at the level of the left thalamus, extending into the right thalamus and mesencephalon is observed, without  edema. Secondary hydrocephalus and signs of transependymal edema are observed.",case0132,4
+case0132_005.png,"Initial brain MRI obtained 3 days after admission. Axial T1-weighted (A), T2* GE (B), DWI (C) and apparent diffusion coefficient (D), cerebral brain volume map (E), axial T2-weighted (F), axial (G) and coronal (H) T2-FLAIR-weighted and contrast-enhanced axial (I) and sagittal (J) T1-weighted images. An infiltrating mass at the level of the left thalamus, extending into the right thalamus and mesencephalon is observed, without  edema. Secondary hydrocephalus and signs of transependymal edema are observed.",case0132,5
+case0132_006.png,"Initial brain MRI obtained 3 days after admission. Axial T1-weighted (A), T2* GE (B), DWI (C) and apparent diffusion coefficient (D), cerebral brain volume map (E), axial T2-weighted (F), axial (G) and coronal (H) T2-FLAIR-weighted and contrast-enhanced axial (I) and sagittal (J) T1-weighted images. An infiltrating mass at the level of the left thalamus, extending into the right thalamus and mesencephalon is observed, without  edema. Secondary hydrocephalus and signs of transependymal edema are observed.",case0132,6
+case0226_001.png,"Brain MRI depicts on axial T2-FLAIR and coronal T2-weighted images (A, B) a hyperintense lesion affecting the white matter of the right cerebellar hemisphere that shows also high signal intensity on the apparent diffusion coefficient map (C). Axial T2*-weighted image demonstrated multiple hipointense foci (D). The lesion is isointense on the unenhanced T1-weighted image (E), but shows peripheral enhancement associated with enlarged cortical vessels (F), also seen as flow-void signal on the coronal T2-weighted image (B)",case0226,1
+case0226_002.png,"Brain MRI depicts on axial T2-FLAIR and coronal T2-weighted images (A, B) a hyperintense lesion affecting the white matter of the right cerebellar hemisphere that shows also high signal intensity on the apparent diffusion coefficient map (C). Axial T2*-weighted image demonstrated multiple hipointense foci (D). The lesion is isointense on the unenhanced T1-weighted image (E), but shows peripheral enhancement associated with enlarged cortical vessels (F), also seen as flow-void signal on the coronal T2-weighted image (B)",case0226,2
+case0226_003.png,"Brain MRI depicts on axial T2-FLAIR and coronal T2-weighted images (A, B) a hyperintense lesion affecting the white matter of the right cerebellar hemisphere that shows also high signal intensity on the apparent diffusion coefficient map (C). Axial T2*-weighted image demonstrated multiple hipointense foci (D). The lesion is isointense on the unenhanced T1-weighted image (E), but shows peripheral enhancement associated with enlarged cortical vessels (F), also seen as flow-void signal on the coronal T2-weighted image (B)",case0226,3
+case0090_001.png,T2W coronal image reveals non-visualisation of pituitary stalk.,case0090,1
+case0120_001.png,"Transverse FLAIR magnetic resonance image showing bilateral cerebral cortical and subcortical patchy and confluent increased signal intensity. The caudate nuclei, the hippocampi as well as the insular cortices are seen involved.",case0120,1
+case0122_001.png,"(A-C) Axial FLAIR images reveal confluent white matter hyperintensity in bilateral parieto-occipital region, left frontal region, brainstem and bilateral cerebellar hemispheres. Sagittal T2 image (D) shows a long segment confluent hyperintensity in the medulla and the cervical spinal cord. Diffusion weighted images at b=1000 s/mm2 (E) show focal areas of diffusion restriction in bilateral parietooccipital and left frontal region.",case0122,1
+case0122_002.png,"(A-C) Axial FLAIR images reveal confluent white matter hyperintensity in bilateral parieto-occipital region, left frontal region, brainstem and bilateral cerebellar hemispheres. Sagittal T2 image (D) shows a long segment confluent hyperintensity in the medulla and the cervical spinal cord. Diffusion weighted images at b=1000 s/mm2 (E) show focal areas of diffusion restriction in bilateral parietooccipital and left frontal region.",case0122,2
+case0114_001.png,MRI BRAIN (axial section) T2W image shows a small herniation of left temporal lobe parenchyma with surrounding CSF rim into the left transverse sinus which appears isointense to brain parenchyma,case0114,1
+case0114_002.png,MRI BRAIN (axial section) T2W image shows continuity between the herniated brain parenchyma and left temporal lobe parenchyma,case0114,2
+case0163_001.png,Axial T1WI shows a cortico-subcortical intra-axial mass on right frontal lobe with hypointense signal,case0163,1
+case0163_002.png,Axial T2WI shows a cortico-subcortical intra-axial mass on right frontal lobe with hyperintense signal,case0163,2
+case0163_003.png,Axial gradient echo sequence shows an intralesional susceptibility artefact suggested of hemosiderin,case0163,3
+case0074_001.png,MRI brain axial image reveals symmetrical FLAIR hyperintensities in posterior limb of both internal capsules.,case0074,1
+case0074_002.png,MRI brain coronal T2 image shows hyperintensity in subcortical white matter along the corticospinal tract.,case0074,2
+case0232_001.png,"Immediate abscess drainage was performed, and a ventricular drainage was placed in the right frontal horn. MRI was performed 48 hours later. A: Contrast-enhanced T1-weighted image. Hypointense lesion with surrounding enhanced rim",case0232,1
+case0232_002.png,"Immediate abscess drainage was performed, and a ventricular drainage was placed in the right frontal horn. MRI was performed 48 hours later. C & D: Diffusion-weighted-imaging (DWI) and Apparent-diffusion-coefficient (ADC). Bright DWI with the corresponding hypointensity on ADC indicates impeded water mobility and reduced diffusion",case0232,2
+case0030_001.png,Sagittal T1W brain MRI shows an extraaxial mass with isointense signal in the midline anterior cranial fossa.,case0030,1
+case0030_002.png,Coronal T2W  brain MRI shows an extraaxial mass with isointense signal in the midline anterior cranial fossa.,case0030,2
+case0112_002.png,Axial precontrast T1-weighted MR imaging reveals the tumour in the left hypoglossal canal.,case0112,2
+case0112_001.png,Axial postcontrast T1-weighted MR imaging reveals the tumour in the left hypoglossal canal with peripheral enhancement and intratumoral cystic components.,case0112,1
+case0213_001.png,Magnetic resonance imaging (MRI) axial acquisition T2 FLAIR sequence. Bilateral paramedian thalamic hyperintensities with extension to the midbrain tegmentum,case0213,1
+case0213_002.png,MRI: axial acquisition T2 FLAIR sequence. Bilateral paramedian thalamic hyperintensities with extension to the midbrain tegmentum,case0213,2
+case0213_003.png,MRI: axial acquisition T2 FLAIR sequence. Bilateral paramedian thalamic hyperintensities with extension to the midbrain tegmentum,case0213,3
+case0012_003.png,"Axial T2WI image showing an ill-defined hyperintensity in left centrum semiovale.
+No definite mass effect is noted.",case0012,3
+case0012_004.png,"Axial  T1WI image  showing an ill-defined hypointensity in left centrum semiovale.
+No definite mass effect is noted.",case0012,4
+case0012_005.png,Axial FLAIR image showing an ill-defined hyperintensity in left centrum semiovale.,case0012,5
+case0012_006.png,"Coronal T2WI image showing an ill-defined hyperintensity in left centrum semiovale, periventricular and subcortical white matter. No definite mass effect is noted.",case0012,6
+case0012_001.png,"Diffusion-weighted image shows no definite rim of restriction, which was appreciated in the initial scans.",case0012,1
+case0012_002.png,Axial T2/ FLAIR image shows reduction in the size and extent of the white matter signal alteration.,case0012,2
+case0216_001.png,T2 weighted axial image at the lateral ventricle level showing Rectangular shaped appearance of lateral ventricle with the absence of septum pellucidum,case0216,1
+case0216_002.png,T2 weighted coronal image at the midcoronal level shows an absence of the septum pellucidum and bilateral grey matter-lined cerebrospinal fluid cleft in the bilateral frontal lobe region extending from the ventricle to the extra-axial cerebrospinal fluid space,case0216,2
+case0124_001.png,"Diffusion-weighted images showing high signal most marked in the splenium of the corpus callosum, and at the posterior centrum semiovale. There is also mild high signal change in the  genu and body of  the corpus callosum.",case0124,1
+case0124_002.png,ADC map showing low signal in the corpus callosum indicating restricted diffusion,case0124,2
+case0124_003.png,There is mild high signal change on T2-weighted images,case0124,3
+case0026_001.png,Midline sagittal section showing CSF isointense multicystic lesion in the midbrain.,case0026,1
+case0166_001.png,Axial T2W MRI brain showing a lobulated altered signal intensity lesion in lateral wall of atrium of right lateral ventricle with intraventricular and intra parenchymal extensions involving right parieto occipital lobe,case0166,1
+case0166_002.png,Coronal T2W MRI – shows infratentorial herniation of posterior temporal lobe (with part of the intraventricular lesion) causing compression of vermis and right cerebellar hemisphere,case0166,2
+case0166_003.png,Post contrast axial T1fat suppressed MRI showing significant and heterogeneous post contrast enhancement of the lesion,case0166,3
+case0231_001.png,Axial T1 shows massive cerebral atrophy with T1 hyperintense cortical laminar necrosis especially in the right occipital lobe,case0231,1
+case0136_001.png,"Initial brain MRI. Coronal (A) and axial (B) T2-weighted, axial T2- FLAIR-weighted (C), axial T1-weighted (D), axial contrast-enhanced T1-weighted (E-H) images. A T2-hyperintense fusiform swollen left optic nerve with intense homogeneous enhancement after contrast administration is observed, both involving the intraorbital and intracanalicular segments. There is a small focal T2- FLAIR hyperintensity in the pons on the left side and three small enhancing lesions: one in the pons on the left side, two in the basal ganglia, one on each side (arrows).",case0136,1
+case0136_002.png,"Initial brain MRI. Coronal (A) and axial (B) T2-weighted, axial T2- FLAIR-weighted (C), axial T1-weighted (D), axial contrast-enhanced T1-weighted (E-H) images. A T2-hyperintense fusiform swollen left optic nerve with intense homogeneous enhancement after contrast administration is observed, both involving the intraorbital and intracanalicular segments. There is a small focal T2- FLAIR hyperintensity in the pons on the left side and three small enhancing lesions: one in the pons on the left side, two in the basal ganglia, one on each side (arrows).",case0136,2
+case0136_003.png,"Initial brain MRI. Coronal (A) and axial (B) T2-weighted, axial T2- FLAIR-weighted (C), axial T1-weighted (D), axial contrast-enhanced T1-weighted (E-H) images. A T2-hyperintense fusiform swollen left optic nerve with intense homogeneous enhancement after contrast administration is observed, both involving the intraorbital and intracanalicular segments. There is a small focal T2- FLAIR hyperintensity in the pons on the left side and three small enhancing lesions: one in the pons on the left side, two in the basal ganglia, one on each side (arrows).",case0136,3
+case0136_004.png,"Initial brain MRI. Coronal (A) and axial (B) T2-weighted, axial T2- FLAIR-weighted (C), axial T1-weighted (D), axial contrast-enhanced T1-weighted (E-H) images. A T2-hyperintense fusiform swollen left optic nerve with intense homogeneous enhancement after contrast administration is observed, both involving the intraorbital and intracanalicular segments. There is a small focal T2- FLAIR hyperintensity in the pons on the left side and three small enhancing lesions: one in the pons on the left side, two in the basal ganglia, one on each side (arrows).",case0136,4
+case0136_005.png,Follow-up brain MRI obtained 3 months later. Axial T2-FLAIR-weighted (A) and axial contrast-enhanced T1-weighted (B) images. Progressive disease with multiple new expansile infiltrating FLAIR-hyperintense lesions with ring enhancement in the brain with extension into the pre-chiasmatic segment of the left optic nerve as well as the optic chiasm.,case0136,5
+case0259_001.png,Axial FLAIR image showing confluent fluffy and poorly demarcated FLAIR hyperintensities in bilateral frontoparietal subcortical matter. No significant mass effect is seen.,case0259,1
+case0267_003.png,T2 coronal: Diffuse atrophy of left cerebral hemisphere with ex vacuo dilatation of the adjacent ventricle. Atrophy of the contralateral right cerebellar hemisphere.,case0267,3
+case0267_002.png,T1 axial at cerebellar level: Diffuse atrophy of the right cerebellar hemisphere compared to the left.,case0267,2
+case0267_001.png,DWI axial sequence: No evidence of diffusion restriction suggesting old ischemic insult.,case0267,1
+case0222_002.png,"Axial T2 (a-c) and FLAIR images (d-f) showing hyperintensity of the hippocampi, caudate nuclei, putamina, globus pallidus and cerebral cortex. Normal signal intensity of the thalami and cerebellum. Axial T1 shows no abnormalities (not shown)",case0222,2
+case0222_003.png,"Axial T2 (a-c) and FLAIR images (d-f) showing hyperintensity of the hippocampi, caudate nuclei, putamina, globus pallidus and cerebral cortex. Normal signal intensity of the thalami and cerebellum. Axial T1 shows no abnormalities (not shown)",case0222,3
+case0222_004.png,"Axial T2 (a-c) and FLAIR images (d-f) showing hyperintensity of the hippocampi, caudate nuclei, putamina, globus pallidus and cerebral cortex. Normal signal intensity of the thalami and cerebellum. Axial T1 shows no abnormalities (not shown)",case0222,4
+case0222_005.png,"DWI (a, c, e) and ADC map (b, d, f) at the same levels as Figure 1 showing restricted diffusion in the hippocampi, cerebral cortex (note perirolandic sparing) and globi pallidi. T2 shine-through effect is seen in the putamina and caudate nuclei",case0222,5
+case0222_006.png,"DWI (a, c, e) and ADC map (b, d, f) at the same levels as Figure 1 showing restricted diffusion in the hippocampi, cerebral cortex (note perirolandic sparing) and globi pallidi. T2 shine-through effect is seen in the putamina and caudate nuclei",case0222,6
+case0222_001.png,"DWI (a, c, e) and ADC map (b, d, f) at the same levels as Figure 1 showing restricted diffusion in the hippocampi, cerebral cortex (note perirolandic sparing) and globi pallidi. T2 shine-through effect is seen in the putamina and caudate nuclei",case0222,1
+case0113_001.png,T1W axial image shows a well defined hyperintense lesion in right frontal region.,case0113,1
+case0113_002.png,T2W axial image shows a well defined mixed signal intensity lesion in right frontal region with surrounding hemosiderin rim.,case0113,2
+case0113_003.png,T2W axial image shows a well defined mixed signal intensity lesion in left cerebellar hemisphere showing peripheral hypointense hemosiderin rim,case0113,3
+case0247_001.png,"On T2 weighted axial image, gross proximal hydrocephalus in form symmetrical dilatation of bilateral lateral ventricles and third ventricle due to compression over sylvian aqueduct",case0247,1
+case0261_001.png,"Brain axial T2 image, showing hyperintensity in the posterior periventricular region, splenium of the corpus callosum and posterior limb of the internal capsule.",case0261,1
+case0261_002.png,"Brain coronal section T2 image, showing hyperintensity in white matter tracts of pons and medulla.",case0261,2
+case0261_003.png,"Brain axial FLAIR image, showing hyperintensity in areas as in T2.",case0261,3
+case0261_004.png,"Brain axial T1 image, showing hypointensity in the region of the splenium of the corpus callosum, white matter tracts in the periventricular region.",case0261,4
+case0034_003.png,A well-defined midline abnormal signal intensity area appearing hyperintense on T2W sequence.,case0034,3
+case0034_004.png,"A large midline abnormal signal intensity area partial suppression on Flair sequence giving ""dirty CSF"" appearance.",case0034,4
+case0034_001.png,"A large infratentorial midline abnormal signal intensity area appearing hypointense on T1W  sequence showing typical ""dirty CSF"" appearance.",case0034,1
+case0034_002.png,No enhancement on post-Gadolinium sequences.,case0034,2
+case0034_005.png,Dilated lateral ventricle,case0034,5
+case0037_001.png,Contrast-enhancement of the nerve sheath on coronal planes.,case0037,1
+case0131_001.png,Brain MRI and CT images obtained 4 years before,case0131,1
+case0131_002.png,Brain MRI and CT images obtained 4 years before,case0131,2
+case0131_003.png,Transverse T2-FLAIR; DWI and CT images performed at admission,case0131,3
+case0192_001.png,Axial T2: These lesions appears hypointense on T2W sequence,case0192,1
+case0192_002.png,"Coronal T1 post contrast: Similar nodular lesions are seen along with dural thickening in the left parieto-occipital region,in parafalcine region also along falx cerebri which are homogeneously enhancing on post contrast sequence",case0192,2
+case0165_001.png,Sagital T2 image shows a solid-cystic tumor enlarging the fourth ventricle (arrow),case0165,1
+case0106_003.png,"T2 axial scan shows heterogeneously hypointense lesion involving pons predominantly on left side, with surrounding hyperintensity due to oedema. The lesion posteriorly causes narrowing of fourth ventricle.",case0106,3
+case0106_004.png,On FLAIR sequence the lesion appears hypo to isointense with internal hypointense area. Surrounding area of both cerebellar hemisphere also appears hyperintense due to perilesional oedema.,case0106,4
+case0106_001.png,On postcontrast T1 fat sat scan ring-enhancing lesion is seen involving pons predominantly on left side.,case0106,1
+case0106_002.png,Postcontrast T1 iso 3D sequence also shows ring-enhancing lesion.,case0106,2
+case0140_001.png,"Bilateral T2 hypo-intensity at the medial and lateral segments of the globus pallidus, separated by a thin hyperintense band on T2.",case0140,1
+case0256_001.png,"Axial T2 (a), fat sat pre-contrast T1 (b) and fat sat post-contrast T1 (c) weighted images show a T1/T2 isointense extra-axial dural-based lesion. This lesion causes mass effect on the underlying brain parenchyma with associated vasogenic oedema (black arrowhead) and midline shift. The lesion shows avid enhancement with a dural tail (black arrow) on the post-contrast image.",case0256,1
+case0108_001.png,DWI axial slice shows medial bilateral thalamic hyperintensities.,case0108,1
+case0108_003.png,In the T2W axial image medial thalamic hyperintensities are seen.,case0108,3
+case0108_004.png,In the T2W axial image performed one month before without the thalamic hyperintensities.,case0108,4
+case0108_002.png,Axial T1 slice after contrast administration showing enhancement of mammilary bodies.,case0108,2
+case0044_001.png,Ipsilateral old pontine haemorrhage,case0044,1
+case0111_001.png,Figure 2a. Axial T2W image showing atrophy of bilateral optic nerves.,case0111,1
+case0088_004.png,"After paramagnetic contrast intravenous injection, the lesion demonstrates intense enhancement.",case0088,4
+case0088_001.png,Axial DWI high b-value. Difussion restriction is demonstrated.,case0088,1
+case0088_002.png,ADC map displays low ADC.,case0088,2
+case0088_003.png,The tumour shows iso-signal intensity on T2WI,case0088,3
+case0032_002.png,Sagittal MRI shows lesion in the left temporal lobe with hypointensity in T1-weighted images. It is superficially located and shows no mass effect.,case0032,2
+case0032_001.png,Intracortical mass with hyperintense signal on flair at the borders (FLAIR hyperintense rim sign).,case0032,1
+case0220_002.png,"Axial MRI (A and B) T2 WIs, axial (C) ADC map image and sagittal (D) pre and post IV contrast T1 WIs demonstrate T2 hyperintensity and T1 hypointensity in the medulla oblongata, pons and bilateral middle cerebellar peduncles with facilitated diffusion suggestive of vasogenic edema. Dilated engorged perimedullary vein (red arrow in A). Patchy enhancement post IV contrast injection",case0220,2
+case0220_001.png,"Two weeks post-operative MRI axial (A, B and C) T2 WIs, and lateral oblique projection (D) conventional angiography of the right internal carotid artery demonstrate significant reduction in the brainstem edema and non-visualization of the previously noted engorged perimedullary vein (red arrow in A). Almost complete obliteration of the fistula with very minimal residual filling of the venous varix (yellow arrow in D) at the posterolateral wall of the right cavernous sinus and non-visualized completely obliterated previously noted posterior draining vein",case0220,1
+case0260_001.png,"Axial T2 (a, b) and FLAIR (c, d) images show hyperintensity in the subcortical white matter of the motor cortex (green arrow) and bilateral centrum semiovale with precentral cortical T2 hypo intensity (red arrow). The posterior limb of the internal capsule shows diffusion restriction (e, f). Multiple T2 and FLAIR hyperintense small ischemic foci in white matter.",case0260,1
+case0161_003.png,Hypointense interhemispheric mass with small T1 hyperintense foci,case0161,3
+case0161_005.png,The interhemispheric mass is T2 hyperintense,case0161,5
+case0161_001.png,Linear and serpiginous hypointense structures coursing towards the hypointense interhemispheric mass,case0161,1
+case0161_002.png,Intense enhancement noted,case0161,2
+case0161_004.png,Venous drainage to inferior sagittal sinus,case0161,4
+case0021_001.png,Figure 1a: Coronal T2W image showing fusion of both lateral ventricles in their bodies and lower position of the fornix.,case0021,1
+case0021_002.png,Figure 1c: Axial T2W image showing fusion of both lateral ventricles in their bodies and more or less normal frontal horns and atria of the lateral ventricles. Rest of both cerebral hemispheres are normal.,case0021,2
+case0028_001.png,Sagittal FLAIR image shows irregularity of cortical surface and abnormally thick cerebral cortex in frontal and parieto-occipital regions,case0028,1
+case0224_001.png,Coronal T1WI shows bulky optic chiasma with hypointense signal.,case0224,1
+case0224_002.png,Coronal T1WI shows hypointense signal in hypothalamus.,case0224,2
+case0269_001.png,Coronal T1W MRI image shows lateral ventricles with pointing down aspect of frontal horns (yellow arrows).,case0269,1
+case0239_005.png,Axial T2w showing the markedly enlarged lateral ventricles with associated transependymal oedema,case0239,5
+case0239_001.png,Axial and sagittal FLAIR showing cystic components that appear hyperintense compared to CSF. The solid nodule is heterogeneously hyperintense to grey matter,case0239,1
+case0239_002.png,Axial FLAIR providing better contrast between suppressed CSF signal and hyperintense transependymal oedema,case0239,2
+case0239_003.png,"Axial, sagittal and coronal post-contrast T1w showing inhomogeneous contrast enhancement of the mass due to its solid-cystic nature",case0239,3
+case0239_004.png,"Axial, sagittal and coronal post-contrast T1w showing inhomogeneous contrast enhancement of the mass due to its solid-cystic nature",case0239,4
+case0027_001.png,Axial T2 FLAIR obtained at a slightly caudal level: note the involvement of the rostral midbrain characterized by the hyperintensity of the left red nucleus.,case0027,1
+case0027_002.png,C.E. Axial GE T1 3D: damage of the blood brain barrier at this time is remarked by the enhancement of the lesion following contrast media administration.,case0027,2
+case0039_001.png,A large well-defined well circumscribed midline infratentorial cystic lesion appearing hypointense on T1W image.,case0039,1
+case0039_002.png,Lesion appears brightly hyperintense on T2W image.,case0039,2
+case0083_001.png,This midsagittal T1-weighted image shows atrophy of midbrain tegmentum with the appearance of a hummingbird.,case0083,1
+case0128_001.png,"Head CT shows punctuated calcifications in the brain (a). FLAIR show brain oedema waxed and waned in December 2016 (b), January (c), March (d), June 2017 (e) when the patient received anthelmintic treatment. All these oedemas transpired around the calcified lesions displayed on CT. When corticosteroid was used in July 2017, all lesions disappeared (f), but oedema recurred when corticosteroid treatment ceased in October 2017 (g) and November 2017 (h).",case0128,1
+case0128_002.png,"Head CT shows punctuated calcifications in the brain (a). FLAIR show brain oedema waxed and waned in December 2016 (b), January (c), March (d), June 2017 (e) when the patient received anthelmintic treatment. All these oedemas transpired around the calcified lesions displayed on CT. When corticosteroid was used in July 2017, all lesions disappeared (f), but oedema recurred when corticosteroid treatment ceased in October 2017 (g) and November 2017 (h).",case0128,2
+case0128_003.png,"Head CT shows punctuated calcifications in the brain (a). FLAIR show brain oedema waxed and waned in December 2016 (b), January (c), March (d), June 2017 (e) when the patient received anthelmintic treatment. All these oedemas transpired around the calcified lesions displayed on CT. When corticosteroid was used in July 2017, all lesions disappeared (f), but oedema recurred when corticosteroid treatment ceased in October 2017 (g) and November 2017 (h).",case0128,3
+case0128_004.png,"Head CT shows punctuated calcifications in the brain (a). FLAIR show brain oedema waxed and waned in December 2016 (b), January (c), March (d), June 2017 (e) when the patient received anthelmintic treatment. All these oedemas transpired around the calcified lesions displayed on CT. When corticosteroid was used in July 2017, all lesions disappeared (f), but oedema recurred when corticosteroid treatment ceased in October 2017 (g) and November 2017 (h).",case0128,4
+case0107_001.png,Diffuse cortical swelling and hyperintensity.,case0107,1
+case0115_007.png,"Micronodule abscess into the right centrum semiovale characterised by hyperintensity with a hypointense ring on T2WI (Fig. 3a), hypointensity on ADC map (Fig. 3b), “dual rim sign” on SWI (Fig. 3c) and ring enhancement on T1 after contrast (Fig. 3d).",case0115,7
+case0115_001.png,"Micronodule abscess into the right centrum semiovale characterised by hyperintensity with a hypointense ring on T2WI (Fig. 3a), hypointensity on ADC map (Fig. 3b), “dual rim sign” on SWI (Fig. 3c) and ring enhancement on T1 after contrast (Fig. 3d).",case0115,1
+case0115_002.png,"Micronodule abscess into the right centrum semiovale characterised by hyperintensity with a hypointense ring on T2WI (Fig. 3a), hypointensity on ADC map (Fig. 3b), “dual rim sign” on SWI (Fig. 3c) and ring enhancement on T1 after contrast (Fig. 3d).",case0115,2
+case0115_003.png,"MR. FLAIR images show a ventricular enlargement with a subependymal rim of hyperintensity corresponding to transependymal oedema. Hyperintense material is visible in the occipital horns of the lateral ventricles (Fig. 4a), in the trigones (Fig. 4b), in the body of the lateral ventricles (Fig. 4c). DWI (b=1000) images evidence restricted diffusion of material in the fourth ventricle and in the prepontine cystern (Fig. 4d) and in the lateral ventricles (Fig.4e). After contrast injection FSPGR images show subependymal enhancement of the right ventricle (Fig. 4f).",case0115,3
+case0115_004.png,"MR. FLAIR images show a ventricular enlargement with a subependymal rim of hyperintensity corresponding to transependymal oedema. Hyperintense material is visible in the occipital horns of the lateral ventricles (Fig. 4a), in the trigones (Fig. 4b), in the body of the lateral ventricles (Fig. 4c). DWI (b=1000) images evidence restricted diffusion of material in the fourth ventricle and in the prepontine cystern (Fig. 4d) and in the lateral ventricles (Fig.4e). After contrast injection FSPGR images show subependymal enhancement of the right ventricle (Fig. 4f).",case0115,4
+case0115_005.png,MR examination obtained after one month of antibiotic therapy and external ventricular drainage (Campylobacter rectus was the agent isolated from the CSF). T2WI (Fig. 5a) and FSPGR image with contrast show the reduction of the abscess. Pus is absent in the ventricles as documented with DWI (b=1000) in Fig. 5c. No subependymal enhancement is appreciated after contrast injection in FSPGR (Fig. 5d). The right ventricle is partially collapsed after external ventricular drainage.,case0115,5
+case0115_006.png,MR examination obtained after one month of antibiotic therapy and external ventricular drainage (Campylobacter rectus was the agent isolated from the CSF). T2WI (Fig. 5a) and FSPGR image with contrast show the reduction of the abscess. Pus is absent in the ventricles as documented with DWI (b=1000) in Fig. 5c. No subependymal enhancement is appreciated after contrast injection in FSPGR (Fig. 5d). The right ventricle is partially collapsed after external ventricular drainage.,case0115,6
+case0278_001.png,Axial sections of the MRI brain in the susceptibility-weighted imaging (SWI) show blooming (hypointensities) within the lesion (2a). The lesion does not restrict diffusion on diffusion-weighted imaging (2b).,case0278,1
+case0278_002.png,Axial sections of the MRI brain in the susceptibility-weighted imaging (SWI) show blooming (hypointensities) within the lesion (2a). The lesion does not restrict diffusion on diffusion-weighted imaging (2b).,case0278,2
+case0135_001.png,"Initial brain MRI obtained 2 days after admission. Axial T2-weighted (A), T2-FLAIR weighted (B, C), diffusion-weighted (D)and contrast-enhanced T1-weighted (E, F) images. Observe the T2/FLAIR signal hyperintensity involving the brainstem, predominantly the pons, without restricted diffusivity, but with multiple associated patchy spot-like and curvilinear areas of contrast enhancement “peppering” the pons with minimal extension into the middle cerebellar peduncles.",case0135,1
+case0135_005.png,"Initial brain MRI obtained 2 days after admission. Axial T2-weighted (A), T2-FLAIR weighted (B, C), diffusion-weighted (D)and contrast-enhanced T1-weighted (E, F) images. Observe the T2/FLAIR signal hyperintensity involving the brainstem, predominantly the pons, without restricted diffusivity, but with multiple associated patchy spot-like and curvilinear areas of contrast enhancement “peppering” the pons with minimal extension into the middle cerebellar peduncles.",case0135,5
+case0135_006.png,"Initial brain MRI obtained 2 days after admission. Axial T2-weighted (A), T2-FLAIR weighted (B, C), diffusion-weighted (D)and contrast-enhanced T1-weighted (E, F) images. Observe the T2/FLAIR signal hyperintensity involving the brainstem, predominantly the pons, without restricted diffusivity, but with multiple associated patchy spot-like and curvilinear areas of contrast enhancement “peppering” the pons with minimal extension into the middle cerebellar peduncles.",case0135,6
+case0135_002.png,"Follow-up brain MRI obtained 10 days after steroid treatment. Axial T2-weighted (A), T2-FLAIR weighted (B), and contrast-enhanced T1-weighted (C) images. Partial resolution of the T2 signal abnormalities and contrast enhancemnet is observed.",case0135,2
+case0135_003.png,"Follow-up brain MRI obtained 10 days after steroid treatment. Axial T2-weighted (A), T2-FLAIR weighted (B), and contrast-enhanced T1-weighted (C) images. Partial resolution of the T2 signal abnormalities and contrast enhancemnet is observed.",case0135,3
+case0135_004.png,"Follow-up brain MRI obtained 10 days after steroid treatment. Axial T2-weighted (A), T2-FLAIR weighted (B), and contrast-enhanced T1-weighted (C) images. Partial resolution of the T2 signal abnormalities and contrast enhancemnet is observed.",case0135,4
+case0085_003.png,"Sagittal T1 reveals a solid, polylobulated, slightly heterogeneous and predominantly isointense mass centered on the third ventricle anterior recess.",case0085,3
+case0085_004.png,Coronal T1 shows the displacement of the floor of the third ventricle.,case0085,4
+case0085_002.png,Coronal T2 shows the hyperintense mass with perilesional vasogenic oedema.,case0085,2
+case0085_001.png,"After paramagnetic contrast intravenous injection, the lesion demonstrated intense enhancement.",case0085,1
+case0175_001.png,"Brain MRI, FLAIR sequence; medial bilateral temporal lobe hyperintensity and grey-white matter dedifferentiation, mostly affecting the right hemisphere",case0175,1
+case0175_002.png,"Brain MRI, FLAIR sequence; medial bilateral temporal lobe hyperintensity and grey-white matter dedifferentiation, mostly affecting the right hemisphere",case0175,2
+case0175_003.png,"Brain MRI, FLAIR sequence; right insular hyperintensity, similar to the findings in both temporal lobes",case0175,3
+case0157_001.png,axial T1 C+ MR shows an intensely and homogeneously enhancing mass in the middle and superior aspect of the cerebellum,case0157,1
+case0157_002.png,axial T1 C+ MR shows an intensely and homogeneously enhancing mass in the right cerebellar hemisphere,case0157,2
+case0157_003.png,Sagittal T1 C+ MR shows an intensely and homogeneously enhancing mass in the middle and superior aspect of the cerebellum,case0157,3
+case0189_001.png,Axial T1-weighted image of the brain shows an extra-axial lesion with signal intensity change in the adjacent bone,case0189,1
+case0189_006.png,"Axial Heme-weighted image of the brain shows no blooming effect, translating no calcification or blood components",case0189,6
+case0189_007.png,Axial DWI weighted image of the brain shows no diffusion restriction,case0189,7
+case0189_008.png,"Axial gadolinium enhanced T1-weighted image shows homogeneous enhancement, dural tail sign, and brain infiltration",case0189,8
+case0189_002.png,Axial DWI weighted image of the brain shows some hyperintense areas due to high diffusion restriction,case0189,2
+case0189_003.png,"Axial ADC weighted image of the brain shows low signal intensity areas, confirming diffusion restricted areas",case0189,3
+case0189_004.png,Axial gadolinium enhanced T1-weighted image shows capsular enhancement,case0189,4
+case0189_005.png,"Axial DWI of the brain shows no increased diffusion restriction, meaning the resolution of the abscess",case0189,5
+case0253_001.png,"T2 coronal, T2 axial, T1 sagittal and T1 post-contrast sagittal images (2a, 2b, 2c and 2d) reveal T1 isointense, T2 intermediate solid dural lesion along the right parietal lobe with adjacent vasogenic oedema. It shows relatively homogenous enhancement.",case0253,1
+case0236_003.png,T2 weighted axial image at the level of pons shows an ovoid hyperintense lesion,case0236,3
+case0236_002.png,Hyperintense lesions in right centrum semiovale and pons,case0236,2
+case0236_001.png,Isointense lesion on the left side of the dorsal medulla,case0236,1
+case0177_001.png,Axial cranial T1 MR; The pathological  signal at the left globus pallidus   level can be difficulty selected in T1 image,case0177,1
+case0177_002.png,Axial cranial T2 MR; A hyperintense pathological signal is observed at the left globus pallidus level,case0177,2
+case0177_003.png,Axial cranial FLAIR  MR; A hyperintense pathological signal is observed at the left globus pallidus level,case0177,3
+case0177_004.png,Sagittal cranial T2   MR; A hyperintense pathological signal is observed at the left globus pallidus level,case0177,4
+case0248_001.png,SWI imaging. Blooming on SWI consistent with calcification,case0248,1
+case0105_001.png,T1-weighted sequence with contrast. Prominent homogeneous enhancement of the right perimedullary cistern lesion.,case0105,1
+case0270_002.png,MRI brain T2 axial image revealed diffuse symmetrical hyperintense signals in bilateral cerebral white matter.,case0270,2
+case0270_003.png,MRI brain T2 axial image revealed T2 hyperintense cysts in the subcortical location along the bilateral temporal region anteriorly.,case0270,3
+case0270_004.png,MRI brain FLAIR axial image revealed diffuse mirror like hyperintense signals in bilateral cerebral hemisphere white matter.,case0270,4
+case0270_001.png,MRI brain T1 post-contrast axial images at two different levels revealed no significant enhancement with no enhancing component within the anterior temporal lobar cysts.,case0270,1
+case0170_002.png,Axial T1-weighted MR image of brain shows hypointense signal in the lesion in the middle cranial fossa.,case0170,2
+case0170_003.png,"Axial T2-weighted MR image of brain shows hyperintense signal within the lesion, thus confirming cystic nature of the lesion. It follows CSF signal on all pulse sequences.",case0170,3
+case0170_001.png,Axial section of GRE image does not show any area of blooming to suggest intracranial hemorrhage.,case0170,1
+case0097_005.png,Fourth ventricular mass demonstrates avid enhancement on post-contrast sequences.,case0097,5
+case0097_006.png,Fourth ventricular mass demonstrates avid enhancement on post-contrast sequences.,case0097,6
+case0097_001.png,Fourth ventricular mass demonstrates avid enhancement on post-contrast sequences.,case0097,1
+case0097_004.png,Fourth ventricular mass demonstrates avid enhancement on post-contrast sequences.,case0097,4
+case0097_002.png,Brain MRI demonstrates a fourth ventricular mass. The mass is hyperintense on T2.,case0097,2
+case0097_003.png,Brain MRI demonstrates a fourth ventricular mass. The mass hyperintense on FLAIR.,case0097,3
+case0042_001.png,Coronal FLAIR depicts a bilateral mesiotemporal lobe involvement,case0042,1
+case0010_001.png,"MRI brain shows admixed signal intensity lesion in T2 and FLAIR which surrounding area of signal drop due hemosiderin rim surrounding the lesion (2b, 2C).",case0010,1
+case0010_002.png,On post contrast sequences shows central enhancing vessels within the area of hypointensity in LT frontal lobe (atypical finding).,case0010,2
+case0057_002.png,"Plain T2WI axial images  shows hypointense lobulated lesion in the trigone of  the left lateral ventricle. Well-defined hyperintense cystic lesion adjacent to the lesion, suggestive of peritumoral cyst.",case0057,2
+case0057_001.png,"The leison in trigone of the left lateral ventricle shows blooming on FFE images, consistent with calcification.",case0057,1
+case0046_001.png,High signal localising to the head of the right caudate nucleus.,case0046,1
+case0151_003.png,"T1WI in the axial plane with hypo intense signal changes of the left basal ganglia, especially notable at the level of the caudate nucleus and the anterior part of the putamen.",case0151,3
+case0151_004.png,"T2-FLAIR image in the axial plane with hypo intense signal changes of the left basal ganglia, especially notable at the level of the caudate nucleus and the anterior part of the putamen.",case0151,4
+case0151_005.png,"SWI in the axial plane with hypo intense signal changes of the left basal ganglia, especially notable at the level of the caudate nucleus and the anterior part of the putamen.",case0151,5
+case0151_006.png,Axial SWI images showing small veins (a) at the basal ganglia converging in a larger anomalous vein (b) compatible with a developmental venous anomaly.,case0151,6
+case0151_007.png,Axial SWI images showing small veins (a) at the basal ganglia converging in a larger anomalous vein (b) compatible with a developmental venous anomaly.,case0151,7
+case0151_001.png,Axial T1WI with gadolinium showing small veins (a) at the basal ganglia converging in a larger anomalous vein (b) compatible with a developmental venous anomaly.,case0151,1
+case0151_002.png,Sagittal (c) and coronal (d) T1WI with gadolinium showing small veins at the basal ganglia (c-d) converging in a larger anomalous vein (d) compatible with a developmental venous anomaly.,case0151,2
+case0009_002.png,MRI T2W axial image shows a well-defined hyperintense lesion with inner hypointense area noted in left cerebellum. The lesion shows mild perilesional oedema and causes compression over 4th ventricle resulting in mild hydrocephalus.,case0009,2
+case0009_001.png,"On DWI imaging, the lesion does not show diffusion restriction.",case0009,1
+case0009_003.png,T1W post-contrast sagittal image shows peripheral rim enhancement of the lesion with minimal enhancement in inner solid component.,case0009,3
+case0009_004.png,T1 contrast coronal image shows peripheral rim enhancement with minimal enhancement in solid component.,case0009,4
+case0056_004.png,T2-weighted axial images demonstrate bilateral symmetrical dominant hyperintensity of lentiform and caudate nuclei. Note of minimal signal changes in thalamus.,case0056,4
+case0056_005.png,"T2-weighted axial images demonstrate bilateral symmetrical dominant hyperintensity of basal ganglia, mixed with small low signal foci.",case0056,5
+case0056_001.png,Axial T1-weighted images show symmetrical reduced signal in basal ganglia.,case0056,1
+case0056_002.png,Axial T2* GRE images demonstrate susceptibility changes with focal hypointensities in putamen.,case0056,2
+case0056_003.png,"T2-fluid attenuated inversion recovery (Flair) coronal images reveal central reduced signal with peripheral hypointense rim, suggesting oedema/fluid contents.",case0056,3
+case0152_001.png,MR axial post-gadolinium. Open-ring enhancement.,case0152,1
+case0174_001.png,"T2 demonstrates hyperintense areas, notably in the left centrum semiovale and subcortical frontoparietal white matter",case0174,1
+case0174_002.png,FLAIR demonstrates the same areas conspicuously,case0174,2
+case0174_003.png,"Post-gadolinium T1 demonstrates the lesions with irregular enhancement, with a small ring or serpiginous patterns",case0174,3
+case0174_004.png,"DWI demonstrates restricted diffusion within the lesions, indicating abscesses",case0174,4
+case0174_005.png,Post-gadolinium T1 demonstrates lesions with ring and micronodular enhancement in the midbrain and left temporal lobe,case0174,5
+case0022_002.png,MR T2W axial image of brain showing CSF filled cavity between both lateral ventricles extending from genu to splenium of the corpus callosum.,case0022,2
+case0022_001.png,"MR FLAIR coronal image of the brain, section taken posterior to foramen of Monro showing cavum vergae.",case0022,1
+case0204_001.png,"Abnormal altered signal intensity areas appearing hypointense on T1 and hyperintense on T2/FLAIR, showing diffusion restriction and without post contrast enhancement noted in pons and pontine corticospinal tracts – suggestive of acute metabolic disease with cytotoxic edema",case0204,1
+case0204_002.png,Cystic encephalomalacia with peripheral areas of diffusion restriction were noted involving bilateral frontal and parietal regions- suggestive of brain cavitation with perilesional cytotoxic edema/inflammation,case0204,2
+case0258_001.png,Magnetic susceptibility sequence (FFE) hypointensity of the right basal nuclei.,case0258,1
+case0266_001.png,Axial post-contrast T1 image. Mass in the posterior fossa with heterogeneous enhancement.,case0266,1
+case0238_001.png,T2 axial MRI at the level of temporal horns showing superior extension of heterogenous hyperintense lesion at right CP angle,case0238,1
+case0238_002.png,"T2 axial images showing mild hydrocephalus, secondary to mass effect at 4th ventricle and mild peri-ventricular ooze",case0238,2
+case0060_001.png,Cystic and solid intrasellar/suprasellar mass with compression of the normal enhancing adenohypophysis inferiorly and marked mass effect and displacement of the hypothalamus.,case0060,1
+case0060_002.png,Cystic and solid intrasellar/suprasellar mass with compression of the normal enhancing adenohypophysis inferiorly and marked mass effect and displacement of the hypothalamus.,case0060,2
+case0060_003.png,Cystic and solid intrasellar/suprasellar mass with compression of the normal enhancing adenohypophysis inferiorly and marked mass effect and displacement of the hypothalamus.,case0060,3
+case0060_004.png,Cystic and solid intrasellar/suprasellar mass with compression of the normal enhancing adenohypophysis inferiorly and marked mass effect and displacement of the hypothalamus.,case0060,4
+case0191_004.png,"Department of Radio Diagnosis, Shri Sathya Sai Medical College and Research Institute, Kancheepuram, India",case0191,4
+case0191_005.png,"Department of Radio Diagnosis, Shri Sathya Sai Medical College and Research Institute, Kancheepuram, India",case0191,5
+case0191_006.png,"Department of Radio Diagnosis, Shri Sathya Sai Medical College and Research Institute, Kancheepuram, India",case0191,6
+case0191_007.png,"Department of Radio Diagnosis, Shri Sathya Sai Medical College and Research Institute, Kancheepuram, India",case0191,7
+case0191_001.png,"Department of Radio Diagnosis, Shri Sathya Sai Medical College and Research Institute, Kancheepuram, India",case0191,1
+case0191_002.png,"Department of Radio Diagnosis, Shri Sathya Sai Medical College and Research Institute, Kancheepuram, India",case0191,2
+case0191_003.png,"Department of Radio Diagnosis, Shri Sathya Sai Medical College and Research Institute, Kancheepuram, India",case0191,3
+case0141_001.png,MRI. Axial T2-WI (a) and axial FLAIR images (b) demonstrate increased signal in the left frontal lobe with a centrally located cyst (void arrow). Axial T1 MPRAGE sequence (c) shows decreased corticomedullary differentiation in the left frontal lobe with a centrally located cyst (void arrow). Axial T2* images (d) show absence of susceptibility artefact. No significant contrast enhancement on axial contrast-enhanced T1 MPRAGE images (e) and  subtraction images (f). Axial B1000 diffusion-weighted images (g) with ADC-mapping (h) show no diffusion restriction.,case0141,1
+case0141_002.png,MRI. Axial T2-WI (a) and axial FLAIR images (b) demonstrate increased signal in the left frontal lobe with a centrally located cyst (void arrow). Axial T1 MPRAGE sequence (c) shows decreased corticomedullary differentiation in the left frontal lobe with a centrally located cyst (void arrow). Axial T2* images (d) show absence of susceptibility artefact. No significant contrast enhancement on axial contrast-enhanced T1 MPRAGE images (e) and  subtraction images (f). Axial B1000 diffusion-weighted images (g) with ADC-mapping (h) show no diffusion restriction.,case0141,2
+case0141_003.png,MRI. Axial T2-WI (a) and axial FLAIR images (b) demonstrate increased signal in the left frontal lobe with a centrally located cyst (void arrow). Axial T1 MPRAGE sequence (c) shows decreased corticomedullary differentiation in the left frontal lobe with a centrally located cyst (void arrow). Axial T2* images (d) show absence of susceptibility artefact. No significant contrast enhancement on axial contrast-enhanced T1 MPRAGE images (e) and  subtraction images (f). Axial B1000 diffusion-weighted images (g) with ADC-mapping (h) show no diffusion restriction.,case0141,3
+case0141_004.png,MRI. Axial T2-WI (a) and axial FLAIR images (b) demonstrate increased signal in the left frontal lobe with a centrally located cyst (void arrow). Axial T1 MPRAGE sequence (c) shows decreased corticomedullary differentiation in the left frontal lobe with a centrally located cyst (void arrow). Axial T2* images (d) show absence of susceptibility artefact. No significant contrast enhancement on axial contrast-enhanced T1 MPRAGE images (e) and  subtraction images (f). Axial B1000 diffusion-weighted images (g) with ADC-mapping (h) show no diffusion restriction.,case0141,4
+case0160_001.png,Axial T2W images from top to bottom show symmetric hyperintensity involving a) Periventricular region b) Posterior limb of internal capsule  c) crus cerebri d) corticospinal tracts and medial lemniscus in brainstem,case0160,1
+case0160_002.png,Axial T2W images from top to bottom show symmetric hyperintensity involving a) Periventricular region b) Posterior limb of internal capsule  c) crus cerebri d) corticospinal tracts and medial lemniscus in brainstem,case0160,2
+case0160_003.png,Axial T2W images from top to bottom show symmetric hyperintensity involving a) Periventricular region b) Posterior limb of internal capsule  c) crus cerebri d) corticospinal tracts and medial lemniscus in brainstem,case0160,3
+case0142_001.png,MR axial T1WI showing a well defined solid cystic lesion with solid component appearing hypointense and the cystic component appearing even more hypointense similar to CSF signal intensity.,case0142,1
+case0142_002.png,MR axial FLAIR image showing partial suppression of signal from the cystic component.,case0142,2
+case0142_003.png,MR axial DWI showing no evidence of diffusion restriction.,case0142,3
+case0277_001.png,"Pre-surgical MRI: The lesion appears hypointense on both the T1-weighted (2a) and T2-weighted (2b) axial images. In the axial image of the susceptibility-weighted sequence (2c), it is markedly hypointense, suggesting a calcified lesion. The coronal (2d) and axial (2e) images obtained after intravenous contrast administration show enhancement of the lesion. Additionally, the axial diffusion-weighted imaging (DWI) (2f) does not demonstrate diffusion restriction, probably due to its fibrotic/calcified component.",case0277,1
+case0277_002.png,"Pre-surgical MRI: The lesion appears hypointense on both the T1-weighted (2a) and T2-weighted (2b) axial images. In the axial image of the susceptibility-weighted sequence (2c), it is markedly hypointense, suggesting a calcified lesion. The coronal (2d) and axial (2e) images obtained after intravenous contrast administration show enhancement of the lesion. Additionally, the axial diffusion-weighted imaging (DWI) (2f) does not demonstrate diffusion restriction, probably due to its fibrotic/calcified component.",case0277,2
+case0277_003.png,"Pre-surgical MRI: The lesion appears hypointense on both the T1-weighted (2a) and T2-weighted (2b) axial images. In the axial image of the susceptibility-weighted sequence (2c), it is markedly hypointense, suggesting a calcified lesion. The coronal (2d) and axial (2e) images obtained after intravenous contrast administration show enhancement of the lesion. Additionally, the axial diffusion-weighted imaging (DWI) (2f) does not demonstrate diffusion restriction, probably due to its fibrotic/calcified component.",case0277,3
+case0277_004.png,"Pre-surgical MRI: The lesion appears hypointense on both the T1-weighted (2a) and T2-weighted (2b) axial images. In the axial image of the susceptibility-weighted sequence (2c), it is markedly hypointense, suggesting a calcified lesion. The coronal (2d) and axial (2e) images obtained after intravenous contrast administration show enhancement of the lesion. Additionally, the axial diffusion-weighted imaging (DWI) (2f) does not demonstrate diffusion restriction, probably due to its fibrotic/calcified component.",case0277,4
+case0059_001.png,Axial FLAIR  shows minimal periventricular subependymal margin signal abnormality outlining both lateral ventricles suggesting accentuation of the periventricular subependymal margin.,case0059,1
+case0059_002.png,Axial FLAIR  shows minimal periventricular subependymal margin signal abnormality outlining both lateral ventricles suggesting accentuation of the periventricular subependymal margin.,case0059,2
+case0059_003.png,"Axial T1 Gadolinium-enhanced images demonstrate diffuse engorgement of multiple vascular structures extending from hemispheric cortex through subcortical white matter, deep white matter and subependymal margins.",case0059,3
+case0059_004.png,"Axial T1 Gadolinium-enhanced images demonstrate diffuse engorgement of multiple vascular structures extending from hemispheric cortex through subcortical white matter, deep white matter and subependymal margins.",case0059,4
+case0059_005.png,"Coronal T1 Gadolinium-enhanced images demonstrate diffuse engorgement of multiple vascular structures extending from hemispheric cortex through subcortical white matter, deep white matter and subependymal margins.",case0059,5
+case0059_006.png,"Coronal T1 Gadolinium-enhanced images demonstrate diffuse engorgement of multiple vascular structures extending from hemispheric cortex through subcortical white matter, deep white matter and subependymal margins.",case0059,6
+case0059_007.png,"Coronal T1 Gadolinium-enhanced images demonstrate diffuse engorgement of multiple vascular structures extending from hemispheric cortex through subcortical white matter, deep white matter and subependymal margins.",case0059,7
+case0059_008.png,"Coronal T1 Gadolinium-enhanced images demonstrate diffuse engorgement of multiple vascular structures extending from hemispheric cortex through subcortical white matter, deep white matter and subependymal margins.",case0059,8
+case0051_002.png,Axial T2W image shows hyper intense lesion in right frontal lobe.,case0051,2
+case0051_001.png,Axial T1W image shows  hypo intense lesion in right frontal lobe,case0051,1
+case0051_003.png,Diffusion Weighted image shows no evidence of restricted diffusion.,case0051,3
+case0051_004.png,GRE image does not reveal  intralesional blooming to suggest hemorrhage or calcification.,case0051,4
+case0051_007.png,Coronal Flair image shows hypointense lesion in frontal lobe.,case0051,7
+case0051_008.png,Coronal T1 inversion recovery image shows hypo intense lesion,case0051,8
+case0051_006.png,Axial T2 Flair contrast image shows no evidence of contrast enhancement.,case0051,6
+case0051_005.png,Axial T1 contrast image shows no evidence of contrast enhancement.,case0051,5
+case0007_001.png,High signal lesion centered on the falx entering the sulci,case0007,1
+case0007_002.png,Strong low signal lesion,case0007,2
+case0081_001.png,T1WI without contrast show vermian hypoplasia  and thickened superior cerebellar peduncles showing a “molar tooth” appearance.,case0081,1
+case0081_002.png,T1WI without contrast shows a “bat wing” morphology of the fourth ventricle.,case0081,2
+case0081_005.png,T1WI without contrast shows a “bat wing” morphology of the fourth ventricle.,case0081,5
+case0081_006.png,T2WI shows vermian hypoplasia and thickened superior cerebellar peduncles with a “molar tooth” appearance.,case0081,6
+case0081_007.png,T2WI  shows a “bat wing” morphology of the fourth ventricle and dysplasia of the cerebellar cortex.,case0081,7
+case0081_003.png,Median sagittal of the brain showing hypoplastic vermis with dilated fourth ventricle and deep interpeduncular fossa.,case0081,3
+case0081_004.png,"Parasagittal T1-weighted image shows the thickened, elongated and horizontally orientated superior cerebellar peduncles.",case0081,4
+case0199_001.png,"Axial T2 (A) and coronal enhanced T1 (B), coronal fat-suppressed FLAIR (C), sagittal T2 (D) and axial T2 (E and F) showing the dysplastic cerebellar gangliocytoma. It has the typical “tigroid” pattern of on T2 sequence (A) and no contrast-enhancement (B). Furthermore, perilesional vasogenic edema (black arrowheads in C) is present. Note the full extent of the tumor (C and D). Obstructive hydrocephalus is also shown (E and F) with signs of intracranial hypertension such cerebellar tonsillar herniation (D), tortuosity of optic nerves (white arrowheads in E), papilledema (black arrows in E) and transependimal edema adjacent to the trigones of the lateral ventricles (white arrowheads in figure F)",case0199,1
+case0173_001.png,"Axial T1-weighted images showed hyperintensities involving the right caudate nucleus, putamen, and globus pallidus",case0173,1
+case0173_002.png,"Coronal T1-weighted images showed hyperintensities at the right putamen, globus pallidus, and caudate nucleus",case0173,2
+case0233_001.png,"Axial T1W MRI Brain shows a relatively well-defined mixed signal intensity lesion with isointense and hyperintense areas within in right parietal parasagittal location, causing effacement of adjacent sulci and ipsilateral lateral ventricle. Crescentic T1W hyperintensity is also noted along right cerebral convexity",case0233,1
+case0233_003.png,Axial DWI MRI Brain shows some intralesional areas of true diffusion restriction with low values on ADC corresponding to T1W hyperintense areas suggestive of haemorrhage,case0233,3
+case0233_004.png,"Axial Postcontrast MRI Brain shows heterogeneous and avid postcontrast enhancement of the lesion, which demonstrates broad base towards falcine dura",case0233,4
+case0233_005.png,"Coronal Postcontrast MRI Brain shows heterogeneous and avid postcontrast enhancement of the lesion, which demonstrates broad base towards falcine dura",case0233,5
+case0233_002.png,"Sagittal Postcontrast MRI Brain shows heterogeneous and avid postcontrast enhancement of the lesion, which demonstrates broad base towards falcine dura",case0233,2
+case0031_002.png,Axial T2W BRAIN MRI shows a limited pontic lesion with hyperintense signal.,case0031,2
+case0031_003.png,Sagittal T1W brain MRI shows a limited pontic lesion with hypointense signal.,case0031,3
+case0031_001.png,Coronal T1W with GADO: peripherical enhancement on post-contrast image.,case0031,1
+case0223_001.png,Axial T2WI shows diffuse atrophy of the cerebellum with prominence of cerebellar foliae,case0223,1
+case0223_002.png,Axial T2WI shows atrophy of the bilateral inferior olivary nuclei,case0223,2
+case0098_001.png,"FLAIR showed patchy areas of confluent increased intensity affecting white and deep gray matter, with special predilection for the midbrain, caudate and lenticular nuclei.",case0098,1
+case0098_002.png,"FLAIR showed patchy areas of confluent increased intensity affecting white and deep gray matter, with special predilection for the midbrain, caudate and lenticular nuclei.",case0098,2
+case0098_003.png,"FLAIR showed patchy areas of confluent increased intensity affecting white and deep gray matter, with special predilection for the midbrain, caudate and lenticular nuclei.",case0098,3
+case0098_004.png,"FLAIR showed patchy areas of confluent increased intensity affecting white and deep gray matter, with special predilection for the midbrain, caudate and lenticular nuclei.",case0098,4
+case0098_006.png,"T2W1 showed patchy areas of confluent increased intensity affecting white and deep gray matter, with special predilection for the midbrain, caudate and lenticular nuclei.",case0098,6
+case0098_007.png,"T2W1 showed patchy areas of confluent increased intensity affecting white and deep gray matter, with special predilection for the midbrain, caudate and lenticular nuclei.",case0098,7
+case0098_005.png,"T2W1 showed patchy areas of confluent increased intensity affecting white and deep gray matter, with special predilection for the midbrain, caudate and lenticular nuclei.",case0098,5
+case0098_008.png,After contrast administration some lesions revealed peripheral with “incomplete ring” morphology enhancement.,case0098,8
+case0098_009.png,Significant improvement of the confluent hyperintensities with no enhancement,case0098,9
+case0001_001.png,Coronal T2-weighted MRI shows complete absence of the septum pellucidum and the shape and flat roof of the frontal horns with inferior pointing of the ventricles.,case0001,1
+case0257_001.png,Sagittal T1WI with vermian dysgenesis and deep interpeduncular fossa consistent with the axial imaging.,case0257,1
+case0202_001.png,Axial T2 weighted image demonstrates intraaxial lesion that consists of hyperintense ‘bubbles.’ The lesion locates predominantly on the subcortical white matter.,case0202,1
+case0202_002.png,Axial FLAİR image shows no suppression of the tumor.,case0202,2
+case0065_001.png,Axial T2WI: Well-defined hyperintense lesion in anterior aspect of right frontal lobe.,case0065,1
+case0065_002.png,Axial DWI: No diffusion restriction,case0065,2
+case0065_003.png,Axial ADC: No diffusion restriction,case0065,3
+case0079_001.png,Axial T2 MRI revealed left temporal large Arachnoid cyst.,case0079,1
+case0079_002.png,Axial T2 revealed bright left subdural collection with associated mass effects and midline shift.,case0079,2
+case0017_001.png,"Sagittal T2, FLAIR images showing perilesional oedema in cerebellum and communication.",case0017,1
+case0225_001.png,Axial (a) and coronal (b) T2 FSE images reveal round and roughly symmetric hyperintense lesions in the centrum semiovale. Both lesions look tumefactive but do not show significant mass effect,case0225,1
+case0225_002.png,"Axial (a, b, c) and sagittal (d) T2 FLAIR shows hyperintense roughly symmetric lesions in the centrum semiovale. Other smaller T2 FLAIR-hyperintense white matter lesions were also present in the splenium (b), right insular region (c) and left subcortical parietal region (d)",case0225,2
+case0225_003.png,"Axial (a, b, c) and sagittal (d) T2 FLAIR shows hyperintense roughly symmetric lesions in the centrum semiovale. Other smaller T2 FLAIR-hyperintense white matter lesions were also present in the splenium (b), right insular region (c) and left subcortical parietal region (d)",case0225,3
+case0225_004.png,Axial pre (a) and post-contrast (b) T1 FSE sequence. Faint peripheral contrast enhancement can be seen in the right centrum semiovale lesion,case0225,4
+case0271_001.png,"Axial T2 weighted, FLAIR MRI image of the brain at the level of the medulla, showing high signal changes in the medial medulla bilaterally.",case0271,1
+case0271_002.png,"Axial T2 weighted, FLAIR MRI image of the brain at the level of the medulla, showing high signal changes in the medial medulla bilaterally.",case0271,2
+case0271_003.png,"Axial DWI MRI of the brain at the level of the medulla, showing high signal in the medial medulla bilaterally with significantly decreased signal on the ADC map consistent with acute infarct.",case0271,3
+case0156_001.png,"Imaging of day 3, 7 and 15 of hospitalization demonstrating T2 hyperintensity (A, B, C) and restricted diffusion (DWI shown in D, E and F) in thalamic areas, with worsening on day 7 and improvement on day 15. The lower DWI signal on day 15 indicates partial remission of cytotoxic edema",case0156,1
+case0156_002.png,"Imaging of day 3, 7 and 15 of hospitalization demonstrating T2 hyperintensity (A, B, C) and restricted diffusion (DWI shown in D, E and F) in thalamic areas, with worsening on day 7 and improvement on day 15. The lower DWI signal on day 15 indicates partial remission of cytotoxic edema",case0156,2
+case0156_003.png,"Imaging of day 3, 7 and 15 of hospitalization demonstrating T2 hyperintensity (A, B, C) and restricted diffusion (DWI shown in D, E and F) in thalamic areas, with worsening on day 7 and improvement on day 15. The lower DWI signal on day 15 indicates partial remission of cytotoxic edema",case0156,3
+case0156_004.png,"Imaging of day 1, 7 and 15 of hospitalization demonstrating FLAIR hyperintensity (A, B, C) and restricted diffusion (DWI shown in D, E and F) in perirolandic areas, with initial worsening and later improvement of lesions. The lower DWI signal on day 15 indicates partial remission of cytotoxic edema",case0156,4
+case0201_001.png,"A cystic lesion with signal characteristics similar to CSF is seen in T1-weigted (a), T2-weighted (d) and FLAIR (b) sequences.",case0201,1
+case0201_002.png,Sagittal T2-weighted image  demonstrates the cyst causing elevation  and splaying of the fornices and mild compression of the inferior aspect of splenium of corpus callosum.,case0201,2
+case0178_001.png,CISS axial (a) and T2 oblique (b) MR images showing tortuous left optic nerve due to dural ectasia,case0178,1
+case0178_002.png,T2 FLAIR (a) and T1 fat saturated (b) axial MR images showing hyperintense signal in bilateral lentiform nuclei and adjacent white matter,case0178,2
+case0178_003.png,T2 FLAIR (a) and T1 fat saturated (b) axial MR images showing hyperintense signal in bilateral lentiform nuclei and adjacent white matter,case0178,3
+case0103_001.png,"The initial MRI scan demonstrates a T2 hyperintense diencephalic lesion, surrounding the third ventricle and involving hypothalamus.",case0103,1
+case0103_002.png,Post-contrast T1WI: The lesion had no contrast enhancement.,case0103,2
+case0254_001.png,FLAIR image,case0254,1
+case0254_002.png,T2-weighted image,case0254,2
+case0254_003.png,Axial projection of the T1+C-weighted sequence,case0254,3
+case0188_002.png,"Basal axial T1-weighted image of the brain shows a right frontal irregular, heterogeneous lesion with poorly defined edges, as well as a hyperintense frontal foci indicating hemorrhage",case0188,2
+case0188_003.png,Basal axial FLAIR-weighted image of the brain shows extensive right frontal vasogenic edema with minimal mass effect,case0188,3
+case0188_004.png,"Basal axial Susceptibility-wieghted image of the brain shows multiple right frontal areas of blooming, representing microhemorrhages",case0188,4
+case0188_005.png,Basal axial ADC map of the brain shows a large hyperintense well defined area compatible with the one present on DWI; confirming T2 shine through without increase in diffusion restriction,case0188,5
+case0188_006.png,Basal axial Gadolinium-enhanced T1-weighted image of the brain showing a right frontal area of irregular “open ring” enhancement. Other smaller satellite lesions with similar behavior are present,case0188,6
+case0188_001.png,Follow up axial gadolinium-enhanced T1-weighted image of the brain shows a new large right parietal lesion demonstrating open ring enhancement,case0188,1
+case0011_001.png,"MRI control, 5 months after treatment, shows regression of the size and contrast enhancement of the right parietal lesion.",case0011,1
+case0102_002.png,"MRI of the posterior fossa shows a cystic mass in the right cerebellar hemisphere with an eccentric solid component which enhances vividly, with no evidence of enhancement of the cyst wall.",case0102,2
+case0102_003.png,"MRI of the posterior fossa shows a cystic mass in the right cerebellar hemisphere with an eccentric solid component which enhances vividly, with no evidence of enhancement of the cyst wall.",case0102,3
+case0102_004.png,"MRI of the posterior fossa shows a cystic mass in the right cerebellar hemisphere with an eccentric solid component which enhances vividly, with no evidence of enhancement of the cyst wall.",case0102,4
+case0102_005.png,"MRI of the posterior fossa shows a cystic mass in the right cerebellar hemisphere with an eccentric solid component which enhances vividly, with no evidence of enhancement of the cyst wall.",case0102,5
+case0102_001.png,"MRI demonstrates a cystic mass in the right cerebellar hemisphere, hypointense on T1 and hyperintense on T2 compared to adjacent brain, with an eccentric solid component.",case0102,1
+case0102_007.png,"MRI of the posterior fossa shows a cystic mass in the right cerebellar hemisphere with an eccentric solid component which enhances vividly, with no evidence of enhancement of the cyst wall.",case0102,7
+case0102_006.png,"MRI of the posterior fossa shows a cystic mass in the right cerebellar hemisphere with an eccentric solid component which enhances vividly, with no evidence of enhancement of the cyst wall.",case0102,6
+case0102_008.png,MRI of the posterior fossa shows a cystic mass in the right cerebellar hemisphere with an eccentric solid component which enhances vividly.,case0102,8
+case0102_009.png,MRI of the posterior fossa shows a cystic mass in the right cerebellar hemisphere with an eccentric solid component which enhances vividly.,case0102,9
+case0102_010.png,MRI of the posterior fossa shows a cystic mass in the right cerebellar hemisphere with an eccentric solid component which enhances vividly.,case0102,10
+case0205_001.png,"Axial T2 FLAIR image(a) and Axial T2 image(b) shows a well-defined, Intra axial cystic lesion in the right frontal lobe with multiple floating membranes and daughter cysts within. No perilesional oedema/significant mass effect was noted",case0205,1
+case0205_002.png,"Axial T2 FLAIR image(a) and Axial T2 image(b) shows a well-defined, Intra axial cystic lesion in the right frontal lobe with multiple floating membranes and daughter cysts within. No perilesional oedema/significant mass effect was noted",case0205,2
+case0019_004.png,MRI Brain T1W axial image shows altered signal intensity lesion in the right parieto-occipital lobe.,case0019,4
+case0019_002.png,MRI Brain FLAIR axial view shows altered signal intensity lesion with surrounding oedema in the right parieto-occipital region.,case0019,2
+case0019_001.png,MRI Brain FLAIR coronal view shows hypointense lesion with surrounding oedema in the left cerebellar hemisphere.,case0019,1
+case0019_003.png,MRI Brain T1W post contrast axial image shows hypointense lesion with peripheral ring of enhancement in the right parieto-occipital region.,case0019,3
+case0235_001.png,Only minimal internal contrast enhancement on post-gadolinium sequences. Blooming artefact on susceptibility-weighted imaging,case0235,1
+case0145_001.png,Minimal dependent hemorrhagic levels are seen in the occipital horns of the lateral ventricles.,case0145,1
+case0176_003.png,"Selected axial T2-weighted DWI/ADC, FLAIR, contrast enhanced T1-weighted sequences. Overall appearances are suggestive of viral encephalitis. Differentials include low grade glioma and sub-acute infarction: - There is abnormal T2W/FLAIR hyperintense area within the right temporal lobe with minimal mass effect; - There is some cortical restricted diffusion on DWI/ADC sequence within this region; - No evidence of post IV gadolinium enhancement seen within this region",case0176,3
+case0176_004.png,"Selected T2,SWI, MIP and coronal with contrast images from repeat MRI after 12 days. These demonstrate significant evolution of previously seen changes with intraparenchymal haemorrhage and mass effect: - T2 images shows increase in surrounding vasogenic oedema",case0176,4
+case0176_005.png,"Selected T2,SWI, MIP and coronal with contrast images from repeat MRI after 12 days. These demonstrate significant evolution of previously seen changes with intraparenchymal haemorrhage and mass effect: - T2 images shows increase in surrounding vasogenic oedema",case0176,5
+case0176_001.png,"Selected T2,SWI, MIP and coronal with contrast images from repeat MRI after 12 days. These demonstrate significant evolution of previously seen changes with intraparenchymal haemorrhage and mass effect: - SWI and MIP images show areas of susceptibility artefacts corresponding to internal haemorrhagic component",case0176,1
+case0176_002.png,"Selected T2,SWI, MIP and coronal with contrast images from repeat MRI after 12 days. These demonstrate significant evolution of previously seen changes with intraparenchymal haemorrhage and mass effect: - Significantly increased local mass-effect with effacement of sulci and right lateral ventricle and leftward shift of midline",case0176,2
+case0014_001.png,T1WI shows hypointense lesion in LT cerebellar hemisphere with maintained folia pattern within the lesion,case0014,1
+case0014_002.png,T2WI shows lesion with alternate hypo and hyperintense striation is noted within the lesion,case0014,2
+case0014_003.png,FLAIR image shows same lesion which appears hyperintense  with no surrounding edema or mass effect,case0014,3
+case0033_001.png,"MRI shows a mass, localized in a bulbar, median topography, grossly rounded, measuring about 17 x 17 x 27 mm larger (AP x transverse x height), with heterogeneous intensities on axial FLAIR.",case0033,1
+case0033_003.png,"MRI shows a mass, localized in a bulbar, median topography, grossly rounded, with an haemorrhagic element, this one showing prominent hypointense ""blooming"" on axial T2*.",case0033,3
+case0033_002.png,"Comparing sagittal T1WI with and without contrast agent, no enhancement was seen.",case0033,2
+case0190_001.png,AXIAL T2 image shows subcortical cysts in bilateral temporal lobe with sparing of cerebellar white matter,case0190,1
+case0190_002.png,Axial T2 FLAIR shows hypointense subcortical cyst in bilateral temporal lobe,case0190,2
+case0190_003.png,AXIAL T2 symmetrical hyperintensities noted in subcortical white matter,case0190,3
+case0190_004.png,Coronal T2 shows subcortical hyperintensities and subcortical cysts in temporal lobes,case0190,4
+case0071_004.png,"Porencephalic cavity within the left parietal corona radiata/centrum semiovale, communicating with the atrium/posterior
+body of left lateral ventricle.",case0071,4
+case0071_005.png,"Porencephalic cavity within the left parietal corona
+radiata/centrum semiovale, communicating with the atrium/posterior
+body of left lateral ventricle",case0071,5
+case0071_001.png,"Porencephalic cavity occupying the left parietal corona
+radiata/centrum semiovale  Mild mass effect upon the overlying cortex of the left
+parietal lobe with narrowing of the adjacent gyri.",case0071,1
+case0071_002.png,"Porencephalic cavity occupying the left parietal corona
+radiata/centrum semiovale  Mild mass effect upon the overlying cortex of the left
+parietal lobe with narrowing of the adjacent gyri.",case0071,2
+case0071_003.png,"Porencephalic cavity occupying the left parietal corona
+radiata/centrum semiovale  Mild mass effect upon the overlying cortex of the left
+parietal lobe with narrowing of the adjacent gyri.",case0071,3
+case0071_007.png,"Porencephalic cavity with no significant T2/FLAIR
+hyperintense signal.",case0071,7
+case0071_008.png,"Porencephalic cavity with no significant T2/FLAIR
+hyperintense signal.",case0071,8
+case0071_006.png,"Porencephalic cavity with no significant T2/FLAIR
+hyperintense signal.",case0071,6
+case0206_001.png,"MRI brain 3D FLAIR sequence, shows smooth high signal in the right superior convexity",case0206,1
+case0101_001.png,T2-weighted sagittal image confirming the findings.,case0101,1
+case0234_001.png,Post-contrast T1 weighted axial image shows diffuse dural thickening on the convexity of left frontoparietal region as well as the enhancement of the adjacent sulci,case0234,1
+case0234_002.png,SWI axial image shows several punctate hypointensities in both thalami,case0234,2
+case0234_003.png,3-month follow-up FLAIR axial image at the level of the lateral ventricles shows regression of intraparenchymal lesions,case0234,3
+case0265_001.png,"Axial T2-FLAIR image. Focal lesion with heterogeneous signal and solid-multicystic appearance occupying the fourth ventricle, with mild perilesional oedema.",case0265,1
+case0265_002.png,"Axial T2-FLAIR image. Obstructive hydrocephalus with marked dilation of the supratentorial ventricular system (Evans Index 0.36), associated with pronounced signs of transependymal oedema (related to acute hydrocephalus) and accompanied by diffuse obliteration of cerebral sulci.",case0265,2
+case0200_001.png,Axial T2 - weighted image showed high signal of the pons,case0200,1
+case0125_001.png,Axial T2-FLAIR image of the brain on a lower level shows demarcated symmetrical swelling and oedema of the insular temporal cortex and hippocampi and sparing of the occipital cortex. (Fig. 2),case0125,1
+case0125_002.png,"Diffusion-weighted image (a) and ADC map (b) shows clear signal hyperintensity in the swollen cortical zones. The ADC map shows concordant hypointensities, confirming the restricted diffusion. (Fig. 3a, b)",case0125,2
+case0125_003.png,"Follow-up DWI (a) and ADC (b) of the brain after 15 days at the same level as Fig. 3, comparison shows decreased oedematous aspect of the affected cortex.",case0125,3
+case0275_001.png,"Polymicrogyria. Axial (4a) and sagittal (4b) T1-weighted images show bilateral perisylvian polymicrogyria with insular and frontoparietal involvement, more extensive on the right side. The sylvian fissures extend superiorly, beyond their typical anatomic location.",case0275,1
+case0275_002.png,"Polymicrogyria. Axial (4a) and sagittal (4b) T1-weighted images show bilateral perisylvian polymicrogyria with insular and frontoparietal involvement, more extensive on the right side. The sylvian fissures extend superiorly, beyond their typical anatomic location.",case0275,2
+case0064_001.png,"There is a near complete lack of sulcation throughout the cortex, with thickening of the cortical gray matter in a uniform pattern.",case0064,1
+case0064_002.png,"There is a near complete lack of sulcation throughout the cortex, with thickening of the cortical gray matter in a uniform pattern.",case0064,2
+case0064_003.png,"There is a near complete lack of sulcation throughout the cortex, with thickening of the cortical gray matter in a uniform pattern.",case0064,3
+case0064_007.png,"Noted pattern of absence of sulcation with poor differentiation of the gray-white junction and a
+sulcation at the level of the sylvian cistern giving the brain the configuration of a figure of 8.",case0064,7
+case0064_004.png,"Noted pattern of absence of sulcation with poor differentiation of the gray-white junction and a
+sulcation at the level of the sylvian cistern giving the brain the configuration of a figure of 8.",case0064,4
+case0064_005.png,"Noted pattern of absence of sulcation with poor differentiation of the gray-white junction and a
+sulcation at the level of the sylvian cistern giving the brain the configuration of a figure of 8.",case0064,5
+case0064_006.png,"Noted pattern of absence of sulcation with poor differentiation of the gray-white junction and a
+sulcation at the level of the sylvian cistern giving the brain the configuration of a figure of 8.",case0064,6
+case0064_008.png,"There is a near complete lack of sulcation throughout the cortex, with thickening of the cortical gray matter in a uniform pattern.",case0064,8
+case0064_009.png,"There is a near complete lack of sulcation throughout the cortex, with thickening of the cortical gray matter in a uniform pattern.",case0064,9
+case0064_010.png,"The third and fourth ventricles are normal in calibre. The corpus callosum is present, with no evidence of dysgenesis.",case0064,10
+case0092_001.png,Sagittal T1WI showing multiple cystic lesions in the pericallosal anterior space deforming the corpus callosum.,case0092,1
+case0092_003.png,Axial T2 WI showed space-occupying lesions of CSF signal intensity in the interhemispheric fissure. Frontal cortex is displaced and there is mass effect on the knee of the corpus callosum.,case0092,3
+case0092_004.png,Axial T2 FLAIR WI showed cysts in the interhemispheric fissure with a cyst content similar to CSF. Frontal cortex is displaced but there is no surrounding oedema.,case0092,4
+case0092_005.png,Axial T1 WI with gadolinium showed no enhancement of the cyst's walls.,case0092,5
+case0092_006.png,Axial 3DT2 WI showed cysts in the interhemispheric fissure one of them containing a small solid nodule representing a scolex.,case0092,6
+case0092_007.png,Axial T2 WI showed cysts in the interhemispheric fissure with a cyst content similar to CSF. Scolex is not visible in this sequence.,case0092,7
+case0092_002.png,Axial T1 WI with gadolinium showed subtle contrast enhancement of the scolex and the cyst's walls that contain it.,case0092,2
+case0053_002.png,"T2-FLAIR axial image showing symmetrical hyperintensities in bilateral caudate, lentiform nucleus and thalami, consistent with extra pontine myelinolysis.",case0053,2
+case0053_003.png,"T2-FLAIR Coronal image showing symmetrical caudate, lentiform hyperintensities coupled with central pontine hyperintensities suggesting pontine and extra pontine myelinolysis.",case0053,3
+case0053_001.png,"DW axial image showing hyperintensities in both caudate, both lentiform nucleus and in thalami. These are secondary to T2 shine through and are unlikely to be diffusion restriction (look at figure 5 for ADC image).",case0053,1
+case0250_001.png,"Axial T2 FLAIR (a) and DWI (b), accompanied by ADC mapping (c), reveal the presence of numerous lesions across cerebral hemispheres, along with perilesional oedema. Some of the lesions exhibit central restricted proton diffusibility.",case0250,1
+case0250_002.png,"Axial T2 FLAIR (a) and DWI (b), accompanied by ADC mapping (c), reveal the presence of numerous lesions across cerebral hemispheres, along with perilesional oedema. Some of the lesions exhibit central restricted proton diffusibility.",case0250,2
+case0250_003.png,"Axial T2 FLAIR (a) and DWI (b), accompanied by ADC mapping (c), reveal the presence of numerous lesions across cerebral hemispheres, along with perilesional oedema. Some of the lesions exhibit central restricted proton diffusibility.",case0250,3
+case0250_004.png,"Axial (a) and coronal fat-saturated T1 sequences (b), following contrast administration, showed supra- and infratentorial lesions exhibiting ring and nodular enhancement.",case0250,4
+case0250_005.png,"Axial (a) and coronal fat-saturated T1 sequences (b), following contrast administration, showed supra- and infratentorial lesions exhibiting ring and nodular enhancement.",case0250,5
+case0068_002.png,Strong susceptibility signal loss within the lesion suggests microhaemorrhage and neovascularity.,case0068,2
+case0068_003.png,Diffusion signal abnormality suggests high cellular tumour packing and internal tumour ischaemia.,case0068,3
+case0068_004.png,Diffusion restriction on ADC maps also suggests high cellular tumour packing and internal tumoru ischaemia.,case0068,4
+case0068_005.png,Heterogeneous intra-axial mass within the left middle frontal gyrus.,case0068,5
+case0068_006.png,Heterogeneous intra-axial mass within the left middle frontal gyrus.,case0068,6
+case0068_007.png,Enhancing irregular behaviour also implies aggressive tumour behaviour.,case0068,7
+case0068_001.png,Diffusion restriction on ADC maps also suggests high cellular tumour packing and internal tumour ischaemia.,case0068,1
+case0154_001.png,Sagittal T1WI showing microcephaly,case0154,1
+case0154_002.png,Coronal T2WI showing pachygyria and white matter hyperintensity,case0154,2
+case0004_003.png,MRI Brain Axial precontrast T1 weighted images show a well-defined lobulated hypointense lesion involving the splenium of the corpus callosum. The lesion in isointense to CSF.,case0004,3
+case0004_006.png,MRI Brain Axial T2 weighted image shows hyperintensity in the lesion.,case0004,6
+case0004_001.png,"MRI Brain Axial ADC, lesion shows low ADC value.",case0004,1
+case0004_004.png,MRI Brain Axial T1 post-contrast image demonstrates that the lesions does not show contrast enhancement.,case0004,4
+case0004_005.png,MRI Brain Sagittal T1 post-contrast image shows no enhancement in the lesion.,case0004,5
+case0004_002.png,"MRI Brain Axial FLAIR image shows \""dirty\"" heterogeneous signal in the lesion.",case0004,2
+case0168_001.png,"Patchy areas of restricted diffusion involving bilateral cerebral cortex, bilateral basal ganglia and thalami",case0168,1
+case0203_001.png,"Axial sections of the T2 weighted images shows (a) a large diffuse ill-defined T2 hypointense lesion involving the right high fronto-parietal region, centrum semiovale and corona radiata.(b) The lesion shows few well defined T2 hyperintense areas suggestive of hematomas.",case0203,1
+case0203_002.png,"Sagittal section of the T1 weighted images shows a large diffuse ill-defined T1 hypointense lesion involving the right high fronto-parietal region, centrum semiovale and corona radiata. Few well defined  T1 hyperintense areas are seen in the lesion suggestive of hematomas.",case0203,2
+case0203_003.png,Axial section of the FLAIR images shows hypointense lesion in the right high fronto-parietal region.,case0203,3
+case0242_001.png,"Midline sagittal heavily T2 weighted image showing one large cyst with 4 smaller non-communicating cysts, one of which has a slightly different signal",case0242,1
+case0242_002.png,"Axial fluid attenuated inversion recovery image of the largest cyst, showing incomplete suppression of the liquid, further suggesting that it is different from the surrounding cerebrospinal fluid. The interruption of the posterior part of the corpus callosum is also visible",case0242,2
+case0237_001.png,"Axial T2WI and FLAIR showing bilateral swollen edematous basal ganglia, appearing as hyperintense lesions with 3 hyperintense lines (edematous external capsule, external and internal medullary laminae) diving the lentiform nuclei into putamen, globus pallidus externa and interna respectively from lateral to medial giving the ‘lentiform fork sign’. There is relative sparing of bilateral caudate nuclei and thalamus",case0237,1
+case0237_002.png,Axial DWI and ADC showing no significant diffusion restriction,case0237,2
+case0237_003.png,Axial DWI and ADC showing no significant diffusion restriction,case0237,3
+case0237_004.png,"Axial T1WI and T2* GRE image showing bilateral lentiform nuclei lesions appearing hypointense on T1WI, without any hemorrhage",case0237,4
+case0237_005.png,Axial FLAIR image of same patient after 2 weeks of intense hemodialysis showing considerable decrease in the size of bilateral basal ganglia lesions and disappearance of the lentiform fork sign,case0237,5
+case0052_001.png,"Sagittal T1.
+Sharply demarcated mass with a high signal intensity on T1. Note the location at the pericallosal area and hypoplasia of the corpus callosum.",case0052,1
+case0052_002.png,"Sagittal T1.
+Sharply demarcated mass with a high signal intensity on T1. Note the location at the pericallosal area and hypoplasia of the corpus callosum.",case0052,2
+case0052_003.png,"Coronal FLAIR.
+Sharply demarcated mass in the pericallosal area with a high signal intensity.",case0052,3
+case0052_004.png,"Coronal FLAIR.
+Sharply demarcated mass in the pericallosal area with a high signal intensity.",case0052,4
+case0052_005.png,"PD axial.
+Sharply demarcated mass in the pericallosal area with a high signal intensity.",case0052,5
+case0052_006.png,"T2 axial.
+Sharply demarcated mass in the pericallosal area with a high signal intensity.",case0052,6
+case0255_001.png,"Sagittal T2 Flair image showing a subcutaneous extracranial soft tissue mass with high signal intensity and internal vascular structures with low signal intensity, probably representing flow voids.",case0255,1
+case0255_002.png,Non-contrast enhanced sagittal T1-weighted image showing a subcutaneous extracranial soft tissue mass with intermediate signal intensity.,case0255,2
+case0255_003.png,"Contrast-enhanced sagittal T1-weighted image showing high signal intensity. There is contrast enhancement in parts of the lesion, indicating communication with the venous system. A communicating emissary vein can be seen passing from the lesion through the skull.",case0255,3
+case0134_001.png,(A&B) Initial axial DWI&FLAIR show no lesion after the seizure. (C) Initial coronal TOF angiography demonstrates an occluded ICA (D&E)Axial DWI & FLAIR show no lesions. (F) Coronal TOF angiography shows no new findings. DWI = Diffusion-Weighted Imaging; FLAIR = Fluid Attenuation Inversion Recovery; TOF = Time-of-Flight; ICA = internal cerebral artery.,case0134,1
+case0243_001.png,T2WI show a hyperintense lesion with cortical thickening and a cystic area,case0243,1
+case0243_002.png,FLAIR imaging shows heterogeneous hyperintensity with surrounding white matter hypointensity,case0243,2
+case0243_003.png,Axial DWI shows mild signal hyperintensity,case0243,3
+case0243_004.png,Axial ADC has intermediate values in the same region,case0243,4
+case0273_001.png,"Axial CT (1a) and T1-weighted MRI (1b) scans showing bilateral haemorrhage in the dorsomedial aspect of the thalami, extending into the third and lateral ventricles with subsequent hydrocephalus and trans-ependymal oedema.",case0273,1
+case0273_002.png,"Sagittal (2a) and axial (2b and 2c) FLAIR sequence indicating high signal at the tectal plate, posterior aspect of the brain stem, periaqueductal area, and mammillary bodies.",case0273,2
+case0273_003.png,"Sagittal (2a) and axial (2b and 2c) FLAIR sequence indicating high signal at the tectal plate, posterior aspect of the brain stem, periaqueductal area, and mammillary bodies.",case0273,3
+case0273_004.png,"Axial T1-weighted MRI following contrast administration at the level of the midbrain (3a) and pontomedullary junction (3b), indicating enhancement of the tectal plate, periaqueductal area, and posterior aspect of the brain stem. Moreover, there is bilateral nodular enhancement at the uncus of the temporal lobe (3a).",case0273,4
+case0273_005.png,"Axial T1-weighted MRI following contrast administration at the level of the midbrain (3a) and pontomedullary junction (3b), indicating enhancement of the tectal plate, periaqueductal area, and posterior aspect of the brain stem. Moreover, there is bilateral nodular enhancement at the uncus of the temporal lobe (3a).",case0273,5
+case0273_006.png,Axial T1-weighted MRI following contrast administration at the level of the cerebral peduncles shows bilateral enhancement of the mammillary bodies. Also noted at this level fine enhancement of the periaqueductal area.,case0273,6
+case0228_001.png,"Transverse T2-FLAIR (a-c), contrast-enhanced T1-weighted (d) and ADC map (e) show diffuse hyperintensity of the left anteromedial temporal lobe with posterior extension towards the hippocampus, without contrast-enhancement or diffusion restriction. There is mild volume decrease of the left hippocampus. Axial 18F-FDG PET scan shows intense hypermetabolism in the left hippocampus (arow in f)",case0228,1
+case0228_002.png,"Transverse T2-FLAIR (a-c), contrast-enhanced T1-weighted (d) and ADC map (e) show diffuse hyperintensity of the left anteromedial temporal lobe with posterior extension towards the hippocampus, without contrast-enhancement or diffusion restriction. There is mild volume decrease of the left hippocampus. Axial 18F-FDG PET scan shows intense hypermetabolism in the left hippocampus (arow in f)",case0228,2
+case0228_003.png,A follow-up brain MRI obtained 6 months later showed persistent signal abnormalities in the left temporal lobe on axial T2-weighted images,case0228,3
+case0228_004.png,A follow-up brain MRI obtained 6 months later showed persistent signal abnormalities in the left temporal lobe on axial T2-weighted images,case0228,4
+case0167_001.png,flair axial view: showing patchy peripheral predominant hyperintensies in pons r>l,case0167,1
+case0116_001.png,Non contrast enhanced T1 weighted MR images at admission showing T1 hypo intensity in the white matter surrounding the resection cavity representing gliosis.,case0116,1
+case0116_002.png,Contrast  enhanced T1 weighted MR images at admission shows right sided occipitotemporal gyral enhancement without mass effect.,case0116,2
+case0116_003.png,Non contrast enhanced T1 weighted MR images 5 months after admission showing T1 hypo intensity in the white matter surrounding the resection cavity representing gliosis.,case0116,3
+case0116_004.png,Contrast enhanced T1 weighted MR images 5 months after admission demonstrates the disappearance of the right sided occipitotemporal gyral enhancement.,case0116,4
+case0040_001.png,Dilated ventricular system slightly more on the right side. Prominence of temporal horns and hippocampal flattening more marked on the right side. No evidence of periventricular CSF seepage.,case0040,1
+case0040_002.png,"T2WI MRI brain showing prominent extra-axial CSF spaces. Normal corpus callosum, brain stem and visualised cervical cord.",case0040,2
+case0040_003.png,T1WI MR brain showing prominent extra-axial CSF spaces and dilated ventricles more on the right.,case0040,3
+case0179_001.png,"Axial T2-weighted MRI sequence showing the left parietal corticosubcortical lesion. It presents as an heterogeneous lesion, with hypointense peripheral halo and associated vasogenic edema. It shows peripheral restriction (c) but there was no evidence of incremented perfusion parameters (d). The temporal lesion had the same behaviour (not shown in the image)",case0179,1
+case0179_002.png,"Axial T2-weighted MRI sequence showing the left parietal corticosubcortical lesion. It presents as an heterogeneous lesion, with hypointense peripheral halo and associated vasogenic edema. It shows peripheral restriction (c) but there was no evidence of incremented perfusion parameters (d). The temporal lesion had the same behaviour (not shown in the image)",case0179,2
+case0179_003.png,Volumetric axial T1-weighted sequence without intravenous contrast showing the presence of small lesions not visible in the rest of the sequences: one in the right frontal lobe (4a) and other in the left cerebellar hemisphere (4b) (red circles),case0179,3
+case0279_001.png,"T2W MRI shows a large, well-defined, solid, lobulated mass appearing heterogeneously hyperintense lesion in the trigone and posterior body region of the left lateral ventricle.",case0279,1
+case0279_002.png,DWI shows patchy areas of hyperintensities.,case0279,2
+case0279_003.png,"Corresponding ADC maps show patchy areas of hypointensities, suggestive of restricted diffusion.",case0279,3
+case0279_004.png,FFE sequence shows few intralesional blooming foci.,case0279,4
+case0279_005.png,CE MRI sagittal view shows heterogeneous post-contrast enhancement with non-enhancing cystic areas.,case0279,5
+case0099_005.png,Examination demonstrates symmetric bilateral medial thalamic signal abnormality.,case0099,5
+case0099_006.png,Examination demonstrates symmetric bilateral medial thalamic signal abnormality.,case0099,6
+case0099_008.png,Examination demonstrates symmetric bilateral medial thalamic signal abnormality.,case0099,8
+case0099_007.png,Examination demonstrates symmetric bilateral medial thalamic signal abnormality.,case0099,7
+case0099_009.png,Examination demonstrates symmetric bilateral medial thalamic signal abnormality.,case0099,9
+case0099_010.png,Examination demonstrates symmetric bilateral medial thalamic signal abnormality.,case0099,10
+case0099_011.png,Examination demonstrates symmetric bilateral medial thalamic signal abnormality.,case0099,11
+case0099_001.png,Examination demonstrates symmetric bilateral medial thalamic signal abnormality. Punctate susceptibility signal loss is noticed on both medial thalamic lesions.,case0099,1
+case0099_002.png,Examination demonstrates symmetric bilateral medial thalamic signal abnormality. Punctate susceptibility signal loss is noticed on both medial thalamic lesions.,case0099,2
+case0099_003.png,Examination demonstrates symmetric bilateral medial thalamic signal abnormality. Punctate susceptibility signal loss is noticed on both medial thalamic lesions.,case0099,3
+case0099_004.png,Examination demonstrates symmetric bilateral medial thalamic signal abnormality. Punctate susceptibility signal loss is noticed on both medial thalamic lesions.,case0099,4
+case0162_001.png,Axial FLAIR images show bilateral symmetrical hyperintensities in thalami (a). DWI and ADC images shows restriction on diffusion (b and c). Gradient images show blooming in bilateral basal ganglia (d),case0162,1
+case0162_002.png,Axial FLAIR images show bilateral symmetrical hyperintensities in thalami (a). DWI and ADC images shows restriction on diffusion (b and c). Gradient images show blooming in bilateral basal ganglia (d),case0162,2
+case0162_003.png,Axial FLAIR images show bilateral symmetrical hyperintensities in thalami (a). DWI and ADC images shows restriction on diffusion (b and c). Gradient images show blooming in bilateral basal ganglia (d),case0162,3
+case0144_001.png,"Hypoplastic pituitary gland. (a) Sagittal T1-weighted MR image shows a hypoplastic pituitary gland, with height of 2.7 mm. (b) Axial heavily T2-weighted MR image demonstrates a hypoplastic pituitary stalk (arrow).",case0144,1
+case0144_002.png,"Absent septum pellucidum. (a) Axial T2-weighted MR image demonstrates absence of the septum pellucidum, with fusion of the lateral ventricles across the midline. (b) Coronal T1-weighted MR image shows “squared-off” appearance of the frontal horns, typically seen with absent septum pellucidum.",case0144,2
+case0087_001.png,SWI shows severe low signal intensity of the putamen nuclei (compared to globus pallidus).,case0087,1
+case0087_002.png,"SWI MIP
+Presence of ""swallow-tail sign"".",case0087,2
+case0087_003.png,FLAIR shows symmetric subtle linear hypointensity in the putamen nuclei.,case0087,3
+case0067_001.png,Axial T2-weighted image.  The lesion in the trigone of the left lateral ventricle is heterogeneous. There is surrounding periventricular white matter oedema.,case0067,1
+case0067_002.png,Axial FLAIR image. The lesion in the trigone of the left lateral ventricle is heterogeneous and there is surrounding periventricular white matter oedema.,case0067,2
+case0067_003.png,Axial contrast-enhanced T1 image. The lesion in the trigone of the left lateral ventricle is heterogeneous and shows a strong heterogeneous contrast enhancement.,case0067,3
+case0067_004.png,Apparent diffusion coefficient image showing low ADC values in the lesion.,case0067,4
+case0185_001.png,"MRI obtained at baseline showing sagittal T2 (A), axial FLAIR (B) and axial T1 (C) weighted images of the brain evidence an intra-axial left frontal irregular, heterogeneous lesion with irregular edges and extensive vasogenic edema. DWI-weighted image (D) shows high signal intensity at the edges of the lesion that when compared with low signal ADC map (E) confirms high diffusion restriction. In post-gadolinium T1-weighted image(F) there is avid enhancement of the edges of the lesion",case0185,1
+case0185_008.png,"MRI obtained at baseline showing sagittal T2 (A), axial FLAIR (B) and axial T1 (C) weighted images of the brain evidence an intra-axial left frontal irregular, heterogeneous lesion with irregular edges and extensive vasogenic edema. DWI-weighted image (D) shows high signal intensity at the edges of the lesion that when compared with low signal ADC map (E) confirms high diffusion restriction. In post-gadolinium T1-weighted image(F) there is avid enhancement of the edges of the lesion",case0185,8
+case0185_002.png,Follow up MRI showing axial FLAIR (A) and axial post-gadolinium T1(B) weighted images demonstrating increase in swelling and enhancement of subcutaneous tissue that extends to the nasal fossa and the left maxillary sinus. Dorsal axial FLAIR weighted image at orbitary level show preseptal soft tissue swelling (C) with marked enhancement in post-gadolinium T1 weighted image,case0185,2
+case0185_003.png,"Axial T2 (A) and FLAIR weighted images (B), showing surgical changes as well as increase in signal intensity within the lesion and mild increase of vasogenic edema. GRE weighted image (C) shows areas of signal absence with blooming effect due to micro-hemorrhages. DWI weighted image (D) reveals high signal intensity within the lesion that when matched with ADC map (E) confirms high diffusion restriction likely due to high protein content. There is mild peripheral, capsule like enhancement in post-gadolinium T1 weighted image (F)",case0185,3
+case0185_004.png,"Axial T2 (A) and FLAIR weighted images (B), showing surgical changes as well as increase in signal intensity within the lesion and mild increase of vasogenic edema. GRE weighted image (C) shows areas of signal absence with blooming effect due to micro-hemorrhages. DWI weighted image (D) reveals high signal intensity within the lesion that when matched with ADC map (E) confirms high diffusion restriction likely due to high protein content. There is mild peripheral, capsule like enhancement in post-gadolinium T1 weighted image (F)",case0185,4
+case0185_005.png,"Axial T2 (A) and FLAIR weighted images (B), showing surgical changes as well as increase in signal intensity within the lesion and mild increase of vasogenic edema. GRE weighted image (C) shows areas of signal absence with blooming effect due to micro-hemorrhages. DWI weighted image (D) reveals high signal intensity within the lesion that when matched with ADC map (E) confirms high diffusion restriction likely due to high protein content. There is mild peripheral, capsule like enhancement in post-gadolinium T1 weighted image (F)",case0185,5
+case0185_006.png,"Axial T2 (A) and FLAIR weighted images (B), showing surgical changes as well as increase in signal intensity within the lesion and mild increase of vasogenic edema. GRE weighted image (C) shows areas of signal absence with blooming effect due to micro-hemorrhages. DWI weighted image (D) reveals high signal intensity within the lesion that when matched with ADC map (E) confirms high diffusion restriction likely due to high protein content. There is mild peripheral, capsule like enhancement in post-gadolinium T1 weighted image (F)",case0185,6
+case0185_007.png,"Axial T2 (A) and FLAIR weighted images (B), showing surgical changes as well as increase in signal intensity within the lesion and mild increase of vasogenic edema. GRE weighted image (C) shows areas of signal absence with blooming effect due to micro-hemorrhages. DWI weighted image (D) reveals high signal intensity within the lesion that when matched with ADC map (E) confirms high diffusion restriction likely due to high protein content. There is mild peripheral, capsule like enhancement in post-gadolinium T1 weighted image (F)",case0185,7
+case0020_001.png,Sulci appear abnormally deep with increased cortical thickness in left frontal lobe.,case0020,1
+case0020_003.png,T2W oblique coronal image showing increased focal cortical thickness of left frontal lobe.,case0020,3
+case0020_002.png,FLAIR oblique coronal image showing focal increased cortical thickness in left frontal lobe.,case0020,2
+case0048_001.png,T2 sequence - Transverse view,case0048,1
+case0048_002.png,T1 sequence - Coronal view,case0048,2
+case0048_003.png,T1 sequence - Coronal view,case0048,3
+case0066_001.png,MRI demostrates a polypoid cortical herniation from the lateral inferior right temporal occipital cortex into the superior aspect of the right transverse sinus in keeping with brain herniation into the tranverse sinus.,case0066,1
+case0066_002.png,MRI demostrates a polypoid cortical herniation from the lateral inferior right temporal occipital cortex into the superior aspect of the right transverse sinus.,case0066,2
+case0110_002.png,Axial T2 Flair WI MR. Several in corticosubcortical junction intra-axial hyperintense lesions (tubers) are observed.,case0110,2
+case0110_001.png,"Coronal T1 C+ WI MR. Several subependymal nodular lesions are observed along the walls of both lateral ventricles, with important enhancement.",case0110,1
+case0215_003.png,"The lesion showed a hyperintense signal with a central area of greater intensity, presenting a bullseye appearance",case0215,3
+case0215_002.png,"The lesion showed an open-ring enhancement pattern, with its open part pointing towards the adjacent grey matter",case0215,2
+case0215_001.png,The lesion presented an inner and outer ring of restricted diffusion (hyperintense on diffusion images and hypointense on ADC map),case0215,1
+case0227_001.png,Flair axial image shows suppression of fluid contents,case0227,1
+case0252_001.png,"Axial T2WI shows blurring of the grey-white interface, sulcal effacement and cortical thickening of the right hemisphere.  Also, a white matter subcortical hyperintensity is seen.",case0252,1
+case0252_002.png,Axial FLAIR shows white matter subcortical lesion in the right hemisphere. Frontal atrophic skin lesion is also shown.,case0252,2
+case0186_001.png,"Axial T1-weighted image before (A) and after (B) administration of Gadolinium show a heterogenous mass, with T1 hyperintense components (Arrowhead) .  No contrast enhancement can be shown in the expansile mass",case0186,1
+case0210_001.png,,case0210,1
+case0072_001.png,Axial FLAIR image showing symmetrical hyperintense areas involving the superior cerebellar peduncles and pons.,case0072,1
+case0072_002.png,Axial FLAIR image showing hyperintense areas involving dorsal pons and middle cerebellar peduncles. Fourth ventricle appears prominent.,case0072,2
+case0280_001.png,"MRI head demonstrates an avidly enhancing paraclinoid meningioma (long arrow) with the left oculomotor nerve (short arrow) touching the medial aspect of the lesion, causing effacement of the nerve as it passes through the cavernous sinus.",case0280,1
+case0229_001.png,Typical “tigroid pattern” in T2WI and mass effect with enlargement of left cerebellar lobe,case0229,1
+case0229_002.png,Mass hypointense in T1,case0229,2
+case0229_003.png,No contrast enhancement,case0229,3
+case0245_001.png,Axial T2WI: Shows a large Parietal lobe area with signal and morphological abnormalities. The outer core represents a thickened cerebral cortex with minimal sulcation while the inner core has a high signal intensity relative to the white matter,case0245,1
+case0245_002.png,Coronal FLAIR shows ex vacuo dilation of the lateral ventricle,case0245,2
+case0245_003.png,Axial SWI showing low radial signal voids coursing and converging centrally within this lesion,case0245,3
+case0208_001.png,No abnormal enhancement was seen in the post-contrast T1 FSE sequence.,case0208,1
+case0100_007.png,MRI shows a large pineal region mass with moderate enhancement with compression of the tectum resulting in obstructive hydrocephalus.,case0100,7
+case0100_008.png,MRI shows a large pineal region mass with moderate enhancement with compression of the tectum resulting in obstructive hydrocephalus.,case0100,8
+case0100_009.png,MRI shows a large pineal region mass with moderate enhancement with compression of the tectum resulting in obstructive hydrocephalus.,case0100,9
+case0100_013.png,MRI shows a sizeable enhancing mass centered on the pineal region.,case0100,13
+case0100_014.png,MRI shows a sizeable enhancing mass centered on the pineal region.,case0100,14
+case0100_015.png,MRI shows a sizeable enhancing mass centered on the pineal region.,case0100,15
+case0100_016.png,MRI shows a sizeable enhancing mass centered on the pineal region.,case0100,16
+case0100_012.png,MRI shows a large pineal region mass with moderate enhancement.,case0100,12
+case0100_010.png,MRI shows a large pineal region mass with moderate enhancement.,case0100,10
+case0100_011.png,MRI shows a large pineal region mass with moderate enhancement.,case0100,11
+case0100_001.png,On SWAN imaging the pineal calcification is confirmed to be placed centrally.,case0100,1
+case0100_002.png,On SWAN imaging the pineal calcification is confirmed to be placed centrally.,case0100,2
+case0100_003.png,On SWAN imaging the pineal calcification is confirmed to be placed centrally.,case0100,3
+case0100_004.png,On T2 the pineal mass is hyperintense.,case0100,4
+case0100_005.png,On T2 the pineal mass is hyperintense.,case0100,5
+case0100_006.png,On T2 the pineal mass is hyperintense.,case0100,6
+case0100_017.png,Diffusion-weighted imaging (DWI) shows restriction with low apparent diffusion coefficient (ADC) values.,case0100,17
+case0194_001.png,"Coronal T2-weighted image of the brain showing an irregular, heterogeneous, left frontal lesion with prominent vasogenic edema and marked mass effect causing subfalcine herniation",case0194,1
+case0194_002.png,"Sagital T2 weighted image of the brain shows the lesion having heterogeneous signal intensity, with some signal voids representing blood vessels. The lesion eroded the frontal bone, protruding through it and reaching the subcutaneous tissue, causing marked bulging. It also erodes the sphenoid, reaching the sphenoid sinus",case0194,2
+case0194_003.png,"Axial FLAIR-weighted image of the brain shows the left frontal lesion with multiple blood vessels coursing through it, extensive vasogenic edema and causing severe mass effect with compression of the ipsilateral basal ganglia and falcine herniation",case0194,3
+case0194_004.png,"Sagittal postgadolinium T1 weighted image of the brain showing heterogeneous enhancement of the lesion, predominant on the periphery of it",case0194,4
+case0153_001.png,Sagittal T1WI (a) and coronal FLAIR (b) showing widening of the subarachnoid spaces and lateral ventricles due to a generalised moderate-to-severe cerebral volume loss disproportionate for age of the brain.,case0153,1
+case0153_002.png,Sagittal T1WI (a) and coronal FLAIR (b) showing widening of the subarachnoid spaces and lateral ventricles due to a generalised moderate-to-severe cerebral volume loss disproportionate for age of the brain.,case0153,2
+case0055_001.png,T2 axial image of the brain shows small globular hyperintense lesion in the splenium of the corpus callosum.,case0055,1
+case0055_002.png,FLAIR axial image of the brain shows small globular hyperintense lesion in the splenium of the corpus callosum.,case0055,2
+case0055_003.png,DWI of the brain shows diffusion restriction in the lesion found in the splenium.,case0055,3
+case0055_004.png,ADC of the brain shows low ADC value in the lesion of the splenium.,case0055,4
+case0015_001.png,Axial FLAIR image demonstrates symmetric high T2 signal and oedema in the mesial temporal lobes bilaterally.,case0015,1
+case0015_002.png,"Repeat MRI 3 weeks after therapy shows partial resolution of the mesial temporal lobe high T2 signal, which correlated with clinical recovery.",case0015,2
+case0094_001.png,T1-W FSE: heterogeneous hypointense signal.,case0094,1
+case0094_002.png,Axial T2-W: Hyperintense intraaxial expansile mass lesion with broad cortical involvement. There is a prominent central cystic component with dark linear septations.,case0094,2
+case0094_003.png,Sagittal T1 FSE: the lesion is located in the right parietal lobe.,case0094,3
+case0094_004.png,"Axial T1-W PostGd: 
+No evidence of enhancement.",case0094,4
+case0094_005.png,DWI (b1000),case0094,5
+case0094_006.png,"Postprocessed SWI with mIP reconstruction: No hypointense intralesional signal intensity to suggest calcification, haemosiderin or iron deposition.",case0094,6
+case0109_001.png,"Coronal T2W image shows hypointense left parietal parafalcine lesion.
+Incidentally noted right parietal bone fibrous Dysplasia.",case0109,1
+case0119_003.png,"Signal hyperintensity due to gliosis in the antero-medial region of both globus pallidus, surrounded by hypointense areas secondary to iron deposits (“eye-of-the-tiger” sign).",case0119,3
+case0119_002.png,"Signal hyperintensity due to gliosis in the antero-medial region of both globus pallidus, surrounded by hypointense areas secondary to iron deposits (“eye-of-the-tiger” sign)",case0119,2
+case0119_001.png,"Comma-shaped, hypointense lesions in the antero-medial region of both globus pallidus",case0119,1
+case0058_002.png,T2WI axial plane,case0058,2
+case0058_001.png,Axial post-contrast T1WI,case0058,1
+case0078_002.png,Heterogeneous contrast-enhancing mass with hyperintense foci located in the right cerebellopontine angle.,case0078,2
+case0078_003.png,Heterogeneous contrast-enhancing mass in the coronal plane.,case0078,3
+case0078_001.png,Heterogeneous mass located in the right cerebellopontine angle.  Dimensions are 19 x 25 millimetres.,case0078,1
+case0143_001.png,"Axial susceptibility-weighted MRI of the brain shows multiple foci of increased susceptibility within the anterior frontal lobe lesion, consistent with hemorrhagic foci.",case0143,1
+case0143_002.png,Axial diffusion-weighted MRI of the brain shows central reduced diffusivity.,case0143,2
+case0143_003.png,Axial apparent diffusion coefficient MRI of the brain shows central hypointensity corresponding to restricted diffusion on DWI sequences.,case0143,3
+case0146_002.png,"Axial FLAIR WIs (A, B, C and D) show areas of hyperintense signal involving mesial temporal lobes bilaterally, both middle cerebellar peduncles, splenium of corpus callosum, subcortical and periventricular WM of both cerebral hemispheres, DWIs (E, F and G) and ADC map (H and K) show diffusional restriction of middle cerebellar peduncles as well as the CC lesion while those scattered in the WM show no restriction. The post contrast images (L and M) show no contrast uptake in any of these images.",case0146,2
+case0146_003.png,"Axial FLAIR WIs (A, B, C and D) show areas of hyperintense signal involving mesial temporal lobes bilaterally, both middle cerebellar peduncles, splenium of corpus callosum, subcortical and periventricular WM of both cerebral hemispheres, DWIs (E, F and G) and ADC map (H and K) show diffusional restriction of middle cerebellar peduncles as well as the CC lesion while those scattered in the WM show no restriction. The post contrast images (L and M) show no contrast uptake in any of these images.",case0146,3
+case0146_001.png,"Axial FLAIR WIs (A, B, C and D) show areas of hyperintense signal involving mesial temporal lobes bilaterally, both middle cerebellar peduncles, splenium of corpus callosum, subcortical and periventricular WM of both cerebral hemispheres, DWIs (E, F and G) and ADC map (H and K) show diffusional restriction of middle cerebellar peduncles as well as the CC lesion while those scattered in the WM show no restriction. The post contrast images (L and M) show no contrast uptake in any of these images.",case0146,1
+case0251_001.png,The lesion appears hyperintense on T1W axial image.,case0251,1
+case0251_002.png,"On T2W imaging, lesion shows predominant hypointensity.",case0251,2
+case0251_003.png,FLAIR images show signal intensity similar to T2W images.,case0251,3
+case0251_004.png,Shows few foci of blooming on SWI images.,case0251,4
+case0251_005.png,Contrast images show no significant contrast enhancement.,case0251,5
+case0251_006.png,Contrast images show no significant contrast enhancement.,case0251,6
+case0063_006.png,Brain MRI: There is apparent fusion of the cerebellar hemispheres (rhombencephalosynapsis) with continuous appearance of vermis and both cerebellar hemispheres. There is a small cavum septum pellucidum.,case0063,6
+case0063_007.png,There is a small cavum septum pellucidum.,case0063,7
+case0063_008.png,There is apparent fusion of the cerebellar hemispheres with continuous appearance of vermis and both cerebellar hemispheres.,case0063,8
+case0063_001.png,There is apparent fusion of the cerebellar hemispheres  with continuous appearance of vermis and both cerebellar hemispheres.,case0063,1
+case0063_002.png,There is apparent fusion of the cerebellar hemispheres  with continuous appearance of vermis and both cerebellar hemispheres.,case0063,2
+case0063_003.png,There is apparent fusion of the cerebellar hemispheres  with continuous appearance of vermis and both cerebellar hemispheres.,case0063,3
+case0063_004.png,There is apparent fusion of the cerebellar hemispheres  with continuous appearance of vermis and both cerebellar hemispheres.,case0063,4
+case0063_005.png,There is apparent fusion of the cerebellar hemispheres  with continuous appearance of vermis and both cerebellar hemispheres.,case0063,5
+case0195_001.png,Homogeneous contrast enhancement of the extraaxial lesion,case0195,1
+case0195_002.png,Hyperintensity in the white matter compatible with vasogenic oedema,case0195,2
+case0095_002.png,Axial T2 sequence showing a hyperintense triangular parietal scalp lesion.,case0095,2
+case0095_004.png,"Sagittal T2 sequence showing a connecting fibrous strip, a vertical falcine vein and cerebrospinal fluid tractus.",case0095,4
+case0095_003.png,"T1+Gd sequence showing a connecting fibrous strip, a vertical falcine vein and cerebrospinal fluid tractus.",case0095,3
+case0095_001.png,Axial T1 sequence showing subependimal heterotopia.,case0095,1
+case0117_001.png,Axial FLAIR shows mild expansion involving the left anterolateral part of the medulla with increased signal intensity.,case0117,1
+case0117_002.png,Axial T2WI shows multiple discrete hyperintense foci in the left half of pons representing dilated VR spaces.,case0117,2
+case0117_003.png,Coronal T2WI shows multiple discrete hyperintense foci in the left half of pons representing dilated VR spaces,case0117,3
+case0181_001.png,Susceptibility weighted image showing intense blooming in the lesions in the dentate nuclei,case0181,1
+case0086_003.png,"Sagittal T1-weighted image, at 6 months shows a small cerebellum in an otherwise normal posterior fossa, suggestive of cerebellar hypoplasia.",case0086,3
+case0086_001.png,"Axial T2-weighted images shows the hypoplastic and atrophic cerebellum, involving the vermis and both cerebellar hemispheres.",case0086,1
+case0086_002.png,"Axial T2-weighted image shows the hypoplastic and atrophic cerebellum, involving the vermis and both cerebellar hemispheres.",case0086,2
+case0211_001.png,Diffusion weighted MR sequence at the level of the basal ganglia demonstrates restricted diffusion in the left basal ganglia,case0211,1
+case0211_002.png,Corresponding apparent diffusion coefficient MR sequence at the level of the basal ganglia confirms restricted diffusion in the left basal ganglia,case0211,2
+case0211_003.png,Susceptibility weighted MR sequence at the level of the basal ganglia demonstrate expected senescent mineralization of the bilateral Globus pallidus. No suspicious signal loss,case0211,3
+case0211_004.png,Axial post contrast T1 weight weighted MR sequence at the level of the basal ganglia demonstrates ill-defined enhancement in the left basal ganglia,case0211,4
+case0211_005.png,Axial T2 weighted MR sequence at the level of the basal ganglia demonstrates minimal hyperintense signal in the left basal ganglia,case0211,5
+case0150_001.png,MRI T1WI axial image shows hyperintense signal intensity involving right caudate nucleus and putamen.,case0150,1
+case0150_002.png,MRI T2WI axial image show hypointense signal intensity involving right caudate nucleus and putamen.,case0150,2
+case0150_003.png,FLAIR axial image show hypointense signal intensity involving right caudate nucleus and putamen.,case0150,3
+case0150_004.png,ADC images shows no evidence of diffusion restriction.,case0150,4
+case0126_001.png,"FLAIR and T2 images showed relatively mild symmetric bilateral hyperintensity of the deep and periventricular white matter along the side ventricle walls (a,c). Follow-up examination after 1 year revealed progression of demyelination (b, d).",case0126,1
+case0126_002.png,"FLAIR and T2 images showed relatively mild symmetric bilateral hyperintensity of the deep and periventricular white matter along the side ventricle walls (a,c). Follow-up examination after 1 year revealed progression of demyelination (b, d).",case0126,2
