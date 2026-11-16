@@ -31,6 +31,11 @@ tags:
 - zero-shot
 ---
 
+> [!IMPORTANT]
+> 本仓库不再包含 NOVA 数据集的图片、病例元数据或临床文本 JSONL。请从 HuggingFace 获取数据集（见下方链接）。
+>
+> 项目整改方案见 [整改方案.md](整改方案.md)。
+
 <table>
   <tr>
     <td><img src="https://huggingface.co/datasets/c-i-ber/Nova/resolve/main/logo.png" alt="NOVA Logo" width="40"></td>
