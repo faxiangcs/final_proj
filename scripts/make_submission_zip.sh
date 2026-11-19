@@ -1,47 +1,32 @@
 #!/usr/bin/env bash
-# Build the course submission .zip without data, weights, checkpoints, or logs.
+# Build the course submission .zip from the current git commit.
 #
 #   bash scripts/make_submission_zip.sh
 #   bash scripts/make_submission_zip.sh /tmp/iota5201.zip
 #
-# The default output is dist/yanfaxiang_50051798_iota5201.zip.
+# Only tracked files are included. Local data, model weights, checkpoints,
+# logs, and follow-up experiments are therefore excluded automatically.
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ROOT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
 OUT="${1:-$ROOT_DIR/dist/yanfaxiang_50051798_iota5201.zip}"
+PREFIX="yanfaxiang_50051798_iota5201/"
 
-if ! command -v zip >/dev/null 2>&1; then
-    echo "[ERROR] zip not found; install zip or use Python's zipfile module." >&2
+cd "$ROOT_DIR"
+
+if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+    echo "[ERROR] not inside a git repository: $ROOT_DIR" >&2
     exit 1
 fi
 
-cd "$ROOT_DIR"
+if ! git diff --quiet || ! git diff --cached --quiet; then
+    echo "[WARN] working tree has uncommitted changes; the zip contains HEAD only." >&2
+fi
+
 mkdir -p "$(dirname "$OUT")"
 rm -f "$OUT"
-
-FILES=(
-    README.md
-    requirements.txt
-    .gitignore
-    .gitattributes
-    inference.sh
-    medical_reward.py
-    eval_all_metric.py
-    PRESENTATION.md
-    src
-    scripts
-    tests
-    paper
-)
-
-zip -r "$OUT" "${FILES[@]}" \
-    -x '*/__pycache__/*' '*.pyc' '*.pyo' \
-       'paper/review/*' 'paper/*.aux' 'paper/*.bbl' 'paper/*.blg' \
-       'paper/*.log' 'paper/*.out' 'paper/*.toc' 'paper/*.synctex.gz' \
-       'src/grpo_reference_audit.py' 'src/refinement_rewards.py' \
-       'tests/test_refinement_rewards.py' \
-       'scripts/__pycache__/*' 'tests/__pycache__/*'
+git archive --format=zip --prefix="$PREFIX" --output="$OUT" HEAD
 
 echo "written: $OUT"
 echo "size:    $(du -h "$OUT" | cut -f1)"
