@@ -108,11 +108,11 @@ env/
 # 后续探索实验（未写入课程报告，不随提交上传）
 /experiments/
 /refinement_plugin.py
+/src/*refinement*.py
 /src/grpo_reference_audit.py
-/src/refinement_rewards.py
-/tests/test_refinement_rewards.py
-/scripts/run_refinement.py
-/scripts/start_refinement.sh
+/tests/test_refinement*.py
+/scripts/*refinement*.py
+/scripts/*refinement*.sh
 
 # 压缩包 / 临时文件
 *.zip
