@@ -111,6 +111,8 @@ env/
 /src/grpo_reference_audit.py
 /src/refinement_rewards.py
 /tests/test_refinement_rewards.py
+/scripts/run_refinement.py
+/scripts/start_refinement.sh
 
 # 压缩包 / 临时文件
 *.zip
