@@ -39,6 +39,8 @@ zip -r "$OUT" "${FILES[@]}" \
     -x '*/__pycache__/*' '*.pyc' '*.pyo' \
        'paper/review/*' 'paper/*.aux' 'paper/*.bbl' 'paper/*.blg' \
        'paper/*.log' 'paper/*.out' 'paper/*.toc' 'paper/*.synctex.gz' \
+       'src/grpo_reference_audit.py' 'src/refinement_rewards.py' \
+       'tests/test_refinement_rewards.py' \
        'scripts/__pycache__/*' 'tests/__pycache__/*'
 
 echo "written: $OUT"

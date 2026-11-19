@@ -30,6 +30,7 @@ MODEL="${MODEL:-}"
 ADAPTERS="${ADAPTERS:-}"
 REF_ADAPTERS="${REF_ADAPTERS:-}"
 GRPO_CALLBACKS="${GRPO_CALLBACKS:-}"
+GRPO_RESUME="${GRPO_RESUME:-}"
 TRAIN_FILE="${TRAIN_FILE:-$DATA_DIR/grpo_train.jsonl}"
 VAL_FILE="${VAL_FILE:-$DATA_DIR/grpo_val.jsonl}"
 OUTPUT_DIR="${OUTPUT_DIR:-$ROOT_DIR/output/nova_grpo}"
@@ -73,6 +74,10 @@ fi
 if [[ -n "$REF_ADAPTERS" ]]; then
     require_file "$REF_ADAPTERS/adapter_config.json"
     EXTRA_ARGS+=(--ref_adapters "$REF_ADAPTERS")
+fi
+if [[ -n "$GRPO_RESUME" ]]; then
+    require_file "$GRPO_RESUME/trainer_state.json"
+    EXTRA_ARGS+=(--resume_from_checkpoint "$GRPO_RESUME")
 fi
 if [[ -n "$GRPO_CALLBACKS" ]]; then
     read -r -a CALLBACK_ARRAY <<< "$GRPO_CALLBACKS"
