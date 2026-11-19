@@ -1,0 +1,21 @@
+# Core environment used for the reported runs (Python 3.11).
+# The training machine used four RTX 3090 GPUs and the CUDA 12.4 PyTorch build.
+# For a different CUDA version, install torch/torchvision from
+# https://pytorch.org/get-started/locally/ and keep the remaining pins.
+torch==2.6.0
+torchvision==0.21.0
+transformers==5.20.2
+ms-swift==4.6.1
+peft==0.20.0
+accelerate==1.15.0
+qwen-vl-utils==0.0.14
+msgspec==0.22.0
+
+# Analysis and figure generation (CPU only).
+matplotlib==3.11.2
+numpy==2.4.6
+pillow==13.0.0
+
+# Optional: install pytest if you prefer it over unittest.
+# The test suite also runs with: python -m unittest discover -s tests -v
+# pytest==8.4.2

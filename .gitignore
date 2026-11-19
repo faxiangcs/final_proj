@@ -1,0 +1,122 @@
+# ============================================================
+# 隐私数据 / 数据集：不要上传到 GitHub
+# ============================================================
+# NOVA 数据集：图片、标注、病例元数据、parquet
+# 保留数据集说明与构建脚本，方便复现数据来源
+/Nova/*
+!/Nova/README.md
+!/Nova/build_parquet.py
+!/Nova/croissant.json
+!/Nova/.gitattributes
+
+# 病例文本、模型输入输出、评测数据
+/data/
+/predictions/
+/reports/
+*.jsonl
+*.csv
+*.parquet
+*.arrow
+*.feather
+*.h5
+*.hdf5
+
+# 推理结果 / 评测产物（可能包含病史、诊断、图像路径）
+/result/
+/infer_result/
+
+# ============================================================
+# 模型权重 / checkpoint / 训练输出：体积大，且可能含医疗数据
+# ============================================================
+/nova_sft_merged/
+/final_proj/output/
+/output/
+/checkpoints/
+/runs/
+/logs/
+/wandb/
+/swanlab/
+*.bin
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.onnx
+*.pkl
+*.pickle
+*.npy
+*.npz
+
+# ============================================================
+# 环境 / 密钥 / token
+# ============================================================
+.env
+.env.*
+*.key
+*.pem
+/secrets/
+/credentials/
+*.token
+
+# ============================================================
+# Python / 编辑器 / 系统临时文件
+# ============================================================
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+.venv/
+venv/
+env/
+.ipynb_checkpoints/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# macOS / 编辑器
+.DS_Store
+**/.DS_Store
+*.swp
+*.swo
+.load.py.swp
+.idea/
+.vscode/
+
+# ============================================================
+# 论文构建产物 / 内部审校材料
+# ============================================================
+/paper/*.aux
+/paper/*.bbl
+/paper/*.blg
+/paper/*.fls
+/paper/*.fdb_latexmk
+/paper/*.log
+/paper/*.out
+/paper/*.toc
+/paper/*.synctex.gz
+/paper/review/
+
+# ============================================================
+# 课程材料 / 内部笔记 / 本地临时目录
+# ============================================================
+/IOTA_Final_Project.pdf
+/整改方案.md
+/final_proj/
+/dist/
+/texput.log
+
+# 后续探索实验（未写入课程报告，不随提交上传）
+/experiments/
+/refinement_plugin.py
+/src/grpo_reference_audit.py
+/src/refinement_rewards.py
+/tests/test_refinement_rewards.py
+
+# 压缩包 / 临时文件
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.7z
+*.tmp
+*.log

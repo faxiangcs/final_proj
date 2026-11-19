@@ -1,0 +1,131 @@
+{
+  "Acute hemorrhagic necrotizing encephalitis": [
+    ["hemorrhagic", "necrotizing"]
+  ],
+  "Acute necrotizing encephalitis of childhood (ANEC) by H1N1 virus": [
+    ["anec"],
+    ["h1n1"]
+  ],
+  "Anaplastic astrocytoma (IDH-mutant and 1p/19q non-co-deleted), WHO grade III": [
+    ["anaplastic", "astrocytoma"]
+  ],
+  "Angiocentric glioma": [
+    ["angiocentric"]
+  ],
+  "Bithalamic and cranial-midbrain infarction from occlusion of the Percheron artery": [
+    ["percheron"],
+    ["bithalamic"]
+  ],
+  "Calcified intraventricular meningioma": [
+    ["calcified", "meningioma"]
+  ],
+  "Diabetic striatopathy": [
+    ["diabetic", "striatopathy"]
+  ],
+  "Dyke Davidoff Masson syndrome": [
+    ["dyke"],
+    ["davidoff"],
+    ["masson"]
+  ],
+  "Dysembryoplastic Neuroepithelial Tumor (DNET)": [
+    ["dnet"],
+    ["dysembryoplastic"]
+  ],
+  "Dysplastic Cerebellar Gangliocytoma": [
+    ["gangliocytoma"]
+  ],
+  "Giant Adamantinomatous craniopharyngioma with obstructive mild hydrocephalus": [
+    ["craniopharyngioma"],
+    ["adamantinomatous"]
+  ],
+  "Hypothalamic-optochiasmatic glioma": [
+    ["optochiasmatic"],
+    ["hypothalamic"]
+  ],
+  "Idiopathic hyperatrophic pachymeningitis": [
+    ["pachymeningitis"],
+    ["hyperatrophic"]
+  ],
+  "Left high Parietal Actinomycosis Abscess": [
+    ["actinomycosis"]
+  ],
+  "Leigh's disease (Mitochondrial disorder)": [
+    ["leigh"]
+  ],
+  "Lhermitte-Duclos disease": [
+    ["lhermitte"],
+    ["duclos"]
+  ],
+  "Lipoma of the corpus callosum": [
+    ["corpus", "callosum", "lipoma"],
+    ["callosal", "lipoma"]
+  ],
+  "Multiple System Atrophy - Cerebellar type": [
+    ["multiple", "system", "atrophy"],
+    ["msa"]
+  ],
+  "Multiple intra-cranial meningiomas": [
+    ["multiple", "meningioma"]
+  ],
+  "Pericallosal lipoma associated with corpus callosum dysgenesis": [
+    ["pericallosal", "lipoma"]
+  ],
+  "Pilocytic astrocytoma": [
+    ["pilocytic"]
+  ],
+  "Porencephaly": [
+    ["porencephaly"],
+    ["porencephalic"]
+  ],
+  "Poretti-Boltshauser syndrome": [
+    ["poretti"],
+    ["boltshauser"]
+  ],
+  "Posterior Reversible Encephalopathy Syndrome": [
+    ["posterior", "reversible"],
+    ["pres"]
+  ],
+  "Primary angiitis of the central nervous system": [
+    ["angiitis"],
+    ["pacns"]
+  ],
+  "Psammomatoid juvenile ossifying fibroma": [
+    ["psammomatoid"],
+    ["ossifying", "fibroma"]
+  ],
+  "Pyogenic brain abscess with intraventricular rupture": [
+    ["pyogenic"],
+    ["brain", "abscess"]
+  ],
+  "Regarding the whole file, we believe it is falx EMH": [
+    ["emh"],
+    ["falx"]
+  ],
+  "Retinal Vasculopathy with Cerebral Leukoencephalopathy": [
+    ["retinal", "vasculopathy"],
+    ["rvcl"]
+  ],
+  "Romboencephalosynapsis": [
+    ["romboencephalosynapsis"],
+    ["rhombencephalosynapsis"]
+  ],
+  "Skull base chondrosarcoma": [
+    ["chondrosarcoma"]
+  ],
+  "Suprasellar ganglioglioma": [
+    ["ganglioglioma"]
+  ],
+  "VEXAS syndrome": [
+    ["vexas"]
+  ],
+  "Wernicke Encephalopathy": [
+    ["wernicke"],
+    ["thiamine"]
+  ],
+  "Wilson disease": [
+    ["wilson"]
+  ],
+  "Wilson's disease with extensive white matter abnormalities": [
+    ["wilson"]
+  ]
+}
