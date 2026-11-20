@@ -81,6 +81,7 @@ Key numbers:
 │   ├── box_bias_report.py     # box-area bias diagnostics
 │   ├── compare_checkpoints.py
 │   ├── monitor_dashboard.py   # lightweight local training dashboard
+│   ├── start_monitor.sh       # start/stop/status helper
 │   └── make_submission_zip.sh # build the course .zip
 ├── tests/                     # 87 unit tests (unittest, no pytest required)
 └── paper/
@@ -201,6 +202,21 @@ python3 -m unittest discover -s tests -v
 ```
 
 The suite contains 87 tests covering the schema, parser, rewards, evaluator, dataset format, and dashboard helpers. No GPU is needed.
+
+### 5.6 Monitoring dashboard
+
+The optional read-only dashboard shows baseline progress, recent outputs, GPU memory/utilization, and training loss/eval lines:
+
+```bash
+# On the GPU server (binds 127.0.0.1:8777 by default)
+bash scripts/start_monitor.sh start
+
+# On your laptop
+ssh -N -L 8777:127.0.0.1:8777 <user>@<server>
+# Open http://127.0.0.1:8777/
+```
+
+Use `bash scripts/start_monitor.sh status` to check the process and `/healthz` endpoint. The dashboard has no authentication and may show clinical text, so prefer the SSH tunnel over exposing the port publicly. See [scripts/README.md](scripts/README.md#监控面板) for direct-LAN access and troubleshooting.
 
 ## 6. Reproducibility and honest reporting
 

@@ -432,24 +432,45 @@ python3 src/eval_nova.py \
 
 ## 监控面板
 
-本地只读面板（标准库，无额外依赖）：
+标准库只读面板。推荐用 SSH 隧道：面板会显示训练日志和最近预测，可能含临床
+文本，不建议直接暴露到公网。
+
+服务器上启动（默认只绑定 `127.0.0.1:8777`）：
 
 ```bash
-python3 scripts/monitor_dashboard.py --port 8777
-# 打开 http://127.0.0.1:8777/
+bash scripts/start_monitor.sh start
+bash scripts/start_monitor.sh status
 ```
+
+你电脑上建立隧道：
+
+```bash
+ssh -N -L 8777:127.0.0.1:8777 yanfaxiang@10.120.16.27
+# 浏览器打开 http://127.0.0.1:8777/
+```
+
+如果确实需要局域网直接访问：
+
+```bash
+MONITOR_HOST=0.0.0.0 bash scripts/start_monitor.sh restart
+# 浏览器打开 http://<server-ip>:8777/；需要在防火墙/安全组放行 8777
+```
+
+常用命令：
+
+```bash
+bash scripts/start_monitor.sh restart
+bash scripts/start_monitor.sh stop
+curl --noproxy '*' http://127.0.0.1:8777/healthz
+```
+
+如果浏览器配置了 HTTP 代理，把 `127.0.0.1` 和服务器 IP 加入 no_proxy；否则
+浏览器可能把请求发给代理而打不开。SSH 隧道方式不受代理影响。
 
 显示：4 条 Qwen baseline（自由格式 / 格式引导 × 图像 / 纯文本）的进度与
 失败/空输出、平均延迟与 tok/s、最近输出、vLLM 健康状态、4 张 GPU 的
 显存/利用率、`output/**/logging.jsonl` 里最近的训练 loss/eval、以及日志尾部。
 每 5 秒自动刷新。
-
-远程机器用 SSH 隧道：
-
-```bash
-ssh -L 8777:127.0.0.1:8777 user@host
-# 然后本地浏览器打开 http://127.0.0.1:8777/
-```
 
 `python3 scripts/monitor_dashboard.py --once` 打印一份 JSON 快照，便于脚本检查。
 
