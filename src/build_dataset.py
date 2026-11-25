@@ -8,7 +8,7 @@
    - SFT:  {"messages": [user, assistant], "images": [path]}
    - GRPO: {"messages": [user], "solution": assistant_label, "images": [path]}
 2. 沿用旧的三段式 prompt / label，保证现有 medical_reward.py 和
-   eval_all_metric.py 可以直接解析。
+   src/eval_nova.py 可以直接解析。
 3. 按病例切分 train/val/test，避免同一病人的切片跨集合。
 4. 清洗标签：去掉 not found、空 caption、无效框；gold 框 clip + NMS + 上限。
 5. 输出 manifest / audit，便于复查。
@@ -479,7 +479,7 @@ def main() -> None:
 - Prompt 版本：`{PROMPT_VERSION}`
 - 标签版本：`{label_version}`
 - 数据契约：`src/nova_schema.py`（prompt/label 渲染、解析、校验的唯一来源）
-- 标签：旧的三段式格式，兼容现有 `medical_reward.py` / `eval_all_metric.py`
+- 标签：三段式格式，兼容 `medical_reward.py` / `src/eval_nova.py`
 - 框：gold only；clip 到 480×480；NMS IoU 0.5；每图最多 {args.max_boxes} 个
 - 坐标格式：{"整数 0–480（省 token）" if args.integer_boxes else "两位小数"}
 - 辅助定位样本：{len(aux_recs)} 条（`train_aux_boxes.jsonl`，仅 SFT 使用）
@@ -535,7 +535,7 @@ python src/build_dataset.py \\
   --out_dir /mnt/workspace/final_proj/data/nova_sft
 ```
 
-> 这些 JSONL 默认被 `.gitignore` 忽略，不会上传 GitHub；如需跨机器使用，请用 `scp` / `rsync`，或临时 `git add -f`。
+> 这些 JSONL 被 `.gitignore` 忽略，不会上传 GitHub；跨机器使用请重新构建或私下传输。
 """
     with open(os.path.join(out_dir, "README.md"), "w", encoding="utf-8") as f:
         f.write(readme)

@@ -1,5 +1,6 @@
-"""Plot the GRPO evidence chain from saved logs, validation, and test results."""
+"""Plot the paper evidence chain from the public aggregate results (no private data)."""
 
+import argparse
 import json
 from pathlib import Path
 from statistics import mean
@@ -10,29 +11,22 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
 ROOT = Path(__file__).resolve().parents[1]
-EXPERIMENT = "grpo_refinement_20261119"
-WORK = ROOT / "experiments" / EXPERIMENT
-OUTPUT = ROOT / "output" / EXPERIMENT
+WORK = ROOT / "paper/results"
+FIGURES = ROOT / "paper/figures"
 STAGES = ("reference", "dense", "loc_only")
 LABELS = ("Original", "Shaped + Dx", "Shaped only")
 COLORS = ("#576474", "#397aa3", "#136756")
 
 
 def tied_reward_fractions(stage, seeds, train_steps):
+    signals = json.loads((WORK / "training_signal.json").read_text())
     fractions = []
     for seed in seeds:
-        steps = {}
-        run = OUTPUT / f"{stage}_seed{seed}"
-        logs = sorted(run.glob("v*/logging.jsonl"), key=lambda log: log.stat().st_mtime)
-        for log in logs:
-            for line in log.read_text().splitlines():
-                row = json.loads(line)
-                if "frac_reward_zero_std" in row:
-                    step = int(row["global_step/max_steps"].split("/")[0])
-                    steps[step] = row["frac_reward_zero_std"]
-        if set(steps) != set(range(1, train_steps + 1)):
-            raise ValueError(f"{run.name} is missing training logs")
-        fractions.append(mean(steps.values()))
+        name = f"{stage}_seed{seed}"
+        values = signals[name]["frac_reward_zero_std"]
+        if len(values) != train_steps or any(not 0 <= v <= 1 for v in values):
+            raise ValueError(f"{name} is missing valid scalar training diagnostics")
+        fractions.append(mean(values))
     return fractions
 
 
@@ -106,12 +100,19 @@ def evidence_chain(plan):
                    xticks=[0, 100, 175, 266], ylim=(.36, .525), yticks=[.375, .425, .475, .525])
     validation.legend(loc="lower right", frameon=False, fontsize=6.4,
                       handlelength=1.4, labelspacing=.25)
-    fig.savefig(ROOT / "paper" / "figures" / "fig_evidence_chain.pdf")
+    fig.savefig(FIGURES / "fig_evidence_chain.pdf", metadata={"CreationDate": None})
     plt.close(fig)
 
 
 def main():
-    plan = json.loads((WORK / "plan.json").read_text())
+    global WORK, FIGURES
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--results-dir', type=Path, default=WORK)
+    parser.add_argument('--output-dir', type=Path, default=FIGURES)
+    args = parser.parse_args()
+    WORK, FIGURES = args.results_dir, args.output_dir
+    FIGURES.mkdir(parents=True, exist_ok=True)
+    plan = json.loads((WORK / "experiment.json").read_text())
     aggregate = json.loads((WORK / "aggregate_results.json").read_text())
     plt.rcParams.update({
         "pdf.fonttype": 42, "font.family": "serif",
@@ -120,39 +121,13 @@ def main():
         "axes.linewidth": 0.6, "xtick.labelsize": 7.3, "ytick.labelsize": 7.5,
     })
     evidence_chain(plan)
-    fig, (signal, score) = plt.subplots(2, 1, figsize=(3.45, 2.75))
-    fig.subplots_adjust(left=.285, right=.97, top=.92, bottom=.155, hspace=.85)
-    for ax in (signal, score):
-        ax.set_yticks([0, 1, 2], LABELS)
-        ax.set_ylim(2.55, -.55)
-        ax.spines[["top", "right", "left"]].set_visible(False)
-        ax.tick_params(axis="y", length=0)
-        ax.tick_params(axis="x", length=2.5)
-        ax.set_axisbelow(True)
-        ax.grid(axis="x", color="#dee3e7", linewidth=.55)
-
-    signal.set_title("(a) Training groups with tied rewards", loc="left", pad=5)
-    signal.set_xlim(0, 18)
-    signal.set_xticks([0, 5, 10, 15], ["0%", "5%", "10%", "15%"])
-    score.set_title("(b) Test localization F1 change", loc="left", pad=5)
-    score.set_xlim(-.09, .105)
-    score.set_xticks([-.08, -.04, 0, .04, .08], ["−.08", "−.04", "0", "+.04", "+.08"])
-    score.axvline(0, color="#566474", linewidth=.7, linestyle="--")
-    score.set_xlabel("Difference versus SFT-201")
-
-    for index, (stage, color) in enumerate(zip(STAGES, COLORS)):
+    for stage in STAGES:
         tied = 100 * tied_reward_fraction(stage, plan["seeds"], plan["train_steps"])
-        signal.barh(index, tied, height=.58, color=color)
-        signal.text(tied + .26, index, f"{tied:.2f}%", va="center", color=color)
         summary = aggregate[f"{stage}_selected"]
         delta = summary["mean_delta_raw"]
         low, high = summary["paired_seed_case_ci95_raw"]
-        score.errorbar(delta, index, xerr=[[delta - low], [high - delta]],
-                       fmt="o", color=color, markersize=4, capsize=2.2, linewidth=1.1)
         print(f"{stage}: tied {tied:.2f}%, Δ {delta:+.4f}, CI [{low:+.4f}, {high:+.4f}]")
 
-    fig.savefig(ROOT / "paper" / "figures" / "fig_refinement.pdf")
-    plt.close(fig)
 
 
 if __name__ == "__main__":

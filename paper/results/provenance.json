@@ -1,0 +1,31 @@
+{
+  "description": "Aggregate metrics and scalar training diagnostics from the reported runs. No images, case identifiers, report text, or checkpoint paths are exported.",
+  "source_sha256": {
+    "plan.json": "64842c2b13c870471f6cbca952f14b75dade28558161aaec65f7293665f548c7",
+    "selection.json": "a89eeed49ff93ca23d941bcee2f15e126f5f86f698bad9d35e0254a41d4aa0f3",
+    "aggregate_results.json": "d759b3d0b3d08fc4806fdfb41ccf0266db970508f82a620b040e84277197c42f",
+    "test_results.json": "5f2eaccd0a1177929f8702471b72a237df426140aa39c1a45472f7e32ec16440",
+    "configuration_selection.json": "f3f84283333a38d763b8e2598122d3987722595655fcf48607b9d3850dbcd78c",
+    "result/qwen_sft_test_checkpoint-201/report.json": "6988146cc9386482b76557c8cbf72748b80b00ae120992aef6b6780b66306b2d",
+    "training/reference_seed42/v0-20261119-162751/logging.jsonl": "6f4ff5ff14651100c407df3ec5225537f44410825a4b708980060c8e107f9404",
+    "training/reference_seed43/v0-20261119-181332/logging.jsonl": "1b296d39ab2c4cd1293fa7e42ced8e971a9613f6d195141c9e883cd7ddcfc3a0",
+    "training/reference_seed44/v0-20261119-195644/logging.jsonl": "574f4889e81606b3ed15ea37aa99453fa7b82282a9befe746930654253645c89",
+    "training/dense_seed42/v0-20261119-214354/logging.jsonl": "75c0d9c6c1a3c3e40647af8a1675f9ac80f8d8f6868a33b04984fac4a0b8e0bd",
+    "training/dense_seed43/v0-20261119-233150/logging.jsonl": "f27743a816126f159b49b2fcd520c84f0e76ebcfbf770afdbd496b3f19dd6cc3",
+    "training/dense_seed44/v0-20261120-011010/logging.jsonl": "3b7811a3fb66f5321019bed5f21ab838ab7725580e74f309823e5c4a2b824137",
+    "training/loc_only_seed42/v0-20261120-025923/logging.jsonl": "4ed5e4d37832d80f9b69d71bb75527cd69122565c59306c1c71788057169cb93",
+    "training/loc_only_seed43/v0-20261120-045437/logging.jsonl": "558a33b905941049ff2c43d08cb344aaa978f33d1508dbd70cc1b7eb3e34d84f",
+    "training/loc_only_seed44/v0-20261120-063222/logging.jsonl": "a93ee297aa6c48618998b8362cfc707b99a079c0461262ca61544897f978e27f",
+    "source_hashes.json": "20c6fdd30d9500f8e93adac5a9801d32a64b099cbc9b12ea79cd384fbf1f8234"
+  },
+  "historical_source_sha256": {
+    "experiments/grpo_refinement_20261119/plan.json": "64842c2b13c870471f6cbca952f14b75dade28558161aaec65f7293665f548c7",
+    "medical_reward.py": "a11927e9a4641cd995f02a15a434e895f167cbb6427c99cdf72f08427e86d84c",
+    "refinement_plugin.py": "4fec211175262ef4f12d4cf7590ae1cbc0a8eba359e744cc4814587688d252ec",
+    "src/refinement_rewards.py": "96c16fa4081c770c1d00b589148da4134ec8d79c3f087834d94f35493213db04",
+    "src/grpo_reference_audit.py": "4019171f9c24f20e64e6bcaa599267df8986625e327c18e5fe70d15c387ca00c",
+    "scripts/run_grpo.sh": "f6e628bd78f572efe107704134bc404880b26775cd14d090941abe0394becd29",
+    "scripts/run_refinement.py": "833918acead4c160f72ecbe7de1d2f6b06d86cddd7ec39331913c88bdfc136fa"
+  },
+  "portability_note": "Released launchers/controller support configurable paths and validation-fitted baseline calibration. Historical run files are unchanged; original source hashes are provenance, not hashes of the revised controller."
+}

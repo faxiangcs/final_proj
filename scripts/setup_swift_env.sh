@@ -5,7 +5,7 @@
 #
 # Result: $ENV_DIR (default: $HOME/venvs/ms-swift, Python 3.11)
 #   torch 2.6.0+cu124, transformers 5.20.2, ms-swift 4.6.1
-#   qwen_vl_utils>=0.0.14, msgspec
+#   all remaining versions are read from requirements.txt
 #
 # Notes:
 # - transformers must be >= 5.x: Qwen3.5 (qwen3_5) is not in 4.57;
@@ -19,23 +19,17 @@
 set -euo pipefail
 
 ENV_DIR="${ENV_DIR:-$HOME/venvs/ms-swift}"
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 PY_VERSION="${PY_VERSION:-3.11}"
 PIP_INDEX="${PIP_INDEX:-https://pypi.org/simple}"
-
-# Large downloads may need to bypass a local proxy.
-unset http_proxy https_proxy HTTP_PROXY HTTPS_PROXY all_proxy ALL_PROXY
 
 if [[ ! -x "$ENV_DIR/bin/python" ]]; then
     conda create -p "$ENV_DIR" "python=$PY_VERSION" -y
 fi
 
 PIP=("$ENV_DIR/bin/python" -m pip)
-"${PIP[@]}" install -i "$PIP_INDEX" \
-    torch==2.6.0 torchvision==0.21.0
-"${PIP[@]}" install -i "$PIP_INDEX" \
-    ms-swift==4.6.1 transformers==5.20.2
-"${PIP[@]}" install -i "$PIP_INDEX" \
-    "qwen_vl_utils>=0.0.14" msgspec
+"${PIP[@]}" install -i "$PIP_INDEX" -r "$ROOT_DIR/requirements.txt"
+"${PIP[@]}" check
 
 "$ENV_DIR/bin/python" - <<'PY'
 import torch, transformers, swift

@@ -1,0 +1,26 @@
+{
+  "seeds": [42, 43, 44],
+  "stages": [
+    {"name": "reference", "label": "Original", "rewards": "localization_reward diagnosis_reward", "weights": "1 1"},
+    {"name": "dense", "label": "Shaped + Dx", "rewards": "shaped_localization_reward diagnosis_reward", "weights": "1 1"},
+    {"name": "loc_only", "label": "Shaped only", "rewards": "shaped_localization_reward", "weights": "1"}
+  ],
+  "checkpoints": [50, 100, 175, 266],
+  "train_steps": 266,
+  "nproc_per_node": 2,
+  "gradient_accumulation": 4,
+  "learning_rate": 0.000005,
+  "batch_size": 1,
+  "lora_rank": 16,
+  "lora_alpha": 32,
+  "beta": 0.001,
+  "generations": 4,
+  "temperature": 0.9,
+  "top_p": 0.95,
+  "max_length": 2048,
+  "max_completion_length": 512,
+  "save_steps": 25,
+  "scale_grid": [1.0, 1.05, 1.1, 1.15, 1.2, 1.25, 1.3, 1.35, 1.4, 1.45, 1.5],
+  "bootstrap_replicates": 4000,
+  "bootstrap_seed": 42
+}

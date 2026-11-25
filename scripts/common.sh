@@ -8,34 +8,33 @@ DATA_DIR="${DATA_DIR:-$ROOT_DIR/data/nova_sft}"
 NOVA_ROOT="${NOVA_ROOT:-$ROOT_DIR/Nova}"
 IMAGE_ROOT="${IMAGE_ROOT:-$NOVA_ROOT/images}"
 
-# Base VLM. GRPO defaults to the merged SFT model instead.
-# Local weights live under $HOME/models by default; override with MODEL_ROOT
-# or LOCAL_LLAVA. The local path is preferred when present so training does
-# not need to download from HuggingFace.
+# Base VLM used by the final paper. MODEL can select downloaded local weights.
 MODEL_ROOT="${MODEL_ROOT:-$HOME/models}"
-BASE_MODEL="${BASE_MODEL:-llava-hf/llava-1.5-7b-hf}"
-LOCAL_LLAVA="${LOCAL_LLAVA:-$MODEL_ROOT/llava-1.5-7b-hf}"
-if [[ "$BASE_MODEL" == "llava-hf/llava-1.5-7b-hf" && -f "$LOCAL_LLAVA/config.json" ]]; then
-    BASE_MODEL="$LOCAL_LLAVA"
+BASE_MODEL="${BASE_MODEL:-Qwen/Qwen3.5-9B}"
+if [[ "$BASE_MODEL" == "Qwen/Qwen3.5-9B" && -f "$MODEL_ROOT/Qwen3.5-9B/config.json" ]]; then
+    BASE_MODEL="$MODEL_ROOT/Qwen3.5-9B"
 fi
 
 SEED="${SEED:-42}"
 MAX_LENGTH="${MAX_LENGTH:-2048}"
 MAX_COMPLETION_LENGTH="${MAX_COMPLETION_LENGTH:-512}"
 
-LORA_RANK="${LORA_RANK:-8}"
+LORA_RANK="${LORA_RANK:-16}"
 LORA_ALPHA="${LORA_ALPHA:-32}"
 TORCH_DTYPE="${TORCH_DTYPE:-bfloat16}"
 FREEZE_VIT="${FREEZE_VIT:-true}"
-FREEZE_ALIGNER="${FREEZE_ALIGNER:-true}"
+FREEZE_ALIGNER="${FREEZE_ALIGNER:-false}"
 
-SAVE_STEPS="${SAVE_STEPS:-50}"
-LOGGING_STEPS="${LOGGING_STEPS:-5}"
-EVAL_STEPS="${EVAL_STEPS:-50}"
+SAVE_STEPS="${SAVE_STEPS:-25}"
+LOGGING_STEPS="${LOGGING_STEPS:-1}"
+EVAL_STEPS="${EVAL_STEPS:-25}"
+ENABLE_THINKING="${ENABLE_THINKING:-false}"
+SWIFT_BIN="${SWIFT_BIN:-swift}"
 DATALOADER_WORKERS="${DATALOADER_WORKERS:-4}"
 
 require_file() {
     local path="$1"
+    [[ "${DRY_RUN:-0}" == "1" ]] && return 0
     if [[ ! -f "$path" ]]; then
         echo "[ERROR] missing data file: $path" >&2
         echo "        run:" >&2
@@ -50,7 +49,7 @@ require_swift() {
     if [[ "${DRY_RUN:-0}" == "1" ]]; then
         return 0
     fi
-    if ! command -v swift >/dev/null 2>&1; then
+    if ! command -v "$SWIFT_BIN" >/dev/null 2>&1; then
         echo "[ERROR] swift not found in PATH." >&2
         echo '        export PATH="$HOME/venvs/ms-swift/bin:$PATH"' >&2
         echo "        or create it with: bash scripts/setup_swift_env.sh" >&2

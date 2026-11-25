@@ -3,11 +3,7 @@
 # ============================================================
 # NOVA 数据集：图片、标注、病例元数据、parquet
 # 保留数据集说明与构建脚本，方便复现数据来源
-/Nova/*
-!/Nova/README.md
-!/Nova/build_parquet.py
-!/Nova/croissant.json
-!/Nova/.gitattributes
+/Nova/
 
 # 病例文本、模型输入输出、评测数据
 /data/
@@ -105,14 +101,14 @@ env/
 /dist/
 /texput.log
 
-# 后续探索实验（未写入课程报告，不随提交上传）
+# 本地实验运行产物；方法源码、configs/ 和 paper/results/ 正常提交
 /experiments/
-/refinement_plugin.py
-/src/*refinement*.py
-/src/grpo_reference_audit.py
-/tests/test_refinement*.py
-/scripts/*refinement*.py
-/scripts/*refinement*.sh
+
+# 演讲录像在本地打包，不进入代码仓库
+/presentation_video.*
+*.mp4
+*.mov
+*.mkv
 
 # 压缩包 / 临时文件
 *.zip

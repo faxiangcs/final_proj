@@ -1,8 +1,8 @@
-"""Nova GRPO rewards (P0-10 ~ P0-13).
+"""Nova GRPO terminal rewards used by the final paper.
 
 两个 ORM，注册名保持不变：
 
-- ``localization_reward``：一对一多框匹配的 F1@IoU0.5，带 clip/NMS/上限；
+- ``localization_reward``：一对一多框匹配的 Jaccard@IoU0.5，带 clip/NMS/上限；
 - ``diagnosis_reward``：final 0.7 + differential 0.3，外加 0.05 二值格式分。
 
 设计要点：
@@ -147,7 +147,7 @@ def localization_f1(
     gold_boxes: Sequence[Sequence[float]],
     threshold: float = LOC_IOU_THRESHOLD,
 ) -> float:
-    """F1 = TP / (TP + FP + FN)，一对一贪心匹配。"""
+    """Box-set Jaccard = TP / (TP + FP + FN)，一对一贪心匹配；保留历史函数名。"""
     if not gold_boxes:
         return 1.0 if not pred_boxes else 0.0
     if not pred_boxes:

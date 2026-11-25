@@ -44,3 +44,20 @@
 - **复现与格式：** 更新 `REPRODUCE.md`；通过 `make_figure.py` 从原始日志和保存的统计生成图表，编译 `main.pdf`，检查页数、引用及版面。
 
 修订前的 TeX、PDF、绘图脚本和复现说明保存在 `paper/review/before_evidence_revision_20261121_154237/`。该目录仅供本地对照，不属于提交论文。
+
+## 公开代码补全（2026-11-26）
+
+主方法源码、可移植的 `configs/grpo_ablation.json`、三配置三种子控制器和
+reference 审计现已纳入提交。上表的历史路径作为原始来源保留；公开、无病例文本
+的对应汇总在 `paper/results/`，包括 `selection.json`、
+`configuration_selection.json`、`aggregate_results.json`、`test_results.json`、
+`baseline.json` 与逐步标量 `training_signal.json`。
+
+`paper/make_figure.py` 现直接读取这些公开输入，不依赖本机日志目录。原始文件的
+SHA-256 与历史源码哈希记录在 `paper/results/provenance.json`。新版控制器取消
+服务器绝对路径，自动生成 baseline 推理，并从验证集拟合 baseline 尺度；论文
+所用历史尺度仍为 1.20。用原有预测核对，新旧六组汇总的均值、标准差和原始/
+校准区间在 1e-12 内一致。没有重跑训练或改变论文结果。
+
+清理前的工具、监控网页、历史图与原始控制器在
+`codex/legacy-before-public-release` 分支保存；原始数据、结果和模型仍在本地。

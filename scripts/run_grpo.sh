@@ -2,25 +2,26 @@
 # Unified GRPO command for Nova.
 #
 # Defaults:
-#   - SFT merged model: <repo>/nova_sft_merged
-#   - two currently registered rewards: localization_reward + diagnosis_reward
+#   - explicit SFT adapter as policy initialization and frozen reference
+#   - Original reward: localization_reward + diagnosis_reward
 #   - max_length=2048, max_completion_length=512
 #
 # Common overrides:
-#   MODEL=...              merged SFT model, or base model when ADAPTERS is set
-#   ADAPTERS=...           optional LoRA adapter path, e.g. output/nova_sft/checkpoint-50
+#   MODEL=...              base Qwen3.5-9B model
+#   ADAPTERS=...           required actual SFT checkpoint-201 path (including v*/)
 #   DATA_DIR=...           default: <repo>/data/nova_sft
 #   OUTPUT_DIR=...         default: <repo>/output/nova_grpo
 #   NUM_GENERATIONS=8      more generations if memory allows
 #   TEMPERATURE=1.0        higher exploration
 #   TOP_P=0.95             nucleus sampling
-#   GRPO_LR=1e-5           lower LR
+#   GRPO_LR=5e-6           paper learning rate
 #   REWARD_WEIGHTS="1 1"   explicit per-reward weights (localization diagnosis)
 #   GRPO_MAX_STEPS=...     limit optimizer steps (smoke test)
 #   ENABLE_THINKING=false  disable Qwen thinking for a fair output budget
 #   GRPO_EVAL_STRATEGY=steps  enable periodic validation generation
 #   DRY_RUN=1              print the command without running it
 set -euo pipefail
+export NPROC_PER_NODE="${NPROC_PER_NODE:-2}"
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # shellcheck source=scripts/common.sh
@@ -28,25 +29,21 @@ source "$SCRIPT_DIR/common.sh"
 
 MODEL="${MODEL:-}"
 ADAPTERS="${ADAPTERS:-}"
-REF_ADAPTERS="${REF_ADAPTERS:-}"
-GRPO_CALLBACKS="${GRPO_CALLBACKS:-}"
+: "${ADAPTERS:?Set ADAPTERS to the actual SFT checkpoint-201 directory}"
+REF_ADAPTERS="${REF_ADAPTERS:-$ADAPTERS}"
+GRPO_CALLBACKS="${GRPO_CALLBACKS:-frozen_sft_reference_audit}"
 GRPO_RESUME="${GRPO_RESUME:-}"
 TRAIN_FILE="${TRAIN_FILE:-$DATA_DIR/grpo_train.jsonl}"
 VAL_FILE="${VAL_FILE:-$DATA_DIR/grpo_val.jsonl}"
-OUTPUT_DIR="${OUTPUT_DIR:-$ROOT_DIR/output/nova_grpo}"
-EXTERNAL_PLUGIN="${EXTERNAL_PLUGIN:-$ROOT_DIR/medical_reward.py}"
+OUTPUT_DIR="${OUTPUT_DIR:-$ROOT_DIR/output/grpo_original}"
+EXTERNAL_PLUGIN="${EXTERNAL_PLUGIN:-$ROOT_DIR/refinement_plugin.py}"
 
-# With ADAPTERS, MODEL must be the base model; without, default to merged SFT.
-if [[ -n "$ADAPTERS" ]]; then
-    MODEL="${MODEL:-$BASE_MODEL}"
-else
-    MODEL="${MODEL:-$ROOT_DIR/nova_sft_merged}"
-fi
+MODEL="${MODEL:-$BASE_MODEL}"
 
 GRPO_EPOCHS="${GRPO_EPOCHS:-1}"
-GRPO_LR="${GRPO_LR:-2e-5}"
+GRPO_LR="${GRPO_LR:-5e-6}"
 GRPO_BATCH_SIZE="${GRPO_BATCH_SIZE:-1}"
-GRPO_GRAD_ACCUM="${GRPO_GRAD_ACCUM:-8}"
+GRPO_GRAD_ACCUM="${GRPO_GRAD_ACCUM:-4}"
 NUM_GENERATIONS="${NUM_GENERATIONS:-4}"
 TEMPERATURE="${TEMPERATURE:-0.9}"
 TOP_P="${TOP_P:-0.95}"
@@ -55,7 +52,7 @@ USE_VLLM="${USE_VLLM:-false}"
 GRPO_EVAL_STRATEGY="${GRPO_EVAL_STRATEGY:-no}"
 REWARD_FUNCS="${REWARD_FUNCS:-localization_reward diagnosis_reward}"
 REWARD_WEIGHTS="${REWARD_WEIGHTS:-}"
-GRPO_MAX_STEPS="${GRPO_MAX_STEPS:-}"
+GRPO_MAX_STEPS="${GRPO_MAX_STEPS:-266}"
 
 require_swift
 require_file "$TRAIN_FILE"
@@ -109,7 +106,7 @@ echo "TOP_P         = $TOP_P"
 echo "NPROC_PER_NODE= ${NPROC_PER_NODE:-1}"
 echo "====================================="
 
-run_cmd swift rlhf \
+run_cmd "$SWIFT_BIN" rlhf \
     --rlhf_type grpo \
     --model "$MODEL" \
     ${EXTRA_ARGS[@]+"${EXTRA_ARGS[@]}"} \

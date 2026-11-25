@@ -1,0 +1,9 @@
+{
+  "validation_means": {
+    "reference": 0.44979423868312757,
+    "dense": 0.46296296296296297,
+    "loc_only": 0.4935802469135802
+  },
+  "chosen": "loc_only",
+  "test_not_consulted": true
+}
