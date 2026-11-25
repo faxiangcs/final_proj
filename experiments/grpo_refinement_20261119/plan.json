@@ -1,0 +1,48 @@
+{
+  "created": "2026-11-19",
+  "base_model": "/data/yanfaxiang/model/Qwen3.5-9B",
+  "sft_adapter": "output/qwen_sft_full/v0-20261117-192623/checkpoint-201",
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "stages": [
+    {
+      "name": "reference",
+      "rewards": "localization_reward diagnosis_reward",
+      "weights": "1 1"
+    },
+    {
+      "name": "dense",
+      "rewards": "shaped_localization_reward diagnosis_reward",
+      "weights": "1 1"
+    },
+    {
+      "name": "loc_only",
+      "rewards": "shaped_localization_reward",
+      "weights": "1"
+    }
+  ],
+  "checkpoints": [
+    50,
+    100,
+    175,
+    266
+  ],
+  "train_gpus": "2,3",
+  "eval_gpus": [
+    0,
+    1
+  ],
+  "train_steps": 266,
+  "gradient_accumulation": 4,
+  "learning_rate": 5e-06,
+  "beta": 0.001,
+  "generations": 4,
+  "selection": "Per run: validation raw localization F1@0.5; ties mean IoU then earlier step. SFT step 0 eligible. Choose configuration by mean selected validation F1 over all seeds. Lock all selections before any new test inference.",
+  "evaluation": "After locking: selected and final checkpoint per stage/seed; report all stages, never pick winners on test. Raw primary, validation-fitted calibration secondary; compare SFT raw and calibrated. Bootstrap cases and report seed dispersion.",
+  "dense_reward": "0.5 * legacy box-set Jaccard@0.5 + 0.5 * 2*sum(one-to-one positive IoUs)/(n_pred+n_gold); same coordinate/NMS preprocessing as legacy.",
+  "limitations": "Same fixed SFT start across RL seeds; historical test already inspected; new runs remain exploratory on this test split. Two training GPUs instead of historical four with same effective batch; no claim that this alone isolates historical reference effect. No test-derived diagnosis aliases in reward.",
+  "statistics": "Report each seed and seed mean/std; paired bootstrap resamples 3 RL seeds and 36 cases, 4000 draws seed42, raw and calibrated baseline separately. CIs remain exploratory; no correction for historical test inspection."
+}
