@@ -4,211 +4,190 @@
 \usepackage{amsmath}
 \usepackage{booktabs}
 \usepackage{graphicx}
-\usepackage{array}
 \usepackage{url}
 \usepackage[hidelinks]{hyperref}
-\hypersetup{pdftitle={Reinforcement Learning with Verifiable Clinical Rewards for Structured Brain MRI Reporting},pdfauthor={Yan Faxiang},pdfsubject={IOTA 5201 course project report},pdfkeywords={medical vision-language models, GRPO, verifiable rewards, brain MRI}}
+\hypersetup{pdftitle={Reward Shaping for Informative GRPO Updates in Brain MRI Localization},pdfauthor={Yan Faxiang},pdfsubject={IOTA 5201 course project report},pdfkeywords={reinforcement learning, GRPO, reward shaping, brain MRI, localization}}
 
 \begin{document}
-
-\title{Reinforcement Learning with Verifiable Clinical Rewards for Structured Brain MRI Reporting: An Empirical Study}
-
+\title{Reward Shaping for Informative GRPO Updates in Brain MRI Localization}
 \author{\IEEEauthorblockN{Yan Faxiang}
 \IEEEauthorblockA{Student ID: 50051798\\
 HKUST(GZ)\\
 Course Project, IOTA 5201: RL for Intelligent Decision Making, Fall 2026}}
-
 \maketitle
 
 \begin{abstract}
-Structured brain MRI reporting combines lesion localization, image description, and diagnosis. We investigate whether Group Relative Policy Optimization (GRPO) improves this task beyond supervised fine-tuning (SFT), and how the SFT initialization affects the result. We use deterministic localization and diagnosis rewards on a 235-case split of the public NOVA release, comparing Qwen3.5-9B and LLaVA-1.5-7B with heuristic, zero-shot, and SFT baselines. For Qwen initialized from early SFT, a retrospectively selected GRPO checkpoint raises test localization F1@0.5 from 0.146 to 0.216 ($+0.071$, nominal paired case-bootstrap 95\% CI $[+0.015,+0.125]$). The final GRPO checkpoint reaches 0.191, with a CI including zero. Starting instead from final SFT yields 0.390 versus 0.401 for SFT ($\Delta=-0.011$, CI $[-0.088,+0.078]$). Diagnosis and captioning show no reliable gains. Thresholded rewards, zero-variance groups (17.7--53.8\%), and low box diversity suggest possible learning bottlenecks; 93.7\% of test images have diagnosis labels absent from fine-tuning data. Because checkpoint choices were partly informed by test results and only one seed was run, the findings are exploratory. They demonstrate no consistent GRPO advantage over the stronger SFT baseline in this setting.
+Group Relative Policy Optimization (GRPO) learns by comparing reports sampled for the same input. A hard overlap threshold can give boxes of different quality the same localization score; if total rewards tie, all group-relative task advantages vanish. We study whether adding continuous intersection-over-union (IoU) makes rewards more informative, and whether this translates into better localization within structured brain MRI reports. Three reward configurations are evaluated over three seeds, with a shared supervised fine-tuning (SFT) initialization, frozen SFT reference, and training budget. Holding diagnosis reward fixed, continuous shaping reduces the mean fraction of tied-reward groups from 14.54\% to 0.19\%, consistently across seeds. Validation selects shaped localization without diagnosis reward; its mean test F1@0.5 is 0.4189 versus 0.4009 for SFT (difference $+0.0180$; paired seed-and-case bootstrap 95\% interval $[-0.0566,+0.0908]$). The clearest finding is improved reward discrimination for GRPO; the downstream localization gain is modest and uncertain.
 \end{abstract}
 
 \begin{IEEEkeywords}
-Medical vision-language models, reinforcement learning, GRPO, verifiable rewards, brain MRI, anomaly localization, radiology reporting.
+Reinforcement learning, GRPO, reward shaping, lesion localization, medical vision-language models.
 \end{IEEEkeywords}
 
 \section{Introduction}
+A structured brain MRI report combines lesion coordinates, an imaging description, and a proposed diagnosis. NOVA provides expert annotations for these outputs~\cite{nova}. This project focuses on localization within such reports: the model must generate coordinates that overlap an annotated abnormality. Supervised fine-tuning (SFT) learns reference coordinate tokens, whereas the task metric depends on the geometry of the completed box set. Different coordinate strings can describe similarly useful boxes, and a small coordinate change can cross a matching threshold. Reinforcement learning (RL) provides a way to optimize a geometric score on the model's own generated reports.
 
-Brain MRI is a high-volume, high-stakes modality in which the radiologist must simultaneously locate a lesion, describe its appearance, and commit to a differential diagnosis. In an open-world setting, the anomaly may be a rare disease absent from any training corpus. The NOVA benchmark~\cite{nova} exposes this difficulty: the best reported scores across different models are 24.5\% mAP@50 for localization (Qwen2.5-VL-72B), 19.8\% clinical-term F1 for captioning (Gemini 2.0 Flash), and 24.2\% Top-1 diagnostic accuracy (GPT-4o). A useful system must therefore do more than produce fluent text: it must place boxes, name findings, and rank diagnoses correctly.
+The usefulness of that score depends on the learning algorithm. GRPO estimates advantages by comparing several completions for the same input~\cite{grpo}. If all completions receive the same reward, their task-reward advantages are zero. A thresholded localization reward can cause this even when sampled boxes have different overlap with the target. For example, boxes with IoUs of 0.10 and 0.45 both fail a 0.5 match threshold, although the latter is a better localization proposal.
 
-Supervised fine-tuning (SFT) learns reference tokens but does not directly optimize report-level localization or diagnostic correctness. RL can optimize non-differentiable terminal scores. GRPO~\cite{grpo} replaces a learned critic with a baseline from sampled completions and has supported language~\cite{deepseekr1} and multimodal reasoning~\cite{visionr1,visualrft}. Whether it improves small-data medical reporting beyond a strong SFT baseline remains unclear.
+Our research question is: \emph{Does continuous IoU shaping reduce uninformative reward ties in GRPO, and does the resulting policy improve localization beyond a strong SFT starting point?} These are two distinct empirical questions. Training logs test whether the reward supplies more within-group distinctions; localization on cases excluded from training tests whether those distinctions lead to useful behavior. A reduction in ties alone does not establish a localization improvement.
 
-
-
-Whether these gains transfer to structured medical reporting with small data is unclear. Prior medical RL work evaluates multiple-choice visual question answering with accuracy rewards~\cite{medr1,medvlmr1}, or chest X-ray report generation with programmatic rewards~\cite{dobicvlm}; few isolate the effect of SFT initialization or examine localization and diagnosis jointly. We therefore ask three questions: \textbf{RQ1:} Does GRPO with verifiable clinical rewards improve structured brain MRI reporting over SFT? \textbf{RQ2:} How does the strength of the SFT initialization change the benefit of GRPO? \textbf{RQ3:} Which failure modes limit RL in this low-data, open-set regime?
-
-We contribute an implemented token-level MDP with two deterministic rewards, a comparison across two model families and two SFT initializations, and an analysis of reward variance, calibration, and diagnosis evaluation. Our positive early-start result is retrospective; the final GRPO checkpoints show no reliable advantage over their respective SFT starting points.
+We investigate this question through a controlled comparison of three reward configurations and three GRPO seeds. The first contrast changes only the localization reward while retaining diagnosis reward. The second removes diagnosis reward to examine a localization-focused objective. All nine runs share the same SFT policy, frozen KL reference, data, and optimization budget. Our contribution is the connection between an explicit GRPO failure mechanism, a concrete reward intervention, and measurements of both the learning signal and downstream localization. Configuration and checkpoint choices use validation data; all three configurations are reported on test.
 
 \section{Related Work}
+GRPO replaces a learned value baseline with relative rewards from groups of sampled completions~\cite{grpo}, using a clipped policy update related to PPO~\cite{ppo}. This makes deterministic, annotation-based rewards attractive when a separate critic would add training cost. Uniform outcomes within a group are a recognized limitation: DAPO uses dynamic sampling to filter such groups~\cite{dapo}. We keep the sampling budget fixed and instead change the score assigned to partial localization success.
 
-\subsection{Medical Vision-Language Models and Benchmarks}
-VQA-RAD~\cite{vqarad} and OmniMedVQA~\cite{omnimedvqa} evaluate medical visual question answering. LLaVA-Med~\cite{llavamed} and CheXagent~\cite{chexagent} adapt VLMs to medicine; Qwen2.5-VL~\cite{qwen25vl} is general-purpose. NOVA~\cite{nova} supplies brain MRI boxes, captions, and diagnostic labels for evaluation-only open-world assessment. Our training split departs from that protocol, precluding leaderboard comparison.
-
-\subsection{Reinforcement Learning for Language, Vision, and Medicine}
-PPO~\cite{ppo} and DPO~\cite{dpo} support language-model post-training. GRPO removes the value network; DAPO~\cite{dapo} and Liu \emph{et al.}~\cite{drgrpo} analyze clipping, length, and difficulty biases. Vision-R1~\cite{visionr1} and Visual-RFT~\cite{visualrft} extend RL to vision, including IoU-based detection rewards. Med-R1~\cite{medr1} and MedVLM-R1~\cite{medvlmr1} study medical VQA; DobicVLM~\cite{dobicvlm} uses programmatic rewards for chest X-ray reports; GRASP~\cite{grasp} combines RL and SFT. Unlike these tasks, we study joint MRI localization and diagnosis and compare SFT initializations. Caption training with sequence metrics~\cite{scst} provides another report-level optimization precedent.
+IoU rewards have been used for visual grounding in Visual-RFT~\cite{visualrft}; MedVLM-R1 studies RL for medical visual reasoning~\cite{medvlmr1}. We do not claim continuous IoU as a new reward principle. We examine how blending it with a hard box-matching reward changes the GRPO learning signal in structured MRI reporting. This is an application study following the course's Path 2, rather than a reproduction of published benchmark scores. We use an internal case-level split of NOVA, whose original protocol is designed for evaluation~\cite{nova}.
 
 \section{Method}
+\subsection{Report Generation as an RL Task}
+The observation $o=(I,H,P)$ consists of an MRI slice $I$, clinical history $H$, and fixed reporting instruction $P$. The state at token step $t$ is $s_t=(o,y_{<t})$. The action $a_t\in\mathcal V$ is the next token; the transition appends it to the generated prefix. The policy is Qwen3.5-9B~\cite{qwen35} with a trainable LoRA adapter~\cite{lora}. It generates three sections with fixed Chinese headings and English content: up to three boxes in a 480-pixel coordinate frame, an image description, and differential and final diagnoses. Later actions condition on the earlier report tokens.
 
-\subsection{Structured Reporting as a Sequential Decision Process}
-Let $I$ be a brain MRI slice, $H$ a clinical history, and $P$ a fixed instruction. The observation is $o=(I,H,P)$. At step $t$, the state is $s_t=(o,y_{<t})$, where $y_{<t}$ is the generated prefix; the action $a_t\in\mathcal{V}$ is the next token; and the deterministic transition appends $a_t$ to the prefix. The episode ends at the end-of-sequence token or after $T=512$ generated tokens. The policy $\pi_\theta(y\mid o)$ is a vision-language model with a trainable LoRA adapter~\cite{lora}. A terminal reward $R(y)$ scores the completed report. The objective is
+An episode ends at the end-of-sequence token or a 512-token generation cap. Intermediate rewards are zero; with discount $\gamma=1$, a deterministic verifier scores the completed report $y$ against training annotation $z$. The objective is
 \begin{equation}
-J(\theta)=\mathrm{E}_{o\sim\mathcal{D},\,y\sim\pi_\theta(\cdot\mid o)}\big[R(y)\big],
+ J(\theta)=\mathbb E_{(o,z)\sim\mathcal D,\,y\sim\pi_\theta(\cdot\mid o)}[R(y,z)].
 \end{equation}
-where $\mathcal{D}$ is the training set of image--history--report triples. Transitions are deterministic and the reward is terminal; the environment is static (the image, history, and instruction are fixed), and the agent interacts with it only through the generated prefix.
+The training loop samples reports, computes terminal rewards, estimates group-relative advantages, and updates the policy. Images and histories remain fixed during an episode, so the task also admits a contextual-bandit view in which a complete report is one action. The policy implements that action as a sequence of token decisions. RL is appropriate here for direct optimization of report-level geometry; it does not model an interactive clinical workflow. Evaluation uses only $o$, without reference annotations.
 
-This project follows Path~2 (applying RL). Later report sections condition on earlier generated tokens, so a poor box or description can influence subsequent diagnosis. All intermediate rewards are zero and the discount is $\gamma=1$. There is no interactive scanner or clinician: this is a token-level MDP with a static input, equivalently a contextual bandit over complete reports. RL is reasonable because it optimizes a non-differentiable report-level score; SFT remains a meaningful alternative and learns coordinates through token supervision.
+\subsection{Thresholded and Shaped Localization Rewards}
+A shared parser extracts predicted and reference boxes. Reward preprocessing converts coordinates into the 480-pixel frame using a per-completion scale heuristic, clips coordinates, discards degenerate boxes, suppresses overlapping duplicates, and retains at most three boxes. All reward configurations use the same preprocessing. Boxes are paired greedily by decreasing IoU, with each prediction and reference used at most once.
 
-\subsection{Data, Prompt, and Structured Labels}
-The public NOVA release contains 281 cases and 906 MRI images (480$\times$480 PNG), each with a clinical history, a radiologist caption, a differential diagnosis, a final diagnosis, and expert bounding boxes. We retain cases with at least one valid box, a non-empty caption, a non-empty differential, and a valid final diagnosis, leaving 235 cases and 779 images. We split by case into 164/35/36 cases (533/135/111 images) for train/validation/test, with no case overlap. The test split contains 36 unique final diagnoses, of which 34 do not occur in training; at the image level, 104 of 111 test images (93.7\%) have a final diagnosis unseen during training. Here ``unseen'' means absent as a final-diagnosis label in our fine-tuning split, not absent from model pretraining or from differential diagnoses. NOVA includes axial, sagittal, and coronal views~\cite{nova}.
-
-The prompt asks the model to act as a neuroradiology assistant and to use the clinical history. It requires three sections with fixed Chinese headers and English content: (1) \emph{abnormal localization}, with boxes $[x_{\min},y_{\min},x_{\max},y_{\max}]$ in 0--480 pixel coordinates; (2) \emph{image description}; and (3) \emph{diagnostic reasoning}, with up to four English differentials separated by semicolons and a final diagnosis. A label has the form
-\begin{quote}\small
-\textit{Abnormal localization}: $[x_1,y_1,x_2,y_2],\ldots$\\
-\textit{Image description}: \ldots\\
-\textit{Diagnostic reasoning}: Consider differential diagnoses $d_1;d_2;\ldots$. Final diagnosis: $d^\star$.
-\end{quote}
-The actual section headers are Chinese; we show English translations here. Gold boxes are clipped, deduplicated with non-maximum suppression (NMS) at IoU 0.5, and capped at three per image. On test, the median history length is 45 words and each image has 1.13 gold boxes on average.
-
-\subsection{Verifiable Clinical Rewards}
-A shared parser extracts the sections, boxes, differential list, and final diagnosis. Reward preprocessing infers the coordinate scale from each completion's largest coordinate ($\leq1$, $\leq100$, $\leq480$, or $\leq1000$), converts to 480-pixel coordinates, clips, drops degenerate boxes, and applies NMS and a three-box cap. Evaluation infers the scale across a prediction file and retains duplicate predictions. Thus parsing is shared, but geometric preprocessing differs. Automatic scale detection is heuristic and ambiguous near the range boundaries.
-
-\paragraph{Localization reward.} Predicted and gold boxes are matched one-to-one greedily by IoU. With $TP$ true positives at IoU $\geq0.5$, and $FP$/$FN$ unmatched predicted/gold boxes, the implemented reward is
+For the original localization reward, $TP$ counts pairs with IoU $\geq0.5$; $FP$ and $FN$ count unmatched predicted and reference boxes. The implemented score is
 \begin{equation}
-R_{\mathrm{loc}}(y)=\frac{TP}{TP+FP+FN}.
+ R_{\mathrm{hard}}=\frac{TP}{TP+FP+FN}.
+ \label{eq:hard}
 \end{equation}
-This is a box-set Jaccard score, not F1. Evaluation uses $F1=2TP/(2TP+FP+FN)$; for identical matched counts, $F1=2R_{\mathrm{loc}}/(1+R_{\mathrm{loc}})$. Empty predictions score zero on our positive-only dataset. Repeated boxes are suppressed in the reward, so repetition receives no extra credit; a fixed central box can still earn reward when it overlaps a lesion.
+This is a box-set Jaccard score, distinct from the F1 used for evaluation. Every retained image has at least one reference box. Empty predictions and predictions without a match score zero.
 
-\paragraph{Diagnosis reward.} Let $s_{\mathrm{final}}\in\{0,0.8,1.0\}$ be 1.0 for an exact normalized match to the gold final diagnosis, 0.8 for a lenient content match, and 0 otherwise; let $s_{\mathrm{diff}}$ be the fraction of gold differentials matched one-to-one by up to four predictions at the same threshold; and let $s_{\mathrm{fmt}}\in\{0,1\}$ indicate that all three headers are present with a non-empty caption and final diagnosis. Then
+Let $n_p,n_g$ be the retained prediction and reference counts, and $\mathcal M_+$ the greedy pairs with strictly positive IoU. Our continuous quality term and shaped reward are
+\begin{align}
+ Q_{\mathrm{IoU}}&=\frac{2\sum_{(p,g)\in\mathcal M_+}\operatorname{IoU}(p,g)}{n_p+n_g},\\
+ R_{\mathrm{shape}}&=\tfrac12R_{\mathrm{hard}}+\tfrac12Q_{\mathrm{IoU}}.
+ \label{eq:shape}
+\end{align}
+The quality term is zero when there is no positive-overlap pair. Unmatched boxes remain in its denominator. For one predicted and one reference box, four sampled reports with IoUs $(0.10,0.20,0.30,0.45)$ all get $R_{\mathrm{hard}}=0$, but get shaped rewards $(0.05,0.10,0.15,0.225)$. Thus, if their diagnosis rewards are equal, the hard objective supplies no relative task advantage while the shaped objective distinguishes them. The hard term retains a jump at IoU 0.5 (Fig.~\ref{fig:chain}a). This shaping changes the terminal objective; it adds no intermediate token rewards.
+
+\subsection{Diagnosis Component and Controlled Contrasts}
+The original combined objective also rewards diagnosis:
 \begin{equation}
-R_{\mathrm{diag}}(y)=0.95\big(0.7\,s_{\mathrm{final}}+0.3\,s_{\mathrm{diff}}\big)+0.05\,s_{\mathrm{fmt}}.
+ R_{\mathrm{Dx}}=0.95(0.7s_{\mathrm{final}}+0.3s_{\mathrm{diff}})+0.05s_{\mathrm{fmt}}.
 \end{equation}
-The format bonus is at most 0.05 and requires non-empty content; correctly formatted but clinically wrong text can still receive this bonus. A prediction without the diagnosis header receives zero diagnosis reward, even if it contains a disease name in the caption. The reward and keyword evaluation use different matching rules; neither is a clinical correctness verifier.
+The final score is 1 for a normalized exact match, 0.8 for a lenient token match, and 0 otherwise. The differential score is the fraction of reference differentials matched one-to-one. The format bit requires all three headings and nonempty description and final diagnosis; a missing diagnosis heading zeros $R_{\mathrm{Dx}}$. No learned reward model is used.
 
-\paragraph{Total reward.} The two objectives are combined with equal weights:
+Table~\ref{tab:design} defines the three configurations. Comparing Original with Shaped + Dx isolates substitution of the localization reward within the combined objective. Comparing Shaped + Dx with Shaped only tests removal of the diagnosis component, including its format bonus. Both combined rewards range from 0 to 2; Shaped only ranges from 0 to 1. Active reward weights are all 1.
+
+\begin{table}[t]
+\centering
+\caption{Reward configurations. All other training settings are shared.}
+\label{tab:design}
+\small
+\begin{tabular}{@{}lll@{}}
+\toprule
+Configuration & Terminal reward & Comparison purpose\\
+\midrule
+Original & $R_{\mathrm{hard}}+R_{\mathrm{Dx}}$ & Thresholded control\\
+Shaped + Dx & $R_{\mathrm{shape}}+R_{\mathrm{Dx}}$ & Localization shaping\\
+Shaped only & $R_{\mathrm{shape}}$ & Focus on localization\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{GRPO and the Role of Reward Ties}
+For each input, GRPO samples $G=4$ reports using the rollout policy $\pi_{\mathrm{old}}$. For terminal scores $r_1,\ldots,r_G$, report $i$ receives the advantage
 \begin{equation}
-R(y)=R_{\mathrm{loc}}(y)+R_{\mathrm{diag}}(y)\in[0,2].
+ \hat A_i=\frac{r_i-\bar r}{\sigma_r+10^{-4}},
+ \label{eq:advantage}
 \end{equation}
-We do not directly reward caption quality beyond the non-empty format check. BLEU~\cite{bleu} and CIDEr~\cite{cider} measure lexical overlap and need not track clinical correctness; designing and validating a caption reward is left to future work.
+where $\bar r$ and $\sigma_r$ are the group mean and sample standard deviation. The same advantage is used for every generated token in a report. With likelihood ratio $\rho_{i,t}=\pi_\theta(y_{i,t}\mid s_{i,t})/\pi_{\mathrm{old}}(y_{i,t}\mid s_{i,t})$, the per-token objective is
+\begin{align}
+ u_{i,t}={}&\min\!\left(\rho_{i,t}\hat A_i,\,
+ \operatorname{clip}(\rho_{i,t},1-\epsilon,1+\epsilon)\hat A_i\right)
+ \nonumber\\
+ &-\beta\hat d_{i,t}(\pi_\theta,\pi_{\mathrm{ref}}),
+\end{align}
+with $\epsilon=0.2$, $\beta=0.001$, and the implementation's sampled per-token KL penalty $\hat d_{i,t}$. The objective averages completion tokens within each report, then reports. The KL reference $\pi_{\mathrm{ref}}$ is a separate frozen copy of the SFT starting policy.
 
-Each component is deterministic and bounded in $[0,1]$. No learned reward model is used, but rule-based reward hacking remains possible through parser conventions, generic boxes, or diagnosis memorization. Verifiability refers to reproducible scoring against annotations, not verified medical reasoning.
+GRPO suits our setting because verifiable terminal scores allow group comparisons without fitting a critic. Equation~\eqref{eq:advantage} also makes the failure mechanism explicit: when all four rewards are equal, $\hat A_i=0$ for every report. Such a group contributes no task-reward update, though the KL term can still contribute. Our training diagnostic is the logged fraction of groups with numerically zero reward standard deviation. It is computed from the \emph{total} reward, including diagnosis when present.
 
-\subsection{Group Relative Policy Optimization}
-For each prompt $o$, we sample $G=4$ completions $y_i$ from the current policy, compute $r_i=R(y_i)$, and normalize within the group:
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_evidence_chain.pdf}
+\caption{Evidence from reward design to policy behavior. (a) For a single predicted/reference box, shaping distinguishes subthreshold overlaps while retaining a jump at IoU 0.5. (b) Fraction of training groups with zero total-reward standard deviation, averaged over 266 logged steps; bars are three-seed means and dots are individual seeds. (c) Validation localization F1 at the prespecified evaluation steps; curves show three-seed means and shading spans the seed minimum and maximum. Panel (a) is an analytical illustration; (b)--(c) use saved experiment artifacts.}
+\label{fig:chain}
+\end{figure*}
+
+\section{Experimental Setup}
+\subsection{Data and Meaningful Baselines}
+We retain 235 cases and 779 images with valid localization and reporting annotations from NOVA. A split with seed 42 assigns 164/35/36 cases and 533/135/111 images to training, validation, and test. All images from a case stay in one split. Data audits check split disjointness, image availability, valid boxes and diagnoses, and alignment between SFT labels and GRPO reference solutions.
+
+The primary baseline is the common GRPO initialization: Qwen3.5-9B after three SFT epochs, or 201 optimizer steps (SFT-201). This compares RL continuation against an already adapted policy. A fixed central box $[120,120,360,360]$, evaluated on the same test images, supplies a spatial heuristic control. The study tests reward design with a fixed backbone; earlier runs with different initializations or reference policies are excluded from the main comparison.
+
+\subsection{Training and Fair Comparisons}
+We use ms-swift~\cite{swift} with LoRA rank 16 and scaling $\alpha=32$, freezing the vision tower and allowing aligner updates. SFT uses learning rate $5\times10^{-5}$, maximum sequence length 1024, and effective batch size 8 on four RTX 3090 GPUs. Each GRPO run uses 266 optimizer steps, learning rate $5\times10^{-6}$, maximum sequence length 2048, two RTX 3090 GPUs, per-device batch size 1, and gradient accumulation 4. Rollouts use temperature 0.9, top-$p$ 0.95, and at most 512 new tokens.
+
+Seeds 42, 43, and 44 vary GRPO sampling and data order; they share one SFT initialization. All nine runs use the same train split, prompt, rollout budget, decoding parameters, and frozen SFT reference. Adapter audits check identical initial policies and references, unchanged reference hashes at audited steps, and changed final policy adapters. All SFT and GRPO evaluations use greedy decoding through the same inference backend, with a 512-token cap and Qwen thinking disabled.
+
+\subsection{Metrics, Selection, and Uncertainty}
+The primary metric is uncalibrated per-image localization F1 at IoU 0.5,
 \begin{equation}
-\hat{A}_i=\frac{r_i-\operatorname{mean}(r_1,\ldots,r_G)}{\operatorname{std}(r_1,\ldots,r_G)+\delta},
+ F1@0.5=\frac{2TP}{2TP+FP+FN},
 \end{equation}
-where $\delta=10^{-4}$ stabilizes division. Identical rewards give zero advantages. With token-level importance ratios $\rho_{i,t}=\pi_\theta(y_{i,t}\mid s_{i,t})/\pi_{\mathrm{old}}(y_{i,t}\mid s_{i,t})$, the objective is
-\begin{equation}
-\begin{aligned}
-J_{\mathrm{GRPO}}(\theta)=\mathrm{E}\Bigg[\frac{1}{G}\sum_{i=1}^{G}\frac{1}{|y_i|}\sum_{t=1}^{|y_i|}
-&\min\big(\rho_{i,t}\hat{A}_i,\\
-&\operatorname{clip}(\rho_{i,t},1-\epsilon,1+\epsilon)\hat{A}_i\big)\Bigg]\\
-&-\beta D_{\mathrm{KL}}\big(\pi_\theta\,\|\,\pi_{\mathrm{ref}}\big),
-\end{aligned}
-\end{equation}
-with $\epsilon=0.2$ and $\beta=0.001$. The saved runs load a trainable SFT adapter without a separate reference adapter. In ms-swift, the KL reference is therefore evaluated with the adapter disabled, rather than with a frozen copy of the SFT adapter. KL is computed per token and averaged over the completion.
+averaged over all images. Evaluation uses greedy one-to-one matching, file-level coordinate inference, and retains repeated predictions. Reward preprocessing instead uses per-completion inference and duplicate suppression; these differences are constant across configurations. Mean IoU averages positive greedy matches within an image, assigns zero if there is no positive match, and averages over images.
 
-GRPO avoids a learned critic and directly uses scalar rewards on sampled completions. Alternatives include PPO with parameter sharing or DPO~\cite{dpo} with reward-derived preference pairs; we did not test them.
+Each run selects among SFT step 0 and GRPO steps 50, 100, 175, and 266 by validation F1@0.5, breaking ties with mean IoU and then earlier step. The configuration with the highest mean selected validation F1 across seeds is chosen. These decisions are locked before new test inference. We also evaluate every run's final step 266 to check behavior at a common budget. Validation results support selection, rather than an independent estimate of generalization.
 
-\subsection{Training and Inference Details}
-We train Qwen3.5-9B~\cite{qwen35} and LLaVA-1.5-7B~\cite{llava15} with LoRA ($r=16$, $\alpha=32$), freezing the vision tower and training the aligner, using the ms-swift framework~\cite{swift}. SFT uses a learning rate of $5\times10^{-5}$, three epochs, an effective batch size of 8 (1 per device $\times$ 2 gradient-accumulation steps $\times$ 4 GPUs), and a maximum sequence length of 1024 tokens for Qwen and 2048 for LLaVA. Qwen SFT runs for 201 optimizer steps. GRPO starts from an SFT checkpoint, uses a learning rate of $5\times10^{-6}$, one epoch, 8 sampled completions per optimizer update, $G=4$, temperature 0.9, top-$p$ 0.95, $\beta=0.001$, a maximum completion length of 512, and 266 optimizer steps. GRPO takes 1.3--1.6 hours per run on four RTX 3090 GPUs and peaks at approximately 22.5\,GiB per GPU. All runs use seed 42. At inference, all models decode greedily with at most 512 new tokens; Qwen's thinking mode is disabled so that the output budget is comparable across models. Zero-shot outputs use vLLM 0.30; adapted models use the ms-swift PyTorch backend. The decoding budget and main user prompt are shared, but backend differences remain a limitation.
+For test differences against SFT, 4,000 paired bootstrap replicates resample three GRPO seeds and 36 whole test cases with replacement~\cite{bootstrap}. The same sampled images are used for both policies; images retain their weight within sampled cases. We report percentile 95\% intervals and sample standard deviations across seeds. As a geometric control, box scale is fitted on validation over $1.00,1.05,\ldots,1.50$ by F1 and then mean IoU, and applied to test. Diagnosis keyword Top-1 and description token F1 are secondary lexical checks.
 
-\subsection{Evaluation Metrics and Protocol}
-\paragraph{Localization.} We average per-image precision, recall, and F1 at IoU thresholds 0.3, 0.5, and 0.75. Mean IoU is averaged over positive-overlap greedy pairs in each image (zero if none), then over images; unmatched boxes do not enter that image's IoU denominator. Hit@0.5 is the fraction of images with at least one match. The table's AP proxy averages per-image, non-interpolated AP over ten thresholds 0.50--0.95, ranking boxes by output order because no confidences are available. It is not standard COCO mAP~\cite{coco} and is not comparable to the official NOVA mAP.
 
-\paragraph{Captioning.} We compute per-image token F1 and add-one-smoothed corpus BLEU-4~\cite{bleu}; the main table reports F1. These lexical metrics do not establish clinical accuracy.
-
-\paragraph{Diagnosis.} We report keyword Top-1 and Top-5 using a manually defined alias table covering the 36 test labels. A match requires all keywords in at least one alias group; Top-5 considers the final diagnosis and up to four differentials. This measures entity recovery and can accept clinically incomplete answers. Exact/lenient matching is retained as a complementary stricter check, not discarded because labels are unseen in fine-tuning. The alias metric was introduced after inspecting initial results and is exploratory.
-
-\paragraph{Statistics and selection.} We use paired case-cluster bootstrap~\cite{bootstrap} with 4000 resamples (seed 42): all images from each resampled case stay together. CIs describe image-weighted mean differences, conditional on the trained policies. They exclude training-seed uncertainty and are not adjusted for multiple checkpoints or metrics. Cases are disjoint across splits, but the test set was inspected during development: weak-start GRPO ck100 was selected retrospectively, and switching the SFT baseline from ck50 to final ck201 followed test inspection. Strong-start GRPO ck266 was selected by validation raw F1@0.5. Box scales are fitted on validation only. Thus the results are exploratory, not an untouched-test confirmation.
-
-\section{Experiments and Results}
-
-\subsection{Baselines}
-We compare five families of policies. (i) A \emph{center prior} heuristic predicts the fixed box $[120,120,360,360]$ for every test image. (ii) \emph{Zero-shot} base models answer the prompt without fine-tuning. (iii) \emph{SFT} models are trained on the training split; for Qwen we evaluate checkpoint 50 (SFT-50, about 0.75 epoch, the checkpoint selected by validation loss) and the final checkpoint 201 (SFT-201). (iv) \emph{GRPO} policies start from an SFT checkpoint and train for 266 steps; we report weak-start ck100 (retrospective best), weak-start final ck266, and strong-start ck266 (selected by validation). (v) \emph{LLaVA-1.5-7B} provides a second model family under the same adaptation recipe.
-
-\subsection{Main Results}
-Table~\ref{tab:main} reports the test results. Because we train on a subset and use our own prompt and metric implementation, we do not compare these absolute numbers with the published NOVA baselines~\cite{nova}; the comparison of interest is internal (zero-shot vs.\ SFT vs.\ GRPO). The center prior achieves F1@0.5 of 0.077, a non-trivial floor: a model that outputs a plausible central box can match some lesions without looking at the image. Qwen's zero-shot localization is weak (0.068), but its diagnosis keyword Top-1 (0.117) is already comparable to the fine-tuned models, reflecting the strength of the clinical-history prior.
-
-SFT improves Qwen's localization from 0.068 to 0.146 at checkpoint 50 and to 0.401 at checkpoint 201. The gap reflects training duration and checkpoint selection: validation loss prefers an early checkpoint, while localization continues to improve until the end of training; caption F1 and mean IoU also improve between these checkpoints. Training convergence itself is not established.
-
-GRPO from SFT-50 at ck100 improves F1@0.5 from 0.146 to 0.216 ($+0.071$, nominal 95\% CI $[+0.015,+0.125]$), mean IoU from 0.300 to 0.344, and hit@0.5 from 17 to 27 of 111 images. However, ck100 was chosen after test inspection. Final weak-start GRPO reaches 0.191 ($+0.045$, CI $[-0.028,+0.113]$), so a consistent benefit is not established. Continuing SFT to ck201 reaches 0.401, above either weak-start GRPO checkpoint. Strong-start GRPO ck266 reaches 0.390 versus 0.401 for SFT-201 ($-0.011$, CI $[-0.088,+0.078]$). This is no detected improvement, not evidence of equivalence.
-
-Diagnosis and captioning do not improve reliably. Weak-start GRPO ck100 changes keyword Top-1 by $+0.045$ (CI $[-0.009,+0.105]$) and Top-5 by $+0.036$ (CI $[-0.011,+0.095]$). Exact/lenient Top-1 changes from 0/0 to 0.009/0.027; for SFT-201 versus strong-start GRPO it changes from 0.036/0.054 to 0.027/0.027. These checks do not establish improved diagnosis. Qwen caption F1 stays between 0.23 and 0.25. LLaVA SFT predicts only seven distinct boxes, 69 of 111 predictions identical, and F1@0.5 (0.054) is below the center prior. GRPO retains low box diversity (7--14 distinct boxes) and F1@0.5 of 0.036--0.054, consistent with limited localization exploration.
 
 \begin{table*}[t]
 \centering
-\caption{Test results on 111 images from 36 held-out cases. All localization and caption metrics are raw (no box calibration). Diagnosis uses keyword alias matching; Top-5 includes the final diagnosis and up to four differentials. Best displayed value in each column is in bold; ck100 is retrospective. AP is the custom proxy defined in the text.}
+\caption{Localization with the shared SFT starting policy and all three reward configurations. Checkpoints and the configuration are selected on validation. Test scores are raw per-image F1@0.5; SD is across GRPO seeds. Intervals resample seeds and cases and compare each configuration with SFT-201. Bold marks the configuration selected on validation.}
 \label{tab:main}
-\scriptsize
+\small
 \setlength{\tabcolsep}{5pt}
 \begin{tabular}{@{}lccccccc@{}}
 \toprule
-Policy & Loc F1@0.3 $\uparrow$ & Loc F1@0.5 $\uparrow$ & Mean IoU $\uparrow$ & AP proxy $\uparrow$ & Caption F1 $\uparrow$ & Diag T1 $\uparrow$ & Diag T5 $\uparrow$ \\
+Policy & Val.\ mean & Test seed 42 & Test seed 43 & Test seed 44 & Test mean $\pm$ SD & $\Delta$ vs SFT & Nominal 95\% CI for $\Delta$\\
 \midrule
-Center prior (heuristic) & 0.167 & 0.077 & 0.195 & 0.020 & --- & --- & --- \\
-\midrule
-LLaVA-1.5-7B, zero-shot & 0.150 & 0.018 & 0.135 & 0.005 & 0.096 & 0.009 & 0.018 \\
-LLaVA-1.5-7B, SFT-50 & 0.114 & 0.054 & 0.152 & 0.018 & 0.165 & 0.072 & 0.099 \\
-LLaVA-1.5-7B, GRPO (from SFT-50, ck50) & 0.123 & 0.054 & 0.165 & 0.017 & 0.164 & 0.072 & 0.090 \\
-\midrule
-Qwen3.5-9B, zero-shot & 0.290 & 0.068 & 0.218 & 0.008 & 0.176 & 0.117 & 0.180 \\
-Qwen3.5-9B, SFT-50 (weak) & 0.500 & 0.146 & 0.300 & 0.043 & 0.232 & 0.090 & 0.198 \\
-Qwen3.5-9B, GRPO (from SFT-50, ck100) & 0.539 & 0.216 & 0.344 & 0.062 & 0.229 & \textbf{0.135} & 0.234 \\
-Qwen3.5-9B, GRPO (from SFT-50, final ck266) & 0.547 & 0.191 & 0.328 & 0.053 & 0.227 & 0.117 & \textbf{0.243} \\
-Qwen3.5-9B, SFT-201 (strong) & \textbf{0.616} & \textbf{0.401} & \textbf{0.403} & \textbf{0.135} & \textbf{0.250} & 0.108 & 0.180 \\
-Qwen3.5-9B, GRPO (from SFT-201, ck266) & 0.593 & 0.390 & \textbf{0.403} & 0.131 & 0.245 & 0.099 & 0.171 \\
+SFT-201 & 0.3746 & -- & -- & -- & 0.4009 & -- & --\\
+Original & 0.4498 & 0.4474 & 0.3799 & 0.3739 & $0.4004\pm0.0409$ & $-0.0005$ & $[-0.0792,+0.0761]$\\
+Shaped + Dx & 0.4630 & 0.4324 & 0.3799 & 0.4144 & $0.4089\pm0.0267$ & $+0.0080$ & $[-0.0602,+0.0775]$\\
+Shaped only & \textbf{0.4936} & 0.4279 & 0.4099 & 0.4189 & $\mathbf{0.4189}\pm0.0090$ & $+0.0180$ & $[-0.0566,+0.0908]$\\
 \bottomrule
 \end{tabular}
 \end{table*}
 
-\subsection{Initialization and Calibration}
-We compare two initialization checkpoints with the same reward and optimizer recipe. Their reported GRPO checkpoints follow different selection rules, so the contrast is descriptive rather than a controlled estimate of initialization alone. With a weak SFT-50 start, GRPO improves both validation and test localization: validation raw F1@0.5 rises from 0.264 to 0.316, and test raw F1@0.5 rises from 0.146 to 0.216. With a strong SFT-201 start, validation rises substantially (0.375 to 0.465) but test does not (0.401 to 0.390). Validation gains do not transfer consistently in these runs.
+\section{Results}
+\subsection{Shaping Restores Within-Group Distinctions}
+With diagnosis reward held fixed, replacing $R_{\mathrm{hard}}$ with $R_{\mathrm{shape}}$ reduces the mean tied-group rate from 14.54\% to 0.19\% (Fig.~\ref{fig:chain}b). The result is consistent across all three seeds: Original ranges from 14.10\% to 15.04\%, whereas Shaped + Dx ranges from 0.00\% to 0.38\%. Shaped only also has a low rate, averaging 0.88\% (range 0.56\%--1.13\%). This contrast links the reward intervention to the quantity in Eq.~\eqref{eq:advantage}: far fewer sampled groups have all task advantages equal to zero.
 
-The trajectory in Fig.~\ref{fig:results}(a) reveals a second effect: GRPO from the strong checkpoint initially degrades test F1@0.5 from 0.401 at step 0 to 0.311 at step 50, then recovers to 0.390 by step 266. This drift occurs with $\beta=0.001$ and an adapter-disabled reference; without a KL ablation, its cause cannot be assigned to the coefficient. None of the evaluated checkpoints exceeds the SFT starting point on test. The mean fraction of zero-variance groups is 23.7\% for the weak start and 17.7\% for the strong start (Fig.~\ref{fig:results}b): a strong SFT checkpoint is not automatically a stable GRPO initialization.
+The analytical example in Sec.~III-B explains how partial-overlap scores can remove ties. The logs establish that the reduction occurs during training, rather than only in that example. Because the policies evolve separately, the measured rates reflect both the scoring rule and the boxes each policy samples; this is not a rescoring comparison on identical fixed rollouts. Also, different rewards can rank completions differently even when both avoid ties. Thus we next examine localization, separately from the training diagnostic.
 
-Box calibration explains part of the pattern. SFT-50 boxes are systematically small (median predicted/gold area ratio 0.72), and a global scale of 1.25 fitted on validation raises test F1@0.5 from 0.146 to 0.242 ($+0.096$, CI $[+0.037,+0.161]$). For SFT-201 the area ratio is 0.88 and calibration adds only 0.006 (CI $[-0.083,+0.094]$). GRPO reduces the validation-selected scale to 1.05 (weak) and 1.00 (strong), suggesting reduced global size bias; this does not establish accurate sizing for every lesion. Yet calibrated SFT-201 (0.407) still exceeds calibrated GRPO from SFT-50 (0.243) and has a similar point estimate to GRPO from SFT-201 (0.390). Calibration is post-hoc and is never fitted on test.
+\subsection{Localization Beyond the SFT Starting Point}
+The center-box heuristic reaches test F1@0.5 of 0.077, compared with 0.4009 for SFT-201. This establishes an adapted baseline well above the fixed spatial prior. Table~\ref{tab:main} reports the reward comparison against that baseline. Mean selected validation F1 increases from 0.4498 with Original to 0.4630 with Shaped + Dx and 0.4936 with Shaped only. Figure~\ref{fig:chain}c shows performance at the same evaluation steps, rather than only the selected values.
 
-\begin{figure}[t]
-\centering
-\includegraphics[width=0.94\columnwidth]{figures/fig_results.pdf}
-\caption{(a) Test localization F1@0.5 during GRPO from a weak (SFT-50) and a strong (SFT-201) initialization. Step 0 is the SFT policy. (b) Mean fraction of GRPO groups whose four sampled rewards are identical; such groups produce zero advantage. }
-\label{fig:results}
-\end{figure}
+Shaped only is selected by validation, using steps 266, 175, and 266 for seeds 42--44. Its test scores are 0.4279, 0.4099, and 0.4189, each above SFT-201. The mean gain is $+0.0180$, or 1.80 F1 percentage points, with a nominal 95\% interval of $[-0.0566,+0.0908]$. This supports a small positive point estimate on the observed split, while leaving the population-level effect unresolved. The same table shows that the controlled shaping substitution with diagnosis retained has a smaller mean test gain, $+0.0080$.
 
-\subsection{Why the Reward Signal Fades}
-Fig.~\ref{fig:results}(b) shows the fraction of groups with identical rewards. With $G=4$, 23.7\% of Qwen's groups from the weak initialization and 17.7\% from the strong initialization have zero reward variance; for LLaVA the figure is 53.8\%. A zero-variance group contributes no reward-advantage gradient (the KL term may still contribute), and the reward is especially sparse because localization uses a hard IoU threshold: a box that misses by a few pixels receives the same zero as a box on the wrong hemisphere. The coarse diagnosis match further coarsens the signal.
+At the common final step 266, mean test F1 is 0.3914, 0.4149, and 0.4159 for Original, Shaped + Dx, and Shaped only, respectively. The shaped configurations remain ahead of Original at that endpoint; these rankings are descriptive. For Shaped only, two final seeds exceed SFT and one ties it. The observed mean gain therefore persists when every seed is evaluated at the final training step.
 
-Caption quality is not directly rewarded; its small change is therefore unsurprising, although shared parameters can change unrewarded outputs. The diagnosis reward is more revealing: during GRPO from SFT-201, the training diagnosis reward rises from 0.17 to 0.25, but test keyword Top-1 falls from 0.108 to 0.099. This is compatible with overfitting or reward--evaluation mismatch, but does not prove memorization. Although 93.7\% of test images have labels absent from the fine-tuning set, a pretrained model can still generate them; low exact-match accuracy is not mathematically forced by this split.
-
-\subsection{Data-Side Ablations}
-We also tested two data-side variants. The v2 dataset renders boxes as integers, adds 25\% auxiliary localization-only samples, and cleans final diagnoses; v3 reduces the auxiliary fraction to 10\%. Both improve validation localization (raw F1@0.5 0.482 and 0.465 vs.\ 0.375 for SFT-201) and reduce size-dependent box bias, yet test raw F1@0.5 falls to 0.356 and 0.345, and calibrated F1@0.5 is 0.392/0.395 vs.\ 0.407; the calibrated comparison CIs include zero. The same val-to-test pattern appears without RL, consistent with sampling variability or distribution differences across splits. Because several data changes and training steps differ together, these variants do not isolate a single causal factor.
-
-\subsection{Diagnosis and the Clinical-History Prior}
-Diagnosis is weak across the board: keyword Top-1 is 0.09--0.14 and Top-5 is 0.17--0.25. A text-only Qwen model, given the same format-guided prompt without the image, reaches Top-1 0.171 and Top-5 0.171, while the image-conditioned zero-shot model reaches 0.108/0.189. This is a separate matched, format-guided comparison, not the main-table zero-shot prompt. Its point estimates suggest a substantial history/pretraining prior, but without a paired CI or ablations of the adapted models they do not establish that images are generally unhelpful. We do not claim that the image is uninformative in principle, only that this reward and evaluation do not demonstrate an image-specific gain.
+\subsection{Box-Scale Control}
+Mean test IoU increases from 0.4028 for SFT-201 to 0.4445 for selected Shaped only, consistent with improved overlap beyond threshold crossings. Validation-fitted box scaling raises SFT F1 from 0.4009 to 0.4069, while all three selected Shaped only policies choose scale 1.00 and retain F1 0.4189. The remaining difference is $+0.0120$ (95\% interval $[-0.0613,+0.0850]$). Thus simple scale adjustment explains only part of the observed F1 difference; it does not resolve its statistical uncertainty.
 
 \section{Discussion}
+\subsection{What the Evidence Establishes}
+The strongest finding is the reduction of zero-advantage groups under continuous shaping, observed consistently when the diagnosis component is held fixed. The reward formula supplies a mechanism, the training logs measure its occurrence, and case-separated evaluation checks downstream behavior. These three pieces answer different parts of the research question. Shaped + Dx has the lowest tie rate, whereas Shaped only has the highest selected validation F1 and mean raw test F1. Avoiding ties therefore provides a learning opportunity, rather than a guarantee that the reward differences favor the desired behavior.
 
-\paragraph{Interpreting the initialization comparison.} The early-start run has a transient localization gain, whereas the final-SFT start has no detected test gain. The evidence answers RQ1--RQ2 only for these runs, not for all SFT initializations. Sparse rewards, low box diversity, calibration shifts, overfitting, and split variability are plausible explanations for RQ3; they were not independently ablated. In particular, absence of a significant difference does not establish saturation or rule out optimization problems.
+The contribution is a controlled study of reward informativeness in this application. It does not isolate a benefit of the frozen reference, which all nine runs share. Removing diagnosis also changes the reward mixture; the experiment does not identify whether its localization effect comes from objective competition, weighting, or another aspect of optimization. For selected Shaped only, diagnosis keyword Top-1 declines from 0.1081 to 0.0631 and description token F1 from 0.2504 to 0.2427. We therefore restrict the result to localization and do not infer better overall report quality.
 
-\paragraph{Why diagnosis remains difficult.} String rewards may favor familiar labels, while a hand-built alias metric can reward broad entities without clinical specificity. Label novelty, pretraining knowledge, history priors, and evaluation mismatch are distinct factors. Retrieval, image/history ablations, and expert assessment could separate them.
+\subsection{Limitations and Reproducibility}
+The test set contains 36 cases on one split, and all three GRPO seeds share one SFT initialization. Although new configuration and checkpoint choices were locked before test inference, the same test split had been inspected during earlier development. The bootstrap intervals are exploratory and do not correct for that history. A fresh split and repeated SFT initializations would provide stronger generalization evidence. A compute-matched continued-SFT control is also needed to distinguish the value of GRPO from further optimization of the starting policy.
 
-\paragraph{Why GRPO.} It avoids a learned critic and directly consumes programmatic rewards. This suits our limited memory and terminal-score setting, though PPO with shared parameters or DPO using reward-derived pairs are alternatives. Increasing $G$, dynamic sampling, or a continuous IoU component may improve reward contrast, but are untested here. Zero-variance groups remove the reward gradient, not the KL gradient.
-
-\paragraph{Lessons.} Compare RL against sufficiently trained SFT and a simple calibration baseline; validation loss alone did not select a strong localization checkpoint here. Monitor reward variance and prediction diversity. Fit calibration on validation, and report raw results separately. Finally, lock checkpoint and metric rules before a new evaluation: the nominal CIs here cannot correct retrospective selection.
-
-\paragraph{Reproducibility.} Saved \texttt{args.json} and \texttt{logging.jsonl} record the actual runs; script defaults alone do not reproduce them. The accompanying \texttt{paper/REPRODUCE.md} gives dependencies, explicit SFT/GRPO overrides, prediction and evaluation commands, and the mapping from Table~\ref{tab:main} to saved results. The course submission should include these artifacts and the code/data preparation instructions.
-
-\section{Limitations}
-\label{sec:limitations}
-
-The dataset is small (235 cases; 36 test cases) and only one split and training seed are used. Bootstrap CIs capture case sampling, not run-to-run variation. Test-informed checkpoint and metric changes introduce selection bias; a fresh test set is needed for confirmation. SFT-201 is a stronger final checkpoint, not a demonstrated optimum. NOVA is an evaluation-only benchmark; our training split departs from its intended protocol, and case separation cannot exclude public-source contamination in model pretraining. We test two backbones, LoRA, one RL algorithm, and one reward design, without a compute-matched continued-SFT control or reward/KL ablations. Automatic coordinates, unequal reward/evaluation preprocessing, and the custom AP proxy further limit interpretation. Captions and diagnosis are assessed by lexical proxies without radiologist review; the text-only check covers zero-shot models only.
+Heuristic coordinate parsing and the difference between reward and evaluator preprocessing limit exact alignment with the task metric. Lexical diagnosis and description scores do not measure clinical quality. The internal NOVA adaptation protocol also differs from the source benchmark's evaluation protocol. Dependencies, training overrides, selection rules, and commands for regenerating the main results and figures are documented in \texttt{paper/REPRODUCE.md}; no additional model training is required to regenerate the report from the saved artifacts.
 
 \section{Conclusion}
-We applied GRPO with deterministic localization and diagnosis rewards to structured brain MRI reporting. A retrospectively selected early-start checkpoint improves localization, but final GRPO does not show a reliable gain from either SFT initialization. Stronger SFT gives a larger point improvement than the early-start RL refinement; diagnosis and captioning show no reliable gains. Our contribution is an implemented RL formulation and an empirical analysis of its limits under small-data adaptation. The results motivate stronger supervised baselines, smoother rewards, and evaluation rules fixed before a new test, rather than a general claim that GRPO helps only under-trained models.
+Continuous IoU shaping addresses a concrete GRPO learning-signal problem: hard localization thresholds can make sampled reports indistinguishable in reward. Across three seeds, shaping with diagnosis held fixed reduces tied groups from 14.54\% to 0.19\%. The validation-selected localization-only objective yields a modest mean test improvement over the shared SFT starting point, with uncertainty that includes zero. The practical finding is that reward design should be evaluated through both within-group discrimination and downstream task metrics; supplying more relative advantages is useful evidence about optimization, but does not by itself establish generalization.
 
+\IEEEtriggeratref{2}
 \bibliographystyle{IEEEtran}
 \bibliography{refs}
-
 \end{document}

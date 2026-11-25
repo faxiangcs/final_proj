@@ -464,15 +464,30 @@ bash scripts/start_monitor.sh stop
 curl --noproxy '*' http://127.0.0.1:8777/healthz
 ```
 
-如果浏览器配置了 HTTP 代理，把 `127.0.0.1` 和服务器 IP 加入 no_proxy；否则
-浏览器可能把请求发给代理而打不开。SSH 隧道方式不受代理影响。
+如果浏览器或系统配置了 HTTP 代理（例如 Clash 的 `127.0.0.1:7897`），把
+`127.0.0.1`、`localhost` 和服务器 IP 加入代理例外（no_proxy），否则浏览器会把
+请求发给代理而打不开。SSH 隧道只负责把本机端口送到服务器，浏览器仍需对
+`127.0.0.1` 绕过代理。
 
-显示：4 条 Qwen baseline（自由格式 / 格式引导 × 图像 / 纯文本）的进度与
-失败/空输出、平均延迟与 tok/s、最近输出、vLLM 健康状态、4 张 GPU 的
-显存/利用率、`output/**/logging.jsonl` 里最近的训练 loss/eval、以及日志尾部。
-每 5 秒自动刷新。
+面板是单页驾驶舱，分五段：
 
-`python3 scripts/monitor_dashboard.py --once` 打印一份 JSON 快照，便于脚本检查。
+- **故事线 / 主结果**：问题、方法、主实验、结论、解释、后续实验的六步叙事，
+  以及主实验 headline 和关键 KPI。
+- **方法**：MDP 形式化、`R_loc` / `R_diag` 奖励公式、训练评测流水线、
+  train/val/test 划分、`plan.json` 的三组奖励塑形与超参。
+- **实时监控**：controller 状态、phase track、9 组 run 卡（训练/验证/选中
+  checkpoint）、6 张训练曲线（总奖励 / KL / 定位奖励 / 诊断奖励 / 零方差组 /
+  loss）、事件流、4 张 GPU、baseline 进度。
+- **结果**：主实验完整指标表、后续实验 9 个选中 checkpoint 的 dot plot、
+  18 个测试任务（selected + final）的进度矩阵，运行中的任务显示 chunk 进度。
+- **分析**：四条结论、后续实验读数、调参决策表和指标口径。
+
+顶部每 5 秒自动刷新；图表可展开为表格视图；`?theme=light` / `?theme=dark`
+可强制主题。`/api/status` 返回轻量快照（曲线降采样到 90 点），
+`/api/status?full=1` 返回完整曲线。`/artifact/{paper,plan,readme,
+scripts-readme,controller-log,results,test-results}` 直接打开对应文件。
+
+`python3 scripts/monitor_dashboard.py --once` 打印一份完整 JSON 快照，便于脚本检查。
 
 ## 数据审计
 

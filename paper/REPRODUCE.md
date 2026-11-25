@@ -6,15 +6,15 @@
 > `result/`, and `paper/review/` refer to local experiment artifacts; regenerate
 > them with the commands below.
 
-Run commands from the repository root. The report is **Path 2: apply RL**. No training was rerun for the paper audit. Results come from saved predictions and run configurations.
+Run commands from the repository root. The report follows **Path 2: apply RL**. Its main evidence is the three-reward, three-seed GRPO comparison from SFT-201: reward shaping reduces tied-reward groups, followed by evaluation of localization on cases excluded from training. The earlier single-seed runs are retained below for provenance and are excluded from the paper's main comparison. See `paper/REVISION_NOTES.md` for the claim-to-artifact mapping.
 
 ## Environment and data
 
-Training environment inspected on 2026-11-19: Python 3.11.18, torch 2.6.0 (CUDA 12.4 build), transformers 5.20.2, ms-swift 4.6.1, peft 0.20.0, qwen-vl-utils 0.0.14. Figure generation uses matplotlib 3.11.2. Training used four RTX 3090 GPUs. Zero-shot predictions were served separately with vLLM 0.30; do not install it into the training environment without checking compatibility.
+Training environment inspected on 2026-11-19: Python 3.11.18, torch 2.6.0 (CUDA 12.4 build), transformers 5.20.2, ms-swift 4.6.1, peft 0.20.0, qwen-vl-utils 0.0.14. Figure generation uses matplotlib 3.11.2. SFT and historical GRPO used four RTX 3090 GPUs. The main GRPO ablation used two, with two additional GPUs for evaluation. Zero-shot predictions were served separately with vLLM 0.30; do not install it into the training environment without checking compatibility.
 
 ```sh
 # Existing environment on this machine
-export PATH="$HOME/venvs/ms-swift/bin:$PATH"
+export PATH="/data/yanfaxiang/venvs/ms-swift/bin:$PATH"
 # For a new environment, see scripts/setup_swift_env.sh and pin the versions above.
 python src/audit_data.py --data_dir data/nova_sft
 ```
@@ -29,7 +29,7 @@ python src/audit_data.py --data_dir data/nova_sft_rebuilt
 
 The builder and parser evolved during experiments; compare rebuilt files with the saved split before claiming exact reproduction. Do not enable `--integer_boxes`, `--clean_final`, or auxiliary samples for the main SFT recipe; these belong to the data variants. The local audit manifest (not included) recorded SHA-256 hashes of the datasets, predictions, and configurations used in this audit.
 
-## SFT and GRPO
+## SFT baseline
 
 Replace model/checkpoint paths on a different machine. These explicit overrides matter: training script defaults differ from the reported runs.
 
@@ -43,66 +43,117 @@ SAVE_STEPS=25 EVAL_STEPS=25 LOGGING_STEPS=1 \
 bash scripts/run_sft.sh
 ```
 
-LLaVA uses `MODEL="$HOME/models/llava-1.5-7b-hf"`, `MAX_LENGTH=2048`, and a separate output directory, with the same SFT settings. The original Qwen SFT directory is `output/qwen_sft_full/v0-20261117-192623/`; early and final checkpoints are 50 and 201. Original LLaVA SFT is `output/nova_sft_full_v2/v0-20261117-180551/checkpoint-50`.
+The original Qwen SFT checkpoints 50 and 201 are under
+`output/qwen_sft_full/v0-20261117-192623/`. Use the regenerated checkpoint-201
+when reproducing on a different machine. Generate the SFT baseline predictions
+and validation report before running the ablation controller.
 
 ```sh
-# Repeat with checkpoint-201 and a separate OUTPUT_DIR for the stronger start.
-NPROC_PER_NODE=4 MODEL="$HOME/models/Qwen3.5-9B" \
-ADAPTERS="$PWD/output/qwen_sft_full/v0-20261117-192623/checkpoint-50" \
-DATA_DIR="$PWD/data/nova_sft" OUTPUT_DIR="$PWD/output/reproduce_qwen_grpo_weak" \
-LORA_RANK=16 LORA_ALPHA=32 FREEZE_VIT=true FREEZE_ALIGNER=false \
-GRPO_LR=5e-6 GRPO_EPOCHS=1 GRPO_BATCH_SIZE=1 GRPO_GRAD_ACCUM=2 \
-NUM_GENERATIONS=4 TEMPERATURE=0.9 TOP_P=0.95 BETA=0.001 \
-REWARD_WEIGHTS="1 1" MAX_LENGTH=2048 MAX_COMPLETION_LENGTH=512 \
-ENABLE_THINKING=false GRPO_EVAL_STRATEGY=no SEED=42 \
-SAVE_STEPS=25 LOGGING_STEPS=1 bash scripts/run_grpo.sh
+model="$HOME/models/Qwen3.5-9B"
+sft="$PWD/output/qwen_sft_full/v0-20261117-192623/checkpoint-201"
+for split in val test; do
+  out="result/qwen_sft_${split}_checkpoint-201"
+  mkdir -p "$out"
+  CUDA_VISIBLE_DEVICES=0 swift infer \
+    --model "$model" --adapters "$sft" \
+    --val_dataset "data/nova_sft/$split.jsonl" --infer_backend pt \
+    --temperature 0 --max_new_tokens 512 --enable_thinking false \
+    --result_path "$out/pred.jsonl"
+  python src/eval_nova.py --pred "$out/pred.jsonl" \
+    --gold "data/nova_sft/$split.jsonl" --out "$out/report.json"
+done
 ```
 
-Actual GRPO reward is `localization_reward + diagnosis_reward` (range 0–2), not their average. The localization implementation is Jaccard over matched box counts, despite its Python name `localization_f1`. The saved runs use the adapter-disabled KL reference, not a frozen SFT reference adapter. These details describe the experiments; changing the code now would require new training to evaluate a different method.
-
-## Prediction and evaluation
-
-```sh
-CUDA_VISIBLE_DEVICES=0 swift infer \
-  --model "$HOME/models/Qwen3.5-9B" \
-  --adapters output/qwen_grpo_v1/v0-20261117-221829/checkpoint-100 \
-  --val_dataset data/nova_sft/test.jsonl --infer_backend pt \
-  --temperature 0 --max_new_tokens 512 --enable_thinking false \
-  --result_path /tmp/iota_reproduced_predictions.jsonl
-python src/eval_nova.py --pred /tmp/iota_reproduced_predictions.jsonl \
-  --gold data/nova_sft/test.jsonl --out /tmp/iota_reproduced_report.json
-```
-
-Repeat inference with the checkpoint paths in the mapping below. Main zero-shot runs use the same user prompt and 512-token greedy decoding, without the additional system-format hint. See `scripts/run_baseline_qwen.sh` and the saved baseline prediction files; the format-guided image/text comparison is a separate experiment, not the main-table zero-shot row. Predictions alone do not archive the full vLLM server configuration, which limits exact reproduction of those baselines.
-
-| Main-table row | Local artifact directory under `result/` (not included) |
-|---|---|
-| LLaVA zero-shot | `llava_base` |
-| LLaVA SFT-50 | `nova_sft_ck50` |
-| LLaVA GRPO ck50 | `llava_grpo_v1_checkpoint-50` |
-| Qwen zero-shot | `qwen35_baseline` |
-| Qwen SFT-50 | `qwen_sft_ck50` |
-| Qwen weak-start GRPO ck100 | `qwen_grpo_v1_checkpoint-100` |
-| Qwen SFT-201 | `qwen_sft_test_checkpoint-201` |
-| Qwen strong-start GRPO ck266 | `qwen_grpo_ck201_test_checkpoint-266` |
-
-Each directory contains `pred.jsonl` and `report.json`. The final weak-start result is in `qwen_grpo_v1_checkpoint-266`. The center prior uses one fixed box `[120,120,360,360]` per image and the same evaluator. `map50_95` in JSON is the custom per-image AP proxy described in the revised paper, **not standard COCO mAP**.
+Use empty output directories for a fresh inference run. Fit the SFT bounding-box
+scale on validation with the same grid used for the GRPO policies.
 
 ```sh
-# Recompute paired CIs from regenerated predictions (CPU only, standard library).
-# The local audit script paper/review/verify_results.py is not included.
-# Fit scale using validation only; then apply the selected value to test.
 python scripts/fit_box_scale.py \
-  --pred result/qwen_sft_val_checkpoint-50/pred.jsonl \
-  --gold data/nova_sft/val.jsonl --out /tmp/iota_box_scale.json
-python src/eval_nova.py --pred result/qwen_sft_ck50/pred.jsonl \
-  --gold data/nova_sft/test.jsonl --box_scale 1.25 \
-  --out /tmp/iota_calibrated_report.json
-python scripts/calibration_ci.py --pred result/qwen_sft_ck50/pred.jsonl \
-  --gold data/nova_sft/test.jsonl --scale 1.25
+  --pred result/qwen_sft_val_checkpoint-201/pred.jsonl \
+  --gold data/nova_sft/val.jsonl --out /tmp/iota_sft_scale.json
 ```
 
-CIs resample 36 whole cases, 4000 times, with seed 42. They do not correct test-informed checkpoint/metric selection or estimate training-seed variance.
+## Main GRPO experiment
+
+The configuration is `experiments/grpo_refinement_20261119/plan.json`. The
+controller `scripts/run_refinement.py` runs the three recipes below for seeds
+42, 43, and 44. All runs use SFT-201 both as the initialization and as a
+separate frozen KL reference.
+
+| Paper label | Artifact prefix | Reward functions |
+|---|---|---|
+| Original | `reference` | `localization_reward diagnosis_reward` |
+| Shaped + Dx | `dense` | `shaped_localization_reward diagnosis_reward` |
+| Shaped only | `loc_only` | `shaped_localization_reward` |
+
+Active reward weights are all 1. GRPO uses 266 optimizer steps with learning
+rate `5e-6`, batch size 1 per device, two devices, four accumulation steps,
+four completions per input, temperature 0.9, top-p 0.95, `beta=0.001`,
+maximum sequence length 2048, and maximum completion length 512.
+
+The following commands are for the original machine. In a fresh workspace on
+a different machine, set `base_model`, `sft_adapter`, `train_gpus`, and
+`eval_gpus` in the plan, and set `PYTHON` and `SWIFT` in the controller and
+the Python path in the launcher. The aggregate code uses 1.20, the scale
+selected by the original SFT-201 validation predictions. Substitute the
+refitted scale if reproducing with a newly trained baseline.
+
+```sh
+bash scripts/start_refinement.sh
+python3 scripts/refinement_status.py
+```
+
+The same command resumes from saved training checkpoints and completed
+inference chunks after interruption. Use a fresh copy for a new experiment.
+The existing run uses recorded source hashes and selection files to keep
+resumption tied to the recorded configuration.
+
+The controller evaluates SFT step 0 and GRPO steps 50, 100, 175, and 266 on
+validation. It chooses by raw localization F1 at IoU 0.5, then mean IoU, then
+earlier step. It locks checkpoint choices and the reward configuration before
+running test inference for both the selected and final checkpoint per seed.
+The calibrated evaluation chooses the scale on validation from 1.00 to 1.50
+in 0.05 increments.
+
+| Artifact under `experiments/grpo_refinement_20261119/` | Contents |
+|---|---|
+| `selection.json`, `configuration_selection.json` | Locked checkpoints and recipe |
+| `test_results.json` | 18 evaluation rows with raw and calibrated metrics |
+| `aggregate_results.json` | Seed means, sample SDs, and 95% bootstrap intervals |
+| `{stage}_seed{seed}/training_done.json` | Saved policy checkpoint and frozen-reference audit |
+
+Uncertainty uses 4,000 paired replicates resampling three GRPO seeds and
+36 cases, with random seed 42. `paper/make_figure.py` reads those intervals,
+the locked validation candidates in `selection.json`, and the nine formal
+`logging.jsonl` files in `output/grpo_refinement_20261119/`. It generates
+`figures/fig_evidence_chain.pdf` for the report (analytical reward curve,
+measured tied-group fractions, and validation trajectories) and retains the
+earlier `figures/fig_refinement.pdf` diagnostic. Validation shading spans the
+minimum and maximum of the three seeds; it is not a confidence interval.
+
+When assembling the code portion, include the local plan, `refinement_plugin.py`,
+`src/refinement_rewards.py`, `src/grpo_reference_audit.py`,
+`scripts/run_refinement.py`, `scripts/start_refinement.sh`, and
+`scripts/refinement_status.py`. These experiment sources are present in the
+workspace and excluded by the current Git ignore rules. Predictions, checkpoints,
+raw logs, and clinical datasets are generated locally.
+
+## Historical comparisons
+
+The fixed-box prior uses `[120,120,360,360]` with the same localization evaluator.
+Zero-shot Qwen uses `scripts/run_baseline_qwen.sh`. The historical single-seed
+GRPO runs used the original reward sum, an adapter-disabled reference, four
+training GPUs, and gradient accumulation 2. To reproduce these runs, use
+`scripts/run_grpo.sh` with `ADAPTERS` pointing to SFT-50 or SFT-201, omit
+`REF_ADAPTERS`, and use the GRPO training settings above with the historical GPU
+configuration. Keep outputs separate from the nine formal runs.
+
+| Historical result | Local directory under `result/` |
+|---|---|
+| Qwen zero-shot | `qwen35_baseline` |
+| SFT-50 | `qwen_sft_ck50` |
+| Weak-start GRPO steps 100 and 266 | `qwen_grpo_v1_checkpoint-100` and `qwen_grpo_v1_checkpoint-266` |
+| Strong-start GRPO step 266 | `qwen_grpo_ck201_test_checkpoint-266` |
 
 ## Figure and PDF
 
@@ -115,4 +166,4 @@ pdflatex -interaction=nonstopmode -halt-on-error main.tex
 pdflatex -interaction=nonstopmode -halt-on-error main.tex
 ```
 
-The revised PDF must remain within six IEEE double-column pages, including references. The submitted report is `paper/main.pdf`; the local review backup is not included.
+The revised PDF is five IEEE double-column pages, including references, within the six-page limit. The submitted report is `paper/main.pdf`; the local review backup is not included. Regenerating the figures and PDF from existing artifacts does not run training or inference. The files present before this revision are backed up under `paper/review/before_evidence_revision_20261121_154237/`.

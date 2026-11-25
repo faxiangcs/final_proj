@@ -14,6 +14,8 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import shutil
+import statistics
 import subprocess
 import time
 import urllib.request
@@ -21,9 +23,13 @@ from datetime import datetime
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from typing import Any
-from urllib.parse import urlparse
+from urllib.parse import parse_qs, urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
+try:
+    from scripts.refinement_dashboard import collect_refinement
+except ModuleNotFoundError:
+    from refinement_dashboard import collect_refinement
 
 BASELINES = {
     "image": {
@@ -47,6 +53,51 @@ BASELINES = {
         "log": ROOT / "output/qwen35_baseline_text_fmt_v2.log",
     },
 }
+
+PAPER = {
+    "title": "GRPO with Verifiable Clinical Rewards for Structured Brain MRI Reporting",
+    "course": "IOTA 5201 · RL for Intelligent Decision Making · Fall 2026",
+    "path": "Path 2 · Apply RL to a Problem of Your Choice",
+    "author": "Yan Faxiang",
+    "sid": "50051798",
+    "affiliation": "HKUST(GZ)",
+    "pages": 6,
+    "pdf": "paper/main.pdf",
+    "repo": "https://github.com/faxiangcs/final_proj",
+    "headline": 0.216,
+    "headline_delta": 0.071,
+    "headline_ci": [0.015, 0.125],
+}
+
+MAIN_RESULTS = [
+    {"policy": "Center prior", "short": "Center prior", "group": "Heuristic",
+     "f1": 0.077, "iou": 0.195, "diag1": None, "diag5": None},
+    {"policy": "Qwen3.5-9B · zero-shot", "short": "Qwen zero-shot", "group": "Zero-shot",
+     "f1": 0.068, "iou": 0.218, "diag1": 0.117, "diag5": 0.180},
+    {"policy": "Qwen3.5-9B · SFT-50", "short": "SFT-50 (weak)", "group": "SFT",
+     "f1": 0.146, "iou": 0.300, "diag1": 0.090, "diag5": 0.198},
+    {"policy": "GRPO from SFT-50 · ck100", "short": "GRPO weak ck100", "group": "GRPO",
+     "f1": 0.216, "iou": 0.344, "diag1": 0.135, "diag5": 0.234, "highlight": True,
+     "note": "retrospective checkpoint"},
+    {"policy": "GRPO from SFT-50 · ck266", "short": "GRPO weak ck266", "group": "GRPO",
+     "f1": 0.191, "iou": 0.328, "diag1": 0.117, "diag5": 0.243},
+    {"policy": "Qwen3.5-9B · SFT-201", "short": "SFT-201 (strong)", "group": "SFT",
+     "f1": 0.401, "iou": 0.403, "diag1": 0.108, "diag5": 0.180},
+    {"policy": "GRPO from SFT-201 · ck266", "short": "GRPO strong ck266", "group": "GRPO",
+     "f1": 0.390, "iou": 0.403, "diag1": 0.099, "diag5": 0.171},
+    {"policy": "LLaVA-1.5-7B · SFT-50", "short": "LLaVA SFT-50", "group": "SFT",
+     "f1": 0.054, "iou": 0.152, "diag1": 0.072, "diag5": 0.099},
+    {"policy": "LLaVA-1.5-7B · GRPO ck50", "short": "LLaVA GRPO ck50", "group": "GRPO",
+     "f1": 0.054, "iou": 0.165, "diag1": 0.072, "diag5": 0.090},
+]
+
+STAGE_META = {
+    "reference": {"label": "① 修正 SFT reference", "short": "reference", "slot": "blue"},
+    "dense": {"label": "② 连续定位奖励", "short": "dense", "slot": "orange"},
+    "loc_only": {"label": "③ 仅定位奖励", "short": "loc_only", "slot": "aqua"},
+}
+
+DASHBOARD_FILE = Path(__file__).with_name("dashboard.html")
 
 FINAL_RE = re.compile(
     r"最终(?:的)?(?:临床)?诊断[^\n：:]{0,12}[：:]\s*\**\s*([^\n。]{1,80})"
@@ -292,13 +343,177 @@ def _test_total() -> int:
         return 0
 
 
-def collect() -> dict[str, Any]:
+def _downsample_curve(curve: Any, max_points: int = 90) -> Any:
+    """Keep a chart-friendly summary of a long training curve."""
+    if not isinstance(curve, list) or len(curve) <= max_points:
+        return curve
+    last = len(curve) - 1
+    indices = {0, last}
+    for i in range(max_points):
+        indices.add(round(i * last / (max_points - 1)))
+    return [curve[i] for i in sorted(indices)]
+
+
+def _downsample_refinement(refinement: Any, max_points: int = 90) -> Any:
+    if not isinstance(refinement, dict) or not refinement.get("available"):
+        return refinement
+    result = dict(refinement)
+    result["runs"] = [
+        {**run, "curve": _downsample_curve(run.get("curve") or [], max_points)}
+        for run in refinement.get("runs", [])
+    ]
+    return result
+
+
+def _followup_summary(refinement: Any) -> dict[str, Any]:
+    if not isinstance(refinement, dict) or not refinement.get("available"):
+        return {"available": False}
+    runs = refinement.get("runs") or []
+    stages: dict[str, list[float]] = {}
+    for run in runs:
+        selected = (run.get("validation") or {}).get("selected") or {}
+        score = selected.get("score") or []
+        value = score[0] if score else None
+        if isinstance(value, (int, float)):
+            stages.setdefault(run.get("stage", "unknown"), []).append(float(value))
+    means = {
+        stage: round(statistics.mean(values), 4)
+        for stage, values in stages.items()
+        if values
+    }
+    total = refinement.get("total_runs") or len(runs)
+    completed_training = refinement.get("completed_training") or 0
+    completed_validation = refinement.get("completed_validation") or 0
+    if refinement.get("status") == "done":
+        phase = "done"
+    elif refinement.get("selection_locked"):
+        phase = "test"
+    elif total and completed_validation >= total:
+        phase = "locking"
+    elif total and completed_training >= total:
+        phase = "validation"
+    elif refinement.get("controller_alive"):
+        phase = "training"
+    else:
+        phase = "interrupted"
+    outcome = {}
+    selection = refinement.get("configuration_selection") or {}
+    aggregate = refinement.get("aggregate") or {}
+    chosen = selection.get("chosen")
+    test_results = refinement.get("test_results") or []
+    if (
+        phase == "done"
+        and refinement.get("selection_locked")
+        and chosen in STAGE_META
+        and len(test_results) == len(runs) * 2
+        and all(f"{stage}_{rule}" in aggregate for stage in STAGE_META for rule in ("selected", "final"))
+    ):
+        outcome = _grpo_outcome(runs, chosen, test_results)
+    return {
+        "available": True,
+        "stages": STAGE_META,
+        "stage_means": means,
+        "stage_counts": {stage: len(values) for stage, values in stages.items()},
+        "best_stage": max(means, key=means.get) if means else None,
+        "test_total": len(runs) * 2,
+        "test_done": len(refinement.get("test_results") or []),
+        "phase": phase,
+        "validation_pending": max(0, total - completed_validation),
+        "selection_locked": bool(refinement.get("selection_locked")),
+        "active": refinement.get("active"),
+        "outcome": outcome,
+    }
+
+
+def _grpo_outcome(
+    runs: list[dict[str, Any]], chosen: str, test_results: list[dict[str, Any]]
+) -> dict[str, Any]:
+    """Summarize logged learning signals and secondary test metrics."""
+    zero_variance = {}
+    for stage in STAGE_META:
+        per_seed = []
+        for run in runs:
+            if run["stage"] != stage:
+                continue
+            logged = [
+                row["zero_variance"] for row in run["curve"]
+                if isinstance(row.get("zero_variance"), (int, float))
+            ]
+            if len(logged) == run["total_steps"]:
+                per_seed.append(statistics.mean(logged))
+        if len(per_seed) == sum(run["stage"] == stage for run in runs) and per_seed:
+            zero_variance[stage] = statistics.mean(per_seed)
+
+    baseline = _read_json(ROOT / "result/qwen_sft_test_checkpoint-201/report.json")
+    selected = [
+        row for row in test_results
+        if row["kind"] == "selected" and row["name"].startswith(f"{chosen}_")
+    ]
+    return {
+        "chosen": chosen,
+        "zero_variance": zero_variance,
+        "selected_scales": [row["scale"] for row in selected],
+        "secondary": {
+            "iou": [baseline["localization"]["mean_iou"], statistics.mean(row["raw"]["mean_iou"] for row in selected)],
+            "caption_f1": [baseline["caption"]["f1"], statistics.mean(row["caption"]["f1"] for row in selected)],
+            "diag_top1": [baseline["diagnosis"]["top1_keyword"], statistics.mean(row["diagnosis"]["top1_keyword"] for row in selected)],
+        } if baseline and selected else {},
+    }
+
+
+def _controller_log(limit: int = 18) -> list[str]:
+    return _tail_lines(
+        ROOT / "experiments/grpo_refinement_20261119/controller.log", limit
+    )
+
+
+def _read_json(path: Path) -> dict[str, Any]:
+    try:
+        value = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return {}
+    return value if isinstance(value, dict) else {}
+
+
+def _disk_stats() -> dict[str, Any]:
+    try:
+        usage = shutil.disk_usage(ROOT)
+    except OSError:
+        return {}
+    total = usage.total or 1
+    return {
+        "total_gb": round(usage.total / (1024 ** 3), 1),
+        "used_gb": round(usage.used / (1024 ** 3), 1),
+        "free_gb": round(usage.free / (1024 ** 3), 1),
+        "used_pct": round(usage.used / total * 100, 1),
+    }
+
+
+def _page() -> str:
+    """Serve the external page with a first-paint snapshot.
+
+    The page still refreshes from /api/status; the inline snapshot only avoids
+    an empty flash on first load (and makes headless screenshots deterministic).
+    """
+    try:
+        html = DASHBOARD_FILE.read_text(encoding="utf-8")
+    except OSError:
+        return HTML
+    try:
+        initial = json.dumps(collect(), ensure_ascii=False).replace("<", "\\u003c")
+    except Exception:
+        initial = "null"
+    return html.replace("__NOVA_INITIAL__", initial)
+
+
+def collect(full: bool = False) -> dict[str, Any]:
     total = _test_total()
     baselines = {mode: _baseline_stats(mode, total) for mode in BASELINES}
     recent = []
     for mode in BASELINES:
         recent.extend(baselines[mode]["recent"])
     recent.sort(key=lambda item: (item["index"] if item["index"] is not None else -1))
+    refinement = collect_refinement(ROOT)
     return {
         "time": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         "epoch": int(time.time()),
@@ -308,6 +523,15 @@ def collect() -> dict[str, Any]:
         "baselines": baselines,
         "recent": recent[-12:],
         "trainings": _training_runs(),
+        "refinement": refinement if full else _downsample_refinement(refinement),
+        "followup": _followup_summary(refinement),
+        "paper": PAPER,
+        "main_results": MAIN_RESULTS,
+        "plan": _read_json(
+            ROOT / "experiments/grpo_refinement_20261119/plan.json"
+        ),
+        "controller_log": _controller_log(),
+        "disk": _disk_stats(),
     }
 
 
@@ -396,6 +620,18 @@ pre{background:var(--surface2);border:1px solid var(--border);border-radius:8px;
 </header>
 <main>
   <div class="err" id="err">无法连接监控服务，正在重试…</div>
+  <h2>GRPO 改进实验 · 三组 × 三个 seed</h2>
+  <section class="card" id="refinement-summary">正在读取实验状态…</section>
+  <section class="card" style="margin-top:14px;overflow:auto" id="refinement-queue"></section>
+  <section class="grid two" style="margin-top:14px" id="refinement-curves"></section>
+  <details style="margin-top:12px"><summary class="muted">实验事件与续跑说明</summary>
+    <pre id="refinement-events"></pre>
+    <p class="muted">断开前台不影响后台；异常退出或服务器重启后运行 <code>bash scripts/start_refinement.sh</code> 恢复。训练每 25 步保存；验证推理保留已完成分片。</p>
+  </details>
+  <details><summary class="muted">测试集结果（全部验证选择锁定后显示）</summary>
+    <section class="card" style="overflow:auto" id="refinement-results"></section>
+  </details>
+  <h2>历史 baseline 与服务</h2>
   <section class="grid kpis" id="kpis"></section>
 
   <h2>Baseline 进度</h2>
@@ -428,15 +664,64 @@ const esc = (v) => String(v ?? "").replace(/[&<>"']/g,
 const fmt = (v, d=1) => (v === null || v === undefined || v === "")
   ? "—" : Number(v).toFixed(d);
 const statePill = (state) => {
-  const map = {running:["ok","运行中"], done:["good","已完成"],
+  const map = {running:["ok","运行中"], done:["ok","已完成"],
     stalled:["warn","停滞"], pending:["idle","等待中"],
-    error:["bad","错误"], empty:["warn","空输出"], ok:["good","正常"]};
+    error:["bad","错误"], empty:["warn","空输出"], ok:["ok","正常"],
+    initializing:["warn","初始化"], interrupted:["bad","已中断，可续跑"]};
   const [cls, text] = map[state] || map.pending;
   return `<span class="pill ${cls}">${text}</span>`;
 };
 const pct = (a, b) => b > 0 ? Math.min(100, a / b * 100) : 0;
 
+function sparkline(points, field, color){
+  const values=points.filter(p=>Number.isFinite(Number(p[field])) && p[field]!==null && p[field]!==undefined);
+  if(!values.length) return `<div class="empty">等待训练数据</div>`;
+  const width=520,height=140,left=42,right=12,top=12,bottom=25;
+  const ys=values.map(p=>Number(p[field]));
+  const lo=Math.min(0,...ys), hi=Math.max(...ys,lo+0.001)*1.08;
+  const lastStep=Math.max(...values.map(p=>p.step),1);
+  const coords=values.map(p=>`${left+(width-left-right)*p.step/lastStep},${height-bottom-(height-top-bottom)*(Number(p[field])-lo)/(hi-lo)}`).join(' ');
+  return `<svg viewBox="0 0 ${width} ${height}" role="img" aria-label="${esc(field)} 随训练步数变化" style="width:100%;display:block">
+    <path d="M${left},${top} V${height-bottom} H${width-right}" fill="none" stroke="var(--border)"/>
+    <polyline points="${coords}" fill="none" stroke="${color}" stroke-width="2"/>
+    <text x="3" y="18" fill="var(--muted)" font-size="11">${fmt(hi,3)}</text>
+    <text x="3" y="${height-bottom}" fill="var(--muted)" font-size="11">${fmt(lo,3)}</text>
+    <text x="${left}" y="${height-4}" fill="var(--muted)" font-size="11">0</text>
+    <text x="${width-right}" y="${height-4}" text-anchor="end" fill="var(--muted)" font-size="11">step ${lastStep}</text>
+  </svg>`;
+}
+
+function renderRefinement(r){
+  if(!r || !r.available){
+    $("refinement-summary").textContent="尚未发现 GRPO 改进实验";
+    return;
+  }
+  const active=r.runs.find(x=>x.name===r.active);
+  $("refinement-summary").innerHTML=`<div class="row"><strong>${statePill(r.status)} ${esc(r.active || (r.status==='done'?'全部完成':'训练队列'))}</strong>
+    <span class="muted">控制进程 ${r.controller_alive?'在线':'离线'} · PID ${esc(r.pid)}</span></div>
+    <div class="bar"><span style="width:${pct(r.completed_steps,r.total_steps)}%"></span></div>
+    <div class="row"><span>训练 ${r.completed_training}/${r.total_runs} · 验证 ${r.completed_validation}/${r.total_runs} · 总步数 ${r.completed_steps}/${r.total_steps}</span>
+      <span class="muted">训练 GPU ${esc(r.train_gpus)} · 评测 GPU ${esc(r.eval_gpus.join(','))}</span></div>
+    <p class="muted">${r.selection_locked?'验证选择已锁定，测试评测可进行':'验证选择尚未全部锁定，尚不进行本轮测试评测'} · SFT 验证 F1@0.5 ${fmt(r.baseline_val_f1,4)}${active?' · 当前训练预计剩余 '+esc(active.last.remaining || '估算中'):''}</p>
+    ${r.error?`<p style="color:var(--bad)">${esc(r.error)}</p>`:''}`;
+  $("refinement-queue").innerHTML=`<table><thead><tr><th>配置 / seed</th><th>训练</th><th>Reward / KL</th><th>零方差</th><th>续跑点 / Reference</th><th>验证进度 / 选择</th></tr></thead><tbody>`+
+    r.runs.map(t=>`<tr><td>${esc(t.label)}<div class="muted">seed ${t.seed}</div></td>
+      <td>${statePill(t.status)}<div class="mono">${t.step}/${t.total_steps}</div></td>
+      <td class="num">${fmt(t.last.reward,4)} / ${fmt(t.last.kl,5)}</td>
+      <td class="num">${t.last.zero_variance==null?'—':fmt(t.last.zero_variance*100,1)+'%'}</td>
+      <td>ck${t.checkpoint_step??'—'}${t.resumed?' · 已续跑':''}<div class="muted">${t.reference.verified?'冻结检查通过 · step '+t.reference.last_step:'等待冻结检查'}</div></td>
+      <td>${statePill(t.validation.status)}<div class="muted">${t.validation.selected?'选中 step '+t.validation.selected.step+' · F1 '+fmt(t.validation.selected.score[0],4):'已完成分片 '+t.validation.chunks.reduce((a,c)=>a+c.done,0)}</div>
+      ${t.validation.reports.map(v=>`<div class="mono muted">ck${v.step}: ${fmt(v.f1,4)}</div>`).join('')}</td></tr>`).join('')+'</tbody></table>';
+  const plot=active || [...r.runs].reverse().find(t=>t.curve.length);
+  $("refinement-curves").innerHTML=plot?`<div class="card"><strong>${esc(plot.name)} · 总奖励</strong>${sparkline(plot.curve,'reward','var(--accent)')}<span class="muted">训练奖励不等于验证集性能</span></div>
+    <div class="card"><strong>${esc(plot.name)} · KL</strong>${sparkline(plot.curve,'kl','var(--good)')}<span class="muted">对冻结 SFT reference 的偏离</span></div>`:'';
+  $("refinement-events").textContent=r.events.map(e=>`${e.time} ${e.event} ${e.name||''} ${e.error||''}`).join('\\n');
+  $("refinement-results").innerHTML=r.test_results.length?`<table><thead><tr><th>配置</th><th>规则</th><th>Raw F1@0.5</th><th>校准 F1@0.5</th><th>相对 SFT</th></tr></thead><tbody>`+
+    r.test_results.map(t=>`<tr><td>${esc(t.name)}</td><td>${esc(t.kind)}</td><td>${fmt(t.raw['f1@0.5'],4)}</td><td>${fmt(t.calibrated['f1@0.5'],4)}</td><td>${fmt(t.delta_vs_sft_raw,4)}</td></tr>`).join('')+'</tbody></table>':`<div class="empty">等待全部验证集选择锁定和测试评测完成</div>`;
+}
+
 function render(data){
+  renderRefinement(data.refinement);
   $("clock").textContent = `更新 ${data.time}`;
   const runs = Object.values(data.baselines);
   const v = data.vllm;
@@ -523,29 +808,88 @@ refresh();
 """
 
 
+ARTIFACTS = {
+    "/artifact/paper": (
+        ROOT / "paper/main.pdf",
+        "application/pdf",
+        "main.pdf",
+    ),
+    "/artifact/plan": (
+        ROOT / "experiments/grpo_refinement_20261119/plan.json",
+        "application/json; charset=utf-8",
+        "plan.json",
+    ),
+    "/artifact/results": (
+        ROOT / "experiments/grpo_refinement_20261119/RESULTS.md",
+        "text/markdown; charset=utf-8",
+        "RESULTS.md",
+    ),
+    "/artifact/test-results": (
+        ROOT / "experiments/grpo_refinement_20261119/test_results.json",
+        "application/json; charset=utf-8",
+        "test_results.json",
+    ),
+    "/artifact/controller-log": (
+        ROOT / "experiments/grpo_refinement_20261119/controller.log",
+        "text/plain; charset=utf-8",
+        "controller.log",
+    ),
+    "/artifact/readme": (
+        ROOT / "README.md",
+        "text/markdown; charset=utf-8",
+        "README.md",
+    ),
+    "/artifact/scripts-readme": (
+        ROOT / "scripts/README.md",
+        "text/markdown; charset=utf-8",
+        "scripts/README.md",
+    ),
+}
+
+
 class Handler(BaseHTTPRequestHandler):
-    server_version = "NovaMonitor/1.0"
+    server_version = "NovaCockpit/2.0"
 
     def log_message(self, format: str, *args: Any) -> None:  # noqa: A002
         return
 
-    def _send(self, code: int, body: bytes, content_type: str) -> None:
+    def _send(
+        self,
+        code: int,
+        body: bytes,
+        content_type: str,
+        filename: str | None = None,
+    ) -> None:
         self.send_response(code)
         self.send_header("Content-Type", content_type)
         self.send_header("Content-Length", str(len(body)))
         self.send_header("Cache-Control", "no-store")
+        self.send_header("X-Content-Type-Options", "nosniff")
+        if filename:
+            self.send_header("Content-Disposition", f'inline; filename="{filename}"')
         self.end_headers()
         self.wfile.write(body)
 
     def do_GET(self) -> None:  # noqa: N802
-        path = urlparse(self.path).path
+        parsed = urlparse(self.path)
+        path = parsed.path
         if path == "/":
-            self._send(200, HTML.encode("utf-8"), "text/html; charset=utf-8")
+            self._send(200, _page().encode("utf-8"), "text/html; charset=utf-8")
         elif path == "/api/status":
-            payload = json.dumps(collect(), ensure_ascii=False).encode("utf-8")
+            query = parse_qs(parsed.query)
+            full = query.get("full", ["0"])[0].lower() in {"1", "true", "yes"}
+            payload = json.dumps(collect(full=full), ensure_ascii=False).encode("utf-8")
             self._send(200, payload, "application/json; charset=utf-8")
         elif path == "/healthz":
             self._send(200, b"ok", "text/plain")
+        elif path == "/favicon.ico":
+            self._send(204, b"", "image/x-icon")
+        elif path in ARTIFACTS:
+            target, content_type, filename = ARTIFACTS[path]
+            if not target.exists():
+                self._send(404, b"not found", "text/plain")
+                return
+            self._send(200, target.read_bytes(), content_type, filename)
         else:
             self._send(404, b"not found", "text/plain")
 
@@ -558,7 +902,7 @@ def main() -> int:
     args = parser.parse_args()
 
     if args.once:
-        print(json.dumps(collect(), ensure_ascii=False, indent=2))
+        print(json.dumps(collect(full=True), ensure_ascii=False, indent=2))
         return 0
 
     server = ThreadingHTTPServer((args.host, args.port), Handler)
