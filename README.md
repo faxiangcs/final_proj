@@ -1,7 +1,7 @@
 # GRPO with Verifiable Clinical Rewards for Structured Brain MRI Reporting
 
 **Course:** IOTA 5201: RL for Intelligent Decision Making (Fall 2026) — **Path 2: Apply RL to a Problem of Your Choice**  
-**Author:** Yan Faxiang · Student ID 50051798 · HKUST(GZ)  
+**Author:** Yan Faxiang · HKUST(GZ)  
 **Report:** [paper/main.pdf](paper/main.pdf) — 6 pages, IEEE double-column conference format  
 **Presentation video:** [PRESENTATION.md](PRESENTATION.md) — recording outline; add the final video link before submitting
 
