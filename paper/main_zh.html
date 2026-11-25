@@ -58,7 +58,7 @@ thead th { border-top: 1px solid #66777d; background: #f1f4f4; }
 
 <section class="abstract">
   <strong>摘要</strong>
-  <p>组相对策略优化（Group Relative Policy Optimization，GRPO）通过比较同一输入所采样生成的报告来学习。硬性重叠阈值可能让质量不同的边界框得到相同的定位分数；当总奖励也相同时，组相对任务优势便全部为零。本文研究：加入连续的交并比（intersection-over-union，IoU）是否能提高奖励的信息量，以及这种改变能否提升结构化脑部 MRI 报告中的定位效果。我们使用共同的监督微调（supervised fine-tuning，SFT）初始化模型、冻结的 SFT 参考策略及相同训练预算，比较三种奖励配置，各运行三个随机种子。在诊断奖励保持不变时，连续奖励塑形将同分组的平均比例从 14.54% 降至 0.19%，且三个种子的结果方向一致。经验证集选择的“仅定位塑形”配置，测试集平均 F1@0.5 为 0.4189，SFT 为 0.4009（差值 +0.0180；按种子和病例配对的 bootstrap 95% 区间为 [−0.0566, +0.0908]）。最明确的发现是 GRPO 奖励的区分能力有所改善；下游定位增益幅度有限，且仍有不确定性。</p>
+  <p>组相对策略优化（Group Relative Policy Optimization，GRPO）通过比较同一输入所采样生成的报告来学习。硬性重叠阈值可能让质量不同的边界框得到相同的定位分数；当总奖励也相同时，组相对任务优势便全部为零。本文研究：加入连续的交并比（intersection-over-union，IoU）是否能提高奖励的信息量，以及这种改变能否提升结构化脑部 MRI 报告中的定位效果。我们使用共同的监督微调（supervised fine-tuning，SFT）初始化模型、冻结的 SFT 参考策略及相同训练预算，比较三种奖励配置，各运行三个随机种子。在诊断奖励保持不变时，连续奖励塑形将同分组的平均比例从 14.54% 降至 0.19%，且三个种子的结果方向一致。经验证集选择的“仅定位塑形”配置，测试集平均 F1@0.5 为 0.4189，SFT 为 0.4009（差值 +0.0180；按种子和病例配对的 bootstrap 95% 区间为 [−0.0566, +0.0908]）。最明确的发现是 GRPO 奖励的区分能力有所改善；下游定位增益幅度有限，且仍有不确定性。代码、图表与复现说明见 <a href="https://github.com/faxiangcs/final_proj">https://github.com/faxiangcs/final_proj</a>。</p>
 </section>
 <p class="keywords"><strong>关键词：</strong>强化学习；GRPO；奖励塑形；病灶定位；医学视觉语言模型</p>
 
