@@ -10,3 +10,6 @@ are included. Paths and dependency limitations of this historical version are
 retained for provenance.
 
 Use the default `submission` branch for the current paper and portable commands.
+
+The latest archive tree omits local translations and presentation manuscripts;
+all archived experiment code remains unchanged.

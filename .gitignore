@@ -122,3 +122,10 @@ env/
 *.7z
 *.tmp
 *.log
+
+# Local reading/rehearsal materials are not published.
+/PRESENTATION.md
+/PRESENTATION_ZH.md
+/paper/main_zh.pdf
+/paper/main_zh.html
+/paper/figures/fig_evidence_chain_zh.png

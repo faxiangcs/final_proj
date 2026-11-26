@@ -1,10 +1,8 @@
 # Reward Shaping for Informative GRPO Updates in Brain MRI Localization
 
-**Course:** IOTA 5201: RL for Intelligent Decision Making (Fall 2026) — **Path 2: Apply RL to a Problem of Your Choice**  
-**Author:** Yan Faxiang · HKUST(GZ)  
-**Report:** [paper/main.pdf](paper/main.pdf) — 5 pages, IEEE double-column conference format  
-**中文版:** [paper/main_zh.pdf](paper/main_zh.pdf) · [HTML](paper/main_zh.html)  
-**Presentation:** [PRESENTATION.md](PRESENTATION.md) — suggested recording outline; add the final video link before submitting  
+**Course:** IOTA 5201: RL for Intelligent Decision Making (Fall 2026) — **Path 2: Apply RL to a Problem of Your Choice**
+**Author:** Yan Faxiang · HKUST(GZ)
+**Report:** [paper/main.pdf](paper/main.pdf) — 5 pages, IEEE double-column conference format
 **Project:** <https://github.com/faxiangcs/final_proj>
 
 ---
@@ -124,7 +122,6 @@ Key numbers:
 .
 ├── README.md                  # this file
 ├── requirements.txt           # core Python dependencies
-├── PRESENTATION.md            # suggested presentation/video outline
 ├── inference.sh               # swift infer wrapper
 ├── medical_reward.py          # GRPO reward plugin (hard localization + diagnosis)
 ├── eval_all_metric.py         # compatibility entry point for src/eval_nova.py
@@ -157,8 +154,6 @@ Key numbers:
 └── paper/
     ├── main.tex               # IEEEtran source (English)
     ├── main.pdf               # compiled 5-page report
-    ├── main_zh.html           # Chinese translation (HTML)
-    ├── main_zh.pdf            # Chinese translation (PDF)
     ├── refs.bib
     ├── REPRODUCE.md           # exact overrides and artifact mapping
     ├── REVISION_NOTES.md      # claim-to-artifact map for this revision
@@ -297,15 +292,6 @@ pdflatex -interaction=nonstopmode -halt-on-error main.tex
 bibtex main
 pdflatex -interaction=nonstopmode -halt-on-error main.tex
 pdflatex -interaction=nonstopmode -halt-on-error main.tex
-```
-
-The Chinese translation is built from HTML, for example:
-
-```bash
-cd paper
-wkhtmltopdf --enable-local-file-access --page-size A4 \
-  --margin-top 17mm --margin-bottom 19mm --margin-left 19mm --margin-right 19mm \
-  --footer-center "[page]" main_zh.html main_zh.pdf
 ```
 
 ### 6.6 Tests
