@@ -92,6 +92,13 @@ env/
 /paper/*.synctex.gz
 /paper/review/
 
+# 本地阅读和排练材料，不在 GitHub 发布
+/paper/main_zh.pdf
+/paper/main_zh.html
+/paper/figures/fig_evidence_chain_zh.png
+/PRESENTATION.md
+/PRESENTATION_ZH.md
+
 # ============================================================
 # 课程材料 / 内部笔记 / 本地临时目录
 # ============================================================

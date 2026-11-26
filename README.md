@@ -2,8 +2,7 @@
 
 **IOTA 5201 · Fall 2026 · Path 2** — Yan Faxiang, HKUST(GZ)
 
-[English paper (5 IEEE pages)](paper/main.pdf) · [中文论文](paper/main_zh.pdf) ·
-[English talk](PRESENTATION.md) · [中文讲稿](PRESENTATION_ZH.md) ·
+[English paper (5 IEEE pages)](paper/main.pdf) ·
 [Reproduction details](paper/REPRODUCE.md)
 
 ## Question and evidence
@@ -18,12 +17,23 @@ Three reward configurations × three seeds share one Qwen3.5-9B SFT-201 start,
 a separate frozen SFT reference, data, decoding and training budget. Checkpoints
 and configuration are selected on validation. Test has 111 images from 36 cases.
 
-| Configuration | Reward | Tied groups | Validation F1 | Test F1 mean ± seed SD | Δ vs SFT; paired 95% CI |
+| Configuration | Reward | Tied groups | Selected validation F1 mean | Test F1 mean ± seed SD | Δ vs SFT; paired 95% CI |
 |---|---|---:|---:|---:|---|
-| SFT-201 | Supervised baseline | — | .3746 | .4009 | — |
-| Original | Hard localization + diagnosis | 14.54% | .4498 | .4004 ± .0409 | −.0005 [−.0792, +.0761] |
-| Shaped + Dx | Shaped localization + diagnosis | 0.19% | .4630 | .4089 ± .0267 | +.0080 [−.0602, +.0775] |
-| **Shaped only** | Shaped localization | 0.88% | **.4936** | **.4189 ± .0090** | +.0180 [−.0566, +.0908] |
+| SFT-201 | Supervised baseline | — | 0.3746 | 0.4009 | — |
+| Original | Hard localization + diagnosis | 14.54% | 0.4498 | 0.4004 ± 0.0409 | −0.0005 [−0.0792, +0.0761] |
+| Shaped + Dx | Shaped localization + diagnosis | 0.19% | 0.4630 | 0.4089 ± 0.0267 | +0.0080 [−0.0602, +0.0775] |
+| **Shaped only** | Shaped localization | 0.88% | **0.4936** | **0.4189 ± 0.0090** | +0.0180 [−0.0566, +0.0908] |
+
+F1 is localization F1 at IoU ≥ 0.5, averaged over images. For each GRPO seed,
+the checkpoint is selected on validation; both columns evaluate that same
+checkpoint. Validation values are the mean of the three selected validation
+scores, not the score at a fixed final step. Test values are the mean and
+**sample** SD across seeds 42, 43 and 44 (`ddof=1`); this SD is not a standard
+error or a confidence interval. SFT is one shared baseline, so no seed SD is
+estimated for it. All values are rounded from full precision to four decimals.
+Sources: [validation candidates and selections](paper/results/selection.json),
+[test results per run](paper/results/test_results.json) and
+[seed summaries and paired intervals](paper/results/aggregate_results.json).
 
 The strongest observation is fewer tied-reward groups. Localization has a small
 positive point estimate with uncertainty including zero. These results do not
@@ -57,7 +67,7 @@ scripts/export_paper_results.py  # export numeric evidence, without case text
 scripts/verify_paper_results.py  # consistency checks for the public evidence
 inference.sh                    # explicit, greedy adapter inference
 paper/results/                  # aggregate metrics, validation trajectories, scalar logs
-paper/                          # English report, Chinese translation, source and figures
+paper/                          # English report, LaTeX source and figures
 tests/                          # synthetic CPU fixtures; no NOVA download required
 ```
 
@@ -174,7 +184,7 @@ For one audited run, rather than the full controller:
 MODEL="$MODEL" ADAPTERS="$SFT_ADAPTER" \
 CUDA_VISIBLE_DEVICES=0,1 NPROC_PER_NODE=2 \
 REWARD_FUNCS="shaped_localization_reward diagnosis_reward" REWARD_WEIGHTS="1 1" \
-OUTPUT_DIR=output/shaped_dx_seed 42 SEED=42 bash scripts/run_grpo.sh
+OUTPUT_DIR=output/shaped_dx_seed42 SEED=42 bash scripts/run_grpo.sh
 ```
 
 ## 5. Explicit inference and evaluation
@@ -241,8 +251,8 @@ portable launcher changes and their validation are described in
 
 ## 7. Presentation and submission
 
-[PRESENTATION.md](PRESENTATION.md) and [PRESENTATION_ZH.md](PRESENTATION_ZH.md)
-provide 10-minute scripts followed by the three required answers. Rehearse timing.
+Prepare a 10-minute presentation followed by answers to the three required
+questions: Why use RL? Why this method? What is your contribution?
 The assignment requires one ZIP containing code, report and an actual video by
 December 5, 2026; students selected for the December 1 live talk are exempt from video.
 
