@@ -256,15 +256,6 @@ questions: Why use RL? Why this method? What is your contribution?
 The assignment requires one ZIP containing code, report and an actual video by
 December 5, 2026; students selected for the December 1 live talk are exempt from video.
 
-Commit the final files before packaging. Choose one explicit mode:
-
-```bash
-bash scripts/make_submission_zip.sh --video /path/to/presentation.mp4
-# Only if selected for the live presentation:
-# bash scripts/make_submission_zip.sh --live
-# Code/report preview (not a complete deliverable):
-# bash scripts/make_submission_zip.sh /tmp/iota-code-only.zip --code-only
-```
 
 NOVA data, weights, checkpoints, raw logs and predictions remain local and ignored.
 The archival branch preserves removed code; it is not needed in the submission ZIP.
