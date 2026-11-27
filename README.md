@@ -48,8 +48,8 @@ Rewards use the same canonicalization and duplicate suppression:
 - `R_hard = TP / (TP + FP + FN)` at IoU ≥ .5: **box-set Jaccard**, despite the
   historical helper name `localization_f1`. Evaluation uses actual F1.
 - `Q_IoU = 2 * sum(positive one-to-one matched IoUs) / (n_pred + n_gold)`.
-- `R_shape = .5 * R_hard + .5 * Q_IoU`.
-- `R_Dx = .95 * (.7 * s_final + .3 * s_diff) + .05 * s_format`.
+- `R_shape = 0.5 * R_hard + 0.5 * Q_IoU`.
+- `R_Dx = 0.95 * (0.7 * s_final + 0.3 * s_diff) + 0.05 * s_format`.
 
 The continuous term is terminal feedback, not a per-token intermediate reward.
 
